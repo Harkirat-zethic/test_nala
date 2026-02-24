@@ -37,6 +37,36 @@ export interface PropertyCardData {
   villas?: PropertyVilla[];
 }
 
+export interface PropertyImage {
+  src: string;
+  alt: string;
+}
+
+export interface PropertyFeature {
+  label: string;
+  description: string;
+  icon: string;
+}
+
+export interface PropertyDetailCategory {
+  title: string;
+  features: PropertyFeature[];
+}
+
+export interface Property {
+  id: string;
+  title: string;
+  location: string;
+  silProvider?: string;
+  designLevel?: string;
+  images: PropertyImage[];
+  description: string;
+  brochureUrl?: string;
+  villas: PropertyVilla[];
+  details: PropertyDetailCategory[];
+  mapEmbedUrl: string;
+}
+
 export interface PropertySlide {
   id: string;
   cards: PropertyCardData[];

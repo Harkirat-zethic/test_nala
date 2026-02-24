@@ -66,7 +66,9 @@ export default function OurProperties() {
                 : "translate-y-16 opacity-0"
             )}
           >
-            <SidePropertyCard card={cards[0]} />
+            <PropertyCardLink id={cards[0].id}>
+              <SidePropertyCard card={cards[0]} />
+            </PropertyCardLink>
           </div>
 
           {/* Center card — taller, flush top */}
@@ -78,7 +80,9 @@ export default function OurProperties() {
                 : "translate-y-20 opacity-0"
             )}
           >
-            <CenterPropertyCard card={cards[1]} />
+            <PropertyCardLink id={cards[1].id}>
+              <CenterPropertyCard card={cards[1]} />
+            </PropertyCardLink>
           </div>
 
           {/* Right card — smaller, pushed down */}
@@ -90,7 +94,9 @@ export default function OurProperties() {
                 : "translate-y-16 opacity-0"
             )}
           >
-            <SidePropertyCard card={cards[2]} />
+            <PropertyCardLink id={cards[2].id}>
+              <SidePropertyCard card={cards[2]} />
+            </PropertyCardLink>
           </div>
         </div>
 
@@ -105,7 +111,9 @@ export default function OurProperties() {
         >
           {cards.map((card) => (
             <div key={card.id} className="w-[85vw] shrink-0 sm:w-[70vw]">
-              <SidePropertyCard card={card} />
+              <PropertyCardLink id={card.id}>
+                <SidePropertyCard card={card} />
+              </PropertyCardLink>
             </div>
           ))}
         </div>
@@ -279,6 +287,15 @@ function SidePropertyCard({ card }: { card: PropertyCardData }) {
         </div>
       </div>
     </div>
+  );
+}
+
+/* ── Link wrapper ── */
+function PropertyCardLink({ id, children }: { id: string; children: React.ReactNode }) {
+  return (
+    <Link href={`/properties/${id}`} className="block">
+      {children}
+    </Link>
   );
 }
 

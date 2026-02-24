@@ -48,7 +48,7 @@ export const WHY_CHOOSE_ITEMS: WhyChooseItem[] = [
   {
     title: "Tailored Homes",
     description: "Spacious homes that strive for excellence and innovation",
-    imageSrc: "/images/why-choose-1.jpg",
+    imageSrc: "/images/why-choose-1.png",
   },
   {
     title: "Convenient Locations",
