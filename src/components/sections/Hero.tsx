@@ -1,11 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { cn } from "@/lib/cn";
-import { NAV_LINKS, COMPANY_INFO } from "@/lib/constants";
 import { useHeroAnimation } from "@/hooks/useHeroAnimation";
-import { useState, useCallback } from "react";
 
 const TAGS = ["Premium", "Accessible", "Accommodation"];
 
@@ -15,14 +12,10 @@ export default function Hero() {
     buildingRef,
     personRef,
     leavesRef,
-    navRef,
     titleRef,
     descRef,
     tagsRef,
   } = useHeroAnimation();
-
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const toggleMenu = useCallback(() => setMobileMenuOpen((p) => !p), []);
 
   return (
     <section
@@ -35,7 +28,7 @@ export default function Hero() {
           src="/images/hero-section-bg.jpg"
           alt=""
           fill
-          className="object-cover opacity-70"
+          className="object-cover opacity-100"
           sizes="100vw"
           priority
           aria-hidden
@@ -103,124 +96,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* Layer 6: Navbar */}
-      <nav
-        ref={navRef}
-        className="absolute left-0 top-0 z-[5] w-full opacity-0"
-        style={{ transform: "translateY(-0.5rem)" }}
-      >
-        <div className="mx-auto flex w-full max-w-[1920px] flex-col items-center gap-4 px-6 pt-3 sm:px-8 md:px-12 lg:px-[8%]">
-          <div className="relative flex h-[60px] w-full items-end lg:h-[78px]">
-            {/* Left: Nav links */}
-            <div className="hidden items-end gap-5 lg:flex lg:gap-[30px]">
-              {NAV_LINKS.map((link, i) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group relative pb-3"
-                >
-                  <span
-                    className="text-base text-white lg:text-xl"
-                    style={{ fontFamily: "'Outfit', sans-serif" }}
-                  >
-                    {link.label}
-                  </span>
-                  {i === 0 && (
-                    <div className="absolute bottom-0 left-0 h-[2px] w-full bg-white" />
-                  )}
-                </Link>
-              ))}
-            </div>
-
-            {/* Center: Logo */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="relative h-[40px] w-[100px] sm:h-[45px] sm:w-[112px] lg:h-[63px] lg:w-[158px]">
-                <Image
-                  src="/images/logo-white.png"
-                  alt="NALA Properties"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            </div>
-
-            {/* Right: Email */}
-            <div className="ml-auto hidden items-center gap-2 lg:flex">
-              <Image
-                src="/images/sms-icon.svg"
-                alt=""
-                width={20}
-                height={20}
-                aria-hidden
-              />
-              <span
-                className="text-base text-white lg:text-xl"
-                style={{ fontFamily: "'Outfit', sans-serif" }}
-              >
-                {COMPANY_INFO.email}
-              </span>
-            </div>
-
-            {/* Mobile menu toggle */}
-            <button
-              onClick={toggleMenu}
-              className="relative z-[60] ml-auto flex h-10 w-10 items-center justify-center lg:hidden"
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            >
-              <div className="flex flex-col gap-1.5">
-                <span
-                  className={cn(
-                    "block h-0.5 w-6 bg-white transition-transform duration-300",
-                    mobileMenuOpen && "translate-y-2 rotate-45"
-                  )}
-                />
-                <span
-                  className={cn(
-                    "block h-0.5 w-6 bg-white transition-opacity duration-300",
-                    mobileMenuOpen && "opacity-0"
-                  )}
-                />
-                <span
-                  className={cn(
-                    "block h-0.5 w-6 bg-white transition-transform duration-300",
-                    mobileMenuOpen && "-translate-y-2 -rotate-45"
-                  )}
-                />
-              </div>
-            </button>
-          </div>
-
-          {/* Divider line */}
-          <div className="h-px w-full bg-white/30" />
-        </div>
-
-        {/* Mobile menu overlay */}
-        <div
-          className={cn(
-            "fixed inset-0 z-[55] flex flex-col items-center justify-center bg-dark/95 backdrop-blur-md transition-opacity duration-300 lg:hidden",
-            mobileMenuOpen
-              ? "pointer-events-auto opacity-100"
-              : "pointer-events-none opacity-0"
-          )}
-        >
-          <ul className="flex flex-col items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-2xl text-white"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-
-      {/* Layer 7: Content — absolutely positioned to match Figma layout */}
+      {/* Layer 6: Content — absolutely positioned to match Figma layout */}
       <div className="absolute inset-0 z-[6] pointer-events-none">
         {/* Title — positioned at ~56% from top (Figma: 607/1080) */}
         <p

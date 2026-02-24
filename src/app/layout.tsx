@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit, Urbanist, Afacad } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const outfit = Outfit({
   variable: "--font-outfit-family",
@@ -34,7 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.variable} ${urbanist.variable} ${afacad.variable} antialiased`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
