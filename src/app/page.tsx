@@ -1,4 +1,3 @@
-import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import SDAProperties from "@/components/sections/SDAProperties";
 import WhatWeOffer from "@/components/sections/WhatWeOffer";
@@ -9,17 +8,14 @@ import ContactSection from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
-    <>
-      <main>
-        <Hero />
-        <SDAProperties />
-        <WhatWeOffer />
-        <NalaValues />
-        <OurProperties />
-        <WhyChooseNala />
-        <ContactSection />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <Hero />
+      <SDAProperties />
+      <WhatWeOffer />
+      <NalaValues />
+      <OurProperties />
+      <WhyChooseNala />
+      <ContactSection />
+    </main>
   );
 }

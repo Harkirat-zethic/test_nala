@@ -8,7 +8,6 @@ interface HeroAnimationRefs {
   buildingRef: React.RefObject<HTMLDivElement | null>;
   personRef: React.RefObject<HTMLDivElement | null>;
   leavesRef: React.RefObject<HTMLDivElement | null>;
-  navRef: React.RefObject<HTMLElement | null>;
   titleRef: React.RefObject<HTMLParagraphElement | null>;
   descRef: React.RefObject<HTMLParagraphElement | null>;
   tagsRef: React.RefObject<HTMLDivElement | null>;
@@ -35,7 +34,6 @@ export function useHeroAnimation(): HeroAnimationRefs {
   const buildingRef = useRef<HTMLDivElement>(null);
   const personRef = useRef<HTMLDivElement>(null);
   const leavesRef = useRef<HTMLDivElement>(null);
-  const navRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLParagraphElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const tagsRef = useRef<HTMLDivElement>(null);
@@ -82,14 +80,6 @@ export function useHeroAnimation(): HeroAnimationRefs {
         y: 0,
         duration: 2,
       }, 0);
-
-      // Navbar fades in
-      tl.to(navRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: "power2.out",
-      }, 0.5);
 
       // Title slides up and fades in
       tl.to(titleRef.current, {
@@ -151,7 +141,6 @@ export function useHeroAnimation(): HeroAnimationRefs {
     buildingRef,
     personRef,
     leavesRef,
-    navRef,
     titleRef,
     descRef,
     tagsRef,
