@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { COMPANY_INFO, FOOTER_LINKS } from "@/lib/constants";
+import { COMPANY_INFO, FOOTER_CLOUDS, FOOTER_LINKS } from "@/lib/constants";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function Footer() {
@@ -127,11 +127,48 @@ export default function Footer() {
 
       {/* Geometric NALA triangle letters */}
       <div
-        className={`group relative mt-4 flex h-[clamp(16rem,33.4vw,40rem)] w-full items-end justify-center transition-opacity duration-2000 ease-out delay-100 ${
+        className={`group relative mt-4 flex h-[clamp(16rem,33.4vw,40rem)] w-full items-end justify-center overflow-hidden transition-opacity duration-2000 ease-out delay-100 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
         aria-hidden
       >
+        {/* Animated clouds — scatter across NALA letters, drift out on scroll */}
+        {FOOTER_CLOUDS.map((cloud, i) => (
+          <Image
+            key={i}
+            src={cloud.img}
+            alt=""
+            width={600}
+            height={300}
+            aria-hidden
+            className="pointer-events-none absolute z-20"
+            style={{
+              top: cloud.direction === 0 ? "auto" : `${cloud.top}%`,
+              bottom: cloud.direction === 0 ? 0 : "auto",
+              left: `${cloud.direction === -1 ? cloud.left * 0.8 : cloud.direction === 1 ? 20 + cloud.left * 0.8 : cloud.left}%`,
+              width: `${cloud.scale * 25}rem`,
+              transform:
+                cloud.direction === 0
+                  ? "translateX(-50%)"
+                  : isVisible
+                    ? `translate(${cloud.direction * 120}vw, -50%)`
+                    : "translate(-50%, -50%)",
+              opacity:
+                cloud.direction === 0
+                  ? cloud.opacity
+                  : isVisible
+                    ? 0
+                    : cloud.opacity,
+              transition:
+                cloud.direction === 0
+                  ? "none"
+                  : isVisible
+                    ? `transform ${cloud.duration}ms ease-out, opacity ${cloud.duration * 0.85}ms ease-out`
+                    : "none",
+            }}
+          />
+        ))}
+
         <svg
           preserveAspectRatio="xMidYMax meet"
           width="100%"
@@ -140,7 +177,7 @@ export default function Footer() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className={`absolute inset-0 h-full w-full origin-bottom transition-transform duration-[2500ms] delay-[500ms] ease-out ${
-            isVisible ? "scale-110" : "scale-140"
+            isVisible ? "scale-140" : "scale-180"
           }`}
         >
           <path
