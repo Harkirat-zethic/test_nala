@@ -19,10 +19,10 @@ export default function ContactSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[clamp(3rem,6.25vw,7.5rem)]"
+      className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[clamp(10rem,12.25vw,7.5rem)]"
     >
       {/* Watercolor textured background — anchored left */}
-      <div className="absolute inset-y-0 left-0 w-[130%] opacity-70">
+      <div className="absolute inset-y-0 left-[-22rem] w-[130%] opacity-70">
         <Image
           src="/images/watercolor-bg.jpg"
           alt=""
@@ -66,7 +66,12 @@ export default function ContactSection() {
           {isSubmitted ? (
             <div className="flex flex-col items-center rounded border border-border bg-white py-20 text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                <CheckIcon />
+                <Image
+                  src="/images/check-icon.svg"
+                  alt="Success"
+                  width={32}
+                  height={32}
+                />
               </div>
               <h3 className="mt-4 font-afacad text-xl font-semibold text-dark">
                 Message Sent!
@@ -78,7 +83,7 @@ export default function ContactSection() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-[clamp(2rem,2.8vw,3.375rem)] rounded border border-border bg-white p-[clamp(1.5rem,2.8vw,3.375rem)]"
+              className="flex flex-col gap-[clamp(1.5rem,2.3vw,2.375rem)] rounded border border-border bg-white p-[clamp(1.25rem,2.3vw,2.375rem)]"
             >
               {/* Row 1: Name + Email */}
               <div className="grid gap-[clamp(1.5rem,2.66vw,3.2rem)] sm:grid-cols-2">
@@ -134,7 +139,7 @@ export default function ContactSection() {
                   placeholder="Your message..."
                   value={formData.message}
                   onChange={handleChange}
-                  className="min-h-[13rem] resize-none border-b border-border bg-transparent px-2 py-3 font-afacad text-[clamp(1.125rem,1.46vw,1.75rem)] text-dark outline-none transition-colors placeholder:text-[#c5c9d2] focus:border-primary"
+                  className="min-h-[13rem] resize-none border-b border-[#c5c9d2] bg-transparent px-2 py-3 font-afacad text-[clamp(1.125rem,1.46vw,1.75rem)] text-dark outline-none transition-colors placeholder:text-[#c5c9d2] focus:border-primary"
                 />
                 {errors.message && (
                   <p className="text-sm text-red-500">{errors.message}</p>
@@ -148,7 +153,16 @@ export default function ContactSection() {
                 className="relative flex w-fit cursor-pointer items-center gap-5 rounded bg-light px-7 py-6 font-outfit text-[clamp(1rem,1.46vw,1.75rem)] text-[#252525] shadow-[0px_1px_0px_0px_#b9b6cd,inset_0px_1px_0px_0px_white] transition-colors hover:bg-light-gray disabled:opacity-60"
               >
                 {isSubmitting ? "Sending..." : "Contact Us Now"}
-                {!isSubmitting && <ArrowIcon />}
+                {!isSubmitting && (
+                  <Image
+                    src="/images/arrow-link.svg"
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="-scale-y-100"
+                    aria-hidden
+                  />
+                )}
               </button>
             </form>
           )}
@@ -192,26 +206,9 @@ function FormField({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="border-b border-border bg-transparent px-2 py-3 font-afacad text-[clamp(1.125rem,1.46vw,1.75rem)] text-dark outline-none transition-colors placeholder:text-[#c5c9d2] focus:border-primary"
+        className="border-b border-[#c5c9d2] bg-transparent px-2 py-3 font-afacad text-[clamp(1.125rem,1.46vw,1.75rem)] text-dark outline-none transition-colors placeholder:text-[#c5c9d2] focus:border-primary"
       />
       {error && <p className="text-sm text-red-500">{error}</p>}
     </div>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1867a5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 6 9 17l-5-5" />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 7h10v10" />
-      <path d="M7 17 17 7" />
-    </svg>
   );
 }

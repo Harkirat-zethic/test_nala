@@ -13,7 +13,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const toggleMenu = useCallback(() => setMobileMenuOpen((p) => !p), []);
 
-  const isDark = pathname.startsWith("/properties/");
+  const isDark = pathname.startsWith("/properties") || pathname === "/contact";
 
   useEffect(() => {
     const timer = setTimeout(() => setMounted(true), 500);
@@ -31,27 +31,42 @@ export default function Navbar() {
       <div className="mx-auto w-full max-w-[1920px] px-4 pt-2 pb-3 sm:px-6 sm:pt-[10px] sm:pb-4 md:px-12 lg:px-[7.8%]">
         <div className="relative flex h-[50px] w-full items-center sm:h-[60px] lg:h-[78px]">
 
-          {/* Left: Nav links — bottom-aligned with underline */}
-          <div className="hidden items-center gap-[30px] lg:flex">
+          {/* Left: Nav links — scroll-up text + underline width transition */}
+          <div className="hidden items-end gap-[30px] lg:flex">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
+              const textColor = isDark ? "text-[#252525]" : "text-white";
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group relative flex items-center"
+                  className="group relative flex h-[50px] flex-col justify-center"
                 >
-                  <span className={cn(
-                    "font-outfit text-[20px] font-normal",
-                    isDark ? "text-[#252525]" : "text-white"
-                  )}>
-                    {link.label}
-                  </span>
+                  {/* Text container — overflow clip for scroll effect */}
+                  <div className="relative h-[30px] overflow-clip">
+                    <span
+                      className={cn(
+                        "block font-outfit text-[20px] font-normal leading-[30px] transition-transform duration-300 ease-out group-hover:-translate-y-full",
+                        textColor
+                      )}
+                    >
+                      {link.label}
+                    </span>
+                    <span
+                      className={cn(
+                        "block font-outfit text-[20px] font-medium leading-[30px] transition-transform duration-300 ease-out group-hover:-translate-y-full",
+                        textColor
+                      )}
+                    >
+                      {link.label}
+                    </span>
+                  </div>
+                  {/* Underline — width animation */}
                   <div
                     className={cn(
-                      "absolute bottom-0 left-0 h-[2px] w-full transition-opacity duration-300",
+                      "absolute bottom-0 left-0 h-[2px] transition-all duration-300 ease-out",
                       isDark ? "bg-[#252525]" : "bg-white",
-                      isActive ? "opacity-100" : "opacity-0 group-hover:opacity-50"
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
                     )}
                   />
                 </Link>

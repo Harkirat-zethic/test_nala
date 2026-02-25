@@ -1,4 +1,4 @@
-import type { NavLink, OfferItem, ValueItem, WhyChooseItem } from "@/types";
+import type { NavLink, OfferItem, ValueItem, WhyChooseItem, PropertyCardData } from "@/types";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
@@ -90,6 +90,114 @@ export const PROPERTY_SLIDES = [
         silProvider: "CareConnect",
         supportLevel: "Medium Physical Support",
       },
+    ],
+  },
+];
+
+export const PROPERTY_LISTINGS: PropertyCardData[] = [
+  {
+    id: "1",
+    title: "Reservoir Road, Blacktown",
+    imageSrc: "/images/property-1.jpg",
+    silProvider: "Thrive365",
+    supportLevel: "High Physical Support",
+    villas: [
+      { name: "Home", bedrooms: 6, bathrooms: 2 },
+      { name: "Villa", bedrooms: 6, bathrooms: 2 },
+    ],
+  },
+  {
+    id: "2",
+    title: "Ocean View Drive, Manly",
+    imageSrc: "/images/property-2.jpg",
+    silProvider: "CareConnect",
+    supportLevel: "Medium Physical Support",
+    villas: [
+      { name: "Home", bedrooms: 3, bathrooms: 2 },
+      { name: "Villa 1", bedrooms: 3, bathrooms: 2 },
+      { name: "Villa 2", bedrooms: 2, bathrooms: 1 },
+    ],
+  },
+  {
+    id: "3",
+    title: "Parkview Lane, Penrith",
+    imageSrc: "/images/property-3.jpg",
+    silProvider: "CareConnect",
+    supportLevel: "Medium Physical Support",
+    villas: [
+      { name: "Home", bedrooms: 4, bathrooms: 2 },
+      { name: "Villa 1", bedrooms: 3, bathrooms: 2 },
+      { name: "Villa 2", bedrooms: 3, bathrooms: 1 },
+    ],
+  },
+  {
+    id: "4",
+    title: "Hilltop Crescent, Liverpool",
+    imageSrc: "/images/property-1.jpg",
+    silProvider: "AbilityCare",
+    supportLevel: "Fully Accessible",
+    villas: [
+      { name: "Home", bedrooms: 5, bathrooms: 3 },
+      { name: "Villa", bedrooms: 4, bathrooms: 2 },
+    ],
+  },
+  {
+    id: "5",
+    title: "Sunrise Boulevard, Parramatta",
+    imageSrc: "/images/property-2.jpg",
+    silProvider: "Thrive365",
+    supportLevel: "High Physical Support",
+    villas: [
+      { name: "Home", bedrooms: 3, bathrooms: 2 },
+      { name: "Villa 1", bedrooms: 3, bathrooms: 2 },
+      { name: "Villa 2", bedrooms: 2, bathrooms: 1 },
+    ],
+  },
+  {
+    id: "6",
+    title: "Meadow Ridge, Castle Hill",
+    imageSrc: "/images/property-3.jpg",
+    silProvider: "CareConnect",
+    supportLevel: "Medium Physical Support",
+    villas: [
+      { name: "Home", bedrooms: 4, bathrooms: 2 },
+      { name: "Villa 1", bedrooms: 3, bathrooms: 2 },
+      { name: "Villa 2", bedrooms: 3, bathrooms: 2 },
+    ],
+  },
+  {
+    id: "7",
+    title: "Lakeside Avenue, Campbelltown",
+    imageSrc: "/images/property-1.jpg",
+    silProvider: "AbilityCare",
+    supportLevel: "Fully Accessible",
+    villas: [
+      { name: "Home", bedrooms: 5, bathrooms: 2 },
+      { name: "Villa", bedrooms: 4, bathrooms: 2 },
+    ],
+  },
+  {
+    id: "8",
+    title: "Harbour Street, Wollongong",
+    imageSrc: "/images/property-2.jpg",
+    silProvider: "Thrive365",
+    supportLevel: "Medium Physical Support",
+    villas: [
+      { name: "Home", bedrooms: 3, bathrooms: 2 },
+      { name: "Villa 1", bedrooms: 3, bathrooms: 2 },
+      { name: "Villa 2", bedrooms: 2, bathrooms: 1 },
+    ],
+  },
+  {
+    id: "9",
+    title: "Valley View Road, Richmond",
+    imageSrc: "/images/property-3.jpg",
+    silProvider: "CareConnect",
+    supportLevel: "High Physical Support",
+    villas: [
+      { name: "Home", bedrooms: 4, bathrooms: 2 },
+      { name: "Villa 1", bedrooms: 3, bathrooms: 2 },
+      { name: "Villa 2", bedrooms: 3, bathrooms: 1 },
     ],
   },
 ];
