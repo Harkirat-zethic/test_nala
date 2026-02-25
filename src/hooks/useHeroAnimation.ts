@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import gsap from "gsap";
 
 interface HeroAnimationRefs {
@@ -37,18 +37,39 @@ export function useHeroAnimation(): HeroAnimationRefs {
   const titleRef = useRef<HTMLParagraphElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const tagsRef = useRef<HTMLDivElement>(null);
+  const ctxRef = useRef<gsap.Context | null>(null);
+  const hasPlayedRef = useRef(false);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  const buildTimeline = useCallback((skipAnimation: boolean) => {
+    // Revert previous GSAP context before rebuilding
+    if (ctxRef.current) {
+      ctxRef.current.revert();
+      ctxRef.current = null;
+    }
+
+    ctxRef.current = gsap.context(() => {
       const vh = sectionRef.current?.clientHeight || window.innerHeight;
 
       // Phase 2 shift: 73px at 1080px viewport, scaled proportionally
       const contentShift = -(73 / 1080) * vh;
 
       // Person positions (relative to element's own height ~122.8vh)
-      const personHeight = vh * 1.228;
       const personMidY = (8 / 1080) * vh;
       const personEndY = (120 / 1080) * vh;
+
+      if (skipAnimation) {
+        // Jump to final state immediately (after resize)
+        gsap.set(leavesRef.current, { yPercent: -100, opacity: 0 });
+        gsap.set(personRef.current, { scale: 1, y: personEndY, yPercent: 0 });
+        gsap.set(buildingRef.current, { opacity: 1, y: contentShift });
+        gsap.set(titleRef.current, { y: contentShift, opacity: 1 });
+        gsap.set(descRef.current, { y: 0, opacity: 1 });
+        const tags = tagsRef.current?.children;
+        if (tags) {
+          gsap.set(tags, { y: 0, opacity: 1 });
+        }
+        return;
+      }
 
       const tl = gsap.timeline({
         defaults: { ease: "power2.inOut" },
@@ -132,9 +153,32 @@ export function useHeroAnimation(): HeroAnimationRefs {
         duration: 2,
       }, 2);
     }, sectionRef);
-
-    return () => ctx.revert();
   }, []);
+
+  useEffect(() => {
+    // Initial animation — play fully
+    buildTimeline(false);
+    hasPlayedRef.current = true;
+
+    // Debounced resize handler — recalculates positions without replaying animation
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (hasPlayedRef.current) {
+          buildTimeline(true);
+        }
+      }, 200);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearTimeout(resizeTimer);
+      window.removeEventListener("resize", handleResize);
+      ctxRef.current?.revert();
+    };
+  }, [buildTimeline]);
 
   return {
     sectionRef,

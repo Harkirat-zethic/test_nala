@@ -28,15 +28,6 @@ export interface PropertyVilla {
   bathrooms: number;
 }
 
-export interface PropertyCardData {
-  id: string;
-  title: string;
-  imageSrc: string;
-  silProvider?: string;
-  supportLevel?: string;
-  villas?: PropertyVilla[];
-}
-
 export interface PropertyImage {
   src: string;
   alt: string;
@@ -56,20 +47,18 @@ export interface PropertyDetailCategory {
 export interface Property {
   id: string;
   title: string;
+  imageSrc: string;
   location: string;
   silProvider?: string;
-  designLevel?: string;
+  supportLevel?: string;
   images: PropertyImage[];
   description: string;
   brochureUrl?: string;
   villas: PropertyVilla[];
   details: PropertyDetailCategory[];
   mapEmbedUrl: string;
-}
-
-export interface PropertySlide {
-  id: string;
-  cards: PropertyCardData[];
+  dropdownName: string;
+  dropdownImage: string;
 }
 
 export interface ContactFormData {

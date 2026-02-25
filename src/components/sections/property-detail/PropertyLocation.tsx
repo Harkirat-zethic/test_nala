@@ -13,7 +13,7 @@ export default function PropertyLocation({ mapEmbedUrl }: { mapEmbedUrl: string 
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Property location"
-          className="h-[18rem] w-full sm:h-[25rem] md:h-[30rem] lg:h-[50rem]"
+          className="h-[clamp(18rem,52vw,50rem)] w-full"
         />
       </div>
     </section>

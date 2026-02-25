@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { OFFER_ITEMS } from "@/lib/constants";
 import { cn } from "@/lib/cn";
-import { useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function WhatWeOffer() {
   return (
@@ -45,38 +45,41 @@ function OfferRow({
   imageSrc: string;
   isLast: boolean;
 }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>({
+    threshold: 0,
+    rootMargin: "-48% 0px -48% 0px",
+    triggerOnce: false,
+  });
 
   return (
     <div
+      ref={ref}
       className={cn(
         "relative flex flex-col gap-[1rem] border-t border-[#e0e0e0] px-[1.5rem] py-[1rem] transition-colors duration-500 sm:px-[2rem] md:flex-row md:items-center md:justify-between md:px-[3rem] md:py-[2rem] lg:px-[7.8%] lg:py-[2rem]",
         isLast && "border-b",
-        isHovered ? "bg-[#f7f7f7]" : "bg-white"
+        isVisible ? "bg-[#f7f7f7]" : "bg-white"
       )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Left: Number + Title */}
       <div className="flex items-center gap-[0.75rem] md:gap-[1.25rem] lg:gap-[clamp(1.25rem,2.5vw,3.5rem)]">
-        <span className="font-afacad text-[1.75rem] font-bold leading-none text-[#e3e3e3] md:text-[2.5rem] lg:text-[clamp(3rem,4.5vw,5rem)]">
+        <span className="font-afacad text-[clamp(1.75rem,4.5vw,5rem)] font-bold leading-none text-[#e3e3e3]">
           {number}
         </span>
-        <h3 className="font-afacad text-[1.7rem] font-normal leading-[1.2] text-[#252525] sm:text-[1rem] md:text-[1.125rem] lg:text-[clamp(1.37rem,2vw,2.25rem)] lg:leading-[1.2] lg:max-w-[28vw]">
+        <h3 className="font-afacad text-[clamp(1rem,2vw,2.25rem)] font-normal leading-[1.2] text-[#252525] lg:max-w-[28vw]">
           {title}
         </h3>
       </div>
 
       {/* Right: Description */}
-      <p className="text-[1rem] leading-[1.78em] text-[#555] sm:text-[0.75rem] md:max-w-[13rem] lg:max-w-[20vw] lg:text-[clamp(1rem,1vw,1rem)] lg:leading-[1.78em]">
+      <p className="text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.78em] text-[#555] md:max-w-[13rem] lg:max-w-[20vw]">
         {description}
       </p>
 
-      {/* Image card — appears on hover (desktop only) */}
+      {/* Image card — scales in/out as row enters/exits viewport */}
       <div
         className={cn(
-          "pointer-events-none absolute left-[58%] top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 -rotate-[4deg] transition-all duration-500 ease-out lg:block",
-          isHovered ? "scale-150 opacity-100" : "scale-0 opacity-0"
+          "pointer-events-none absolute left-[58%] top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 -rotate-[4deg] transition-all duration-700 ease-out lg:block",
+          isVisible ? "scale-150 opacity-100" : "scale-0 opacity-0"
         )}
       >
         <div className="relative h-[clamp(7rem,10vw,15rem)] w-[clamp(10.5rem,15vw,22.5rem)] overflow-hidden rounded-[0.25rem] shadow-[0_0.3125rem_2.8125rem_0_rgba(0,0,0,0.12)]">

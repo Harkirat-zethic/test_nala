@@ -1,70 +1,125 @@
 "use client";
 
+import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 import { WHY_CHOOSE_ITEMS } from "@/lib/constants";
 import { cn } from "@/lib/cn";
-import { useRef, useEffect, useState, useCallback } from "react";
+
+import "swiper/css";
 
 export default function WhyChooseNala() {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isAnimating = useRef(false);
   const totalSlides = WHY_CHOOSE_ITEMS.length;
+  const scrollProgress = ((currentIndex + 1) / totalSlides) * 100;
 
-  const handleScroll = useCallback(() => {
+  // Snap wrapper scroll position to match the current slide
+  const syncScroll = useCallback(
+    (index: number) => {
+      const wrapper = wrapperRef.current;
+      if (!wrapper) return;
+      const scrollableDistance = wrapper.offsetHeight - window.innerHeight;
+      const targetScroll =
+        wrapper.offsetTop + (index / (totalSlides - 1)) * scrollableDistance;
+      window.scrollTo({ top: targetScroll, behavior: "instant" });
+    },
+    [totalSlides]
+  );
+
+  // Lock scroll position during slide transitions
+  const lockedScrollY = useRef<number | null>(null);
+
+  useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
 
-    const rect = wrapper.getBoundingClientRect();
-    const scrollableDistance = wrapper.offsetHeight - window.innerHeight;
-    if (scrollableDistance <= 0) return;
+    const handleWheel = (e: WheelEvent) => {
+      const rect = wrapper.getBoundingClientRect();
+      const isInView = rect.top <= 0 && rect.bottom >= window.innerHeight;
+      if (!isInView || !swiperRef.current) return;
 
-    const progress = Math.max(0, Math.min(1, -rect.top / scrollableDistance));
-    const index = Math.min(
-      totalSlides - 1,
-      Math.floor(progress * totalSlides)
-    );
+      const swiper = swiperRef.current;
+      const atStart = swiper.activeIndex === 0 && e.deltaY < 0;
+      const atEnd =
+        swiper.activeIndex === totalSlides - 1 && e.deltaY > 0;
 
-    setCurrentIndex(index);
-  }, [totalSlides]);
+      // Let normal scroll take over at boundaries
+      if (atStart || atEnd) return;
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+      // Always block page scroll while section is active
+      e.preventDefault();
 
-  const scrollProgress = ((currentIndex + 1) / totalSlides) * 100;
+      // Only advance one slide, ignore everything during transition
+      if (isAnimating.current) return;
+      if (Math.abs(e.deltaY) < 10) return;
+
+      isAnimating.current = true;
+      lockedScrollY.current = window.scrollY;
+
+      if (e.deltaY > 0) {
+        swiper.slideNext();
+      } else {
+        swiper.slidePrev();
+      }
+
+      setTimeout(() => {
+        syncScroll(swiper.activeIndex);
+        lockedScrollY.current = null;
+        isAnimating.current = false;
+      }, 850);
+    };
+
+    const handleScroll = () => {
+      if (lockedScrollY.current !== null) {
+        window.scrollTo({ top: lockedScrollY.current, behavior: "instant" });
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("scroll", handleScroll, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [totalSlides, syncScroll]);
 
   return (
-    <div
-      ref={wrapperRef}
-      style={{ height: `${totalSlides * 100}vh` }}
-    >
+    <div ref={wrapperRef} style={{ height: `${totalSlides * 100}vh` }}>
       <section className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Full-bleed background images — slide vertically */}
-        {WHY_CHOOSE_ITEMS.map((item, index) => (
-          <div
-            key={item.title}
-            className={cn(
-              "absolute inset-0 transition-transform duration-1000 ease-[cubic-bezier(0.76,0,0.24,1)]",
-              index === currentIndex && "translate-y-0",
-              index < currentIndex && "-translate-y-full",
-              index > currentIndex && "translate-y-full"
-            )}
-          >
-            <Image
-              src={item.imageSrc}
-              alt=""
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority={index === 0}
-            />
-          </div>
-        ))}
+        {/* Swiper — vertical, scroll-driven slides */}
+        <Swiper
+          direction="vertical"
+          speed={800}
+          loop={false}
+          allowTouchMove={false}
+          className="h-full w-full"
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onSlideChange={(swiper) => {
+            setCurrentIndex(swiper.activeIndex);
+          }}
+        >
+          {WHY_CHOOSE_ITEMS.map((item, index) => (
+            <SwiperSlide key={item.title} className="relative h-full w-full">
+              <Image
+                src={item.imageSrc}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority={index === 0}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-        {/* Centered white card */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center">
+        {/* Centered white card — overlaid on top of Swiper */}
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
           <div className="relative w-[clamp(20rem,40.4vw,48.5rem)] rounded shadow-2xl">
             {/* White top — heading */}
             <div className="rounded-t bg-white px-8 pt-[clamp(1.25rem,1.8vw,2.25rem)] pb-[clamp(0.75rem,1.2vw,1.5rem)] text-center">

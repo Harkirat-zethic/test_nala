@@ -56,7 +56,7 @@ export default function NalaValues() {
       <div
         className={cn(
           "relative z-20 mx-auto mt-8 sm:mt-10",
-          "lg:absolute lg:left-1/2 lg:top-[-61.5%] lg:mx-0 lg:mt-0 lg:-translate-x-[calc(50%+3.75%)]",
+          "lg:absolute lg:left-[52%] lg:top-[-61.5%] lg:mx-0 lg:mt-0 lg:-translate-x-[calc(50%+3.75%)]",
           "transition-all duration-[2500ms] delay-[500ms] ease-out",
           isVisible
             ? "lg:h-[220.5%] lg:w-[129.2%]"
@@ -68,7 +68,7 @@ export default function NalaValues() {
             src="/images/values-house.png"
             alt="Modern NALA Property"
             fill
-            className="object-contain"
+            className="object-fill"
             sizes="(max-width: 1023px) 90vw, 130vw"
           />
         </div>

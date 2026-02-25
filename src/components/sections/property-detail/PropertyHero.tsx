@@ -18,23 +18,23 @@ export default function PropertyHero({ property }: { property: Property }) {
             {property.title}
           </h1>
           <span className="inline-flex items-center gap-[6px] rounded-full border border-[#c0c0c0] px-2 py-1.5 sm:p-[10px]">
-            <Image src="/images/location-icon.svg" alt="" width={24} height={24} className="h-[18px] w-[18px] sm:h-[24px] sm:w-[24px]" />
-            <span className="font-urbanist text-[0.813rem] font-medium text-[#252525] sm:text-[16px]">
+            <Image src="/images/location-icon.svg" alt="" width={24} height={24} className="h-[clamp(18px,1.56vw,24px)] w-[clamp(18px,1.56vw,24px)]" />
+            <span className="font-urbanist text-[clamp(0.813rem,1.04vw,1rem)] font-medium text-[#252525]">
               {property.location}
             </span>
           </span>
         </div>
-        <div className="flex items-center gap-8 font-outfit text-[0.875rem] sm:gap-12 sm:pb-[24px] lg:pb-[1rem] sm:text-[20px] lg:gap-16">
+        <div className="flex items-center gap-8 font-outfit text-[clamp(0.875rem,1.3vw,1.25rem)] sm:gap-12 sm:pb-[24px] lg:pb-[1rem] lg:gap-16">
           {property.silProvider && (
             <div className="flex flex-col gap-[8px]">
               <span className="leading-[24.7px] text-[#717171] text-[1.1rem]">SIL Provider</span>
               <span className=" leading-[24.7px] text-[#42537c] text-[1.1rem]">{property.silProvider}</span>
             </div>
           )}
-          {property.designLevel && (
+          {property.supportLevel && (
             <div className="flex flex-col gap-[8px]">
               <span className="leading-[24.7px] text-[#717171] text-[1.1rem]">Design</span>
-              <span className="leading-[24.7px] text-[#42537c] text-[1.1rem]">{property.designLevel}</span>
+              <span className="leading-[24.7px] text-[#42537c] text-[1.1rem]">{property.supportLevel}</span>
             </div>
           )}
         </div>
@@ -55,17 +55,17 @@ export default function PropertyHero({ property }: { property: Property }) {
           {/* Nav arrows */}
           <button
             onClick={goToPrev}
-            className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 sm:left-5 sm:h-12 sm:w-12 lg:left-[-1.5rem] lg:h-[50px] lg:w-[50px]"
+            className="absolute left-[clamp(0.75rem,2.6vw,-1.5rem)] top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 lg:left-[-1.5rem]"
             aria-label="Previous image"
           >
-            <Image src="/images/arrow-left.svg" alt="" width={30} height={30} className="h-[16px] w-[16px] sm:h-[20px] sm:w-[20px] lg:h-[30px] lg:w-[30px]" />
+            <Image src="/images/arrow-left.svg" alt="" width={30} height={30} className="h-[clamp(16px,1.96vw,30px)] w-[clamp(16px,1.96vw,30px)]" />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 sm:right-5 sm:h-12 sm:w-12 lg:right-[-1.5rem] lg:h-[50px] lg:w-[50px]"
+            className="absolute right-[clamp(0.75rem,2.6vw,-1.5rem)] top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 lg:right-[-1.5rem]"
             aria-label="Next image"
           >
-            <Image src="/images/arrow-right.svg" alt="" width={30} height={30} className="h-[16px] w-[16px] sm:h-[20px] sm:w-[20px] lg:h-[30px] lg:w-[30px]" />
+            <Image src="/images/arrow-right.svg" alt="" width={30} height={30} className="h-[clamp(16px,1.96vw,30px)] w-[clamp(16px,1.96vw,30px)]" />
           </button>
         </div>
 
@@ -118,7 +118,7 @@ export default function PropertyHero({ property }: { property: Property }) {
               className="relative inline-flex w-fit items-center gap-3 overflow-clip rounded-[4px] bg-[white] px-5 py-4 font-outfit text-[1rem] font-normal text-[#252525] shadow-[0px_1px_0px_0px_#b9b6cd,inset_0px_1px_0px_0px_white] transition-opacity hover:opacity-80 sm:gap-[24px] sm:p-[28px] sm:text-[clamp(1rem,1.46vw,1.75rem)]"
             >
               Download Brochure
-              <Image src="/images/property-icons/download.svg" alt="" width={40} height={40} className="h-[20px] w-[20px] sm:h-[28px] sm:w-[28px] lg:h-[40px] lg:w-[40px]" />
+              <Image src="/images/property-icons/download.svg" alt="" width={40} height={40} className="h-[clamp(20px,2.6vw,40px)] w-[clamp(20px,2.6vw,40px)]" />
             </a>
           )}
         </div>
@@ -134,11 +134,11 @@ export default function PropertyHero({ property }: { property: Property }) {
                 {villa.name}
               </h3>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 sm:gap-x-5">
-                <span className="flex items-center gap-2 font-outfit text-[0.875rem] text-[#181a20] sm:text-[clamp(0.875rem,0.94vw,1.125rem)]">
-                  <Image src="/images/property-icons/hero-bed.svg" alt="" width={28} height={28} className="h-[22px] w-[22px] sm:h-[28px] sm:w-[28px]" /> {villa.bedrooms} Beds
+                <span className="flex items-center gap-2 font-outfit text-[clamp(0.875rem,0.94vw,1.125rem)] text-[#181a20]">
+                  <Image src="/images/property-icons/hero-bed.svg" alt="" width={28} height={28} className="h-[clamp(22px,1.82vw,28px)] w-[clamp(22px,1.82vw,28px)]" /> {villa.bedrooms} Beds
                 </span>
-                <span className="flex items-center gap-2 font-outfit text-[0.875rem] text-[#181a20] sm:text-[clamp(0.875rem,0.94vw,1.125rem)]">
-                  <Image src="/images/property-icons/hero-bath.svg" alt="" width={28} height={28} className="h-[22px] w-[22px] sm:h-[28px] sm:w-[28px]" /> {villa.bathrooms} Baths
+                <span className="flex items-center gap-2 font-outfit text-[clamp(0.875rem,0.94vw,1.125rem)] text-[#181a20]">
+                  <Image src="/images/property-icons/hero-bath.svg" alt="" width={28} height={28} className="h-[clamp(22px,1.82vw,28px)] w-[clamp(22px,1.82vw,28px)]" /> {villa.bathrooms} Baths
                 </span>
               </div>
             </div>

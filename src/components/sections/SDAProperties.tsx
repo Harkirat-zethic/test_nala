@@ -22,10 +22,10 @@ export default function SDAProperties() {
             : "translate-y-20 opacity-0 lg:opacity-20"
         )}
       >
-        <h2 className="font-afacad text-[clamp(32px,5.2vw,100px)] font-medium leading-[0.86em] text-[#252525]">
+        <h2 className="font-afacad text-[2rem] font-medium leading-[0.86em] text-[#252525] sm:text-[2.5rem] lg:text-[3.75rem] xl:text-[2.75rem] 2xl:text-[clamp(32px,5.2vw,100px)]">
           SDA Properties
         </h2>
-        <div className="mt-2 font-afacad text-[clamp(24px,4.17vw,80px)] font-normal leading-[1.075em] text-[#6c6c6c] lg:mt-[10px]">
+        <div className="mt-2 font-afacad text-[1.5rem] font-normal leading-[1.075em] text-[#6c6c6c] sm:text-[2rem] lg:mt-[10px] lg:text-[3rem] xl:text-[2rem] 2xl:text-[clamp(2rem,3.17vw,80px)]">
           <p>by Nanak Accessible Living</p>
           <p>Australia</p>
         </div>
@@ -33,6 +33,7 @@ export default function SDAProperties() {
 
       {/* Standards text */}
       <p
+        style={{ fontFamily: "'Outfit', sans-serif" }}
         className={cn(
           "mt-6 px-6 text-base leading-[28px] transition-all duration-[2000ms] delay-[500ms] ease-out sm:px-8 md:px-12",
           "lg:absolute lg:left-[8%] lg:top-[65.4%] lg:z-10 lg:mt-0 lg:w-[19.6%] lg:px-0 lg:text-[clamp(14px,1.04vw,20px)]",
@@ -72,8 +73,8 @@ export default function SDAProperties() {
             className={cn(
               "z-10 transition-all duration-[2500ms] delay-[500ms] ease-out",
               isVisible
-                ? "scale-100 object-contain blur-0"
-                : "scale-[1.3] object-cover blur-[8.85px]"
+                ? "object-contain object-center blur-0"
+                : "object-cover object-bottom blur-[8.85px]"
             )}
             sizes="(max-width: 1023px) 90vw, 39vw"
           />
@@ -82,6 +83,7 @@ export default function SDAProperties() {
 
       {/* Description */}
       <p
+        style={{ fontFamily: "'Outfit', sans-serif" }}
         className={cn(
           "mx-6 mt-8 text-base leading-relaxed text-[#5b5b5b] transition-all duration-[2000ms] delay-[500ms] ease-out sm:mx-8 md:mx-12",
           "lg:absolute lg:left-[60.1%] lg:top-[40.2%] lg:z-10 lg:mx-0 lg:w-[32.1%] lg:text-[clamp(16px,1.46vw,28px)] lg:leading-[1.36em]",

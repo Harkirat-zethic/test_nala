@@ -22,12 +22,12 @@ export default function ContactSection() {
       className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[clamp(10rem,12.25vw,7.5rem)]"
     >
       {/* Watercolor textured background — anchored left */}
-      <div className="absolute inset-y-0 left-[-22rem] w-[130%] opacity-70">
+      <div className="absolute inset-y-0 left-[-33rem] w-[130%] opacity-70">
         <Image
           src="/images/watercolor-bg.jpg"
           alt=""
           fill
-          className="object-cover object-left"
+          className="object-cover object-left scale-[1.1]"
           aria-hidden
         />
       </div>

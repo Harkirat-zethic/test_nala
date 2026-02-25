@@ -27,12 +27,12 @@ const ITEM_POSITIONS = [
   {
     textLeft: "25.4%",
     textWidth: "22.4%",
-    imageLeft: "50.2%",
+    imageLeft: "51.2%",
     imageWidth: "11%",
     top: "30.9%",
   },
   {
-    textLeft: "50.9%",
+    textLeft: "51.9%",
     textWidth: "24.1%",
     imageLeft: "37.1%",
     imageWidth: "10.8%",
@@ -41,7 +41,7 @@ const ITEM_POSITIONS = [
   {
     textLeft: "25.3%",
     textWidth: "22.6%",
-    imageLeft: "50.9%",
+    imageLeft: "51.9%",
     imageWidth: "10.8%",
     top: "75.5%",
   },
@@ -64,10 +64,10 @@ export default function AboutTimeline() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-20"
           )}
         >
-          <h2 className="font-afacad text-[40px] font-medium leading-[0.86em] text-[#252525] sm:text-[56px]">
+          <h2 className="font-afacad text-[clamp(2.5rem,8.75vw,3.5rem)] font-medium leading-[0.86em] text-[#252525]">
             SDA Properties
           </h2>
-          <div className="mt-2 font-afacad text-[30px] font-normal leading-[1.075em] text-[#6c6c6c] sm:text-[42px]">
+          <div className="mt-2 font-afacad text-[clamp(1.875rem,6.56vw,2.625rem)] font-normal leading-[1.075em] text-[#6c6c6c]">
             <p>by Nanak Accessible Living</p>
             <p>Australia</p>
           </div>
@@ -78,10 +78,15 @@ export default function AboutTimeline() {
           {/* Vertical line */}
           <div
             className={cn(
-              "absolute left-4 top-0 h-full w-px origin-top border-l border-dashed border-[#e2e8f5]",
+              "absolute left-4 top-0 h-full w-[3px] origin-top",
               "transition-transform duration-[2500ms] delay-[800ms] ease-out",
               isVisible ? "scale-y-100" : "scale-y-0"
             )}
+            style={{
+              backgroundImage: "repeating-linear-gradient(to bottom, #5BADE8 0px, #5BADE8 8px, transparent 8px, transparent 22px)",
+              maskImage: "linear-gradient(to bottom, rgba(91,173,232,1), rgba(91,173,232,0))",
+              WebkitMaskImage: "linear-gradient(to bottom, rgba(91,173,232,1), rgba(91,173,232,0))",
+            }}
           />
 
           {/* Item 1 */}
@@ -140,13 +145,18 @@ export default function AboutTimeline() {
           </div>
         </div>
 
-        {/* Center vertical dashed line */}
+        {/* Center vertical dashed line — gradient blue to transparent, 4px wide, 8px dash / 14px gap */}
         <div
           className={cn(
-            "absolute left-[49.1%] top-[30%] h-[48%] w-px origin-top border-l border-dashed border-[#e2e8f5]",
+            "absolute left-[49.8%] top-[32.5%] h-[43.2%] w-[4px] origin-top -translate-x-1/2",
             "transition-transform duration-[2500ms] delay-[800ms] ease-out",
             isVisible ? "scale-y-100" : "scale-y-0"
           )}
+          style={{
+            backgroundImage: "repeating-linear-gradient(to bottom, #5BADE8 0px, #5BADE8 8px, transparent 8px, transparent 22px)",
+            maskImage: "linear-gradient(to bottom, rgba(91,173,232,1), rgba(91,173,232,0))",
+            WebkitMaskImage: "linear-gradient(to bottom, rgba(91,173,232,1), rgba(91,173,232,0))",
+          }}
         />
 
         {/* ─── Timeline Item 1 ─── text left, image right */}
@@ -243,7 +253,7 @@ function TimelineRow({ index }: { index: number }) {
       {/* Dot */}
       <div
         className={cn(
-          "absolute left-[49.1%] -translate-x-1/2",
+          "absolute left-[49.8%] z-10 -translate-x-1/2",
           "transition-all duration-1000 ease-out",
           isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"
         )}

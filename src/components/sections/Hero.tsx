@@ -40,11 +40,8 @@ export default function Hero() {
         ref={buildingRef}
         className={cn(
           "absolute z-[1] font-extrabold uppercase leading-[1.2] tracking-[4.56px] text-white opacity-0",
-          "left-6 top-[20%] text-[48px]",
-          "sm:left-8 sm:text-[70px]",
-          "md:left-12 md:top-[31%] md:text-[120px]",
-          "lg:left-[7.8%] lg:top-[31%] lg:text-[180px]",
-          "xl:text-[200px]"
+          "left-[clamp(1.5rem,7.8%,7.8%)] top-[20%] text-[clamp(48px,10.42vw,200px)]",
+          "md:top-[31%]"
         )}
         style={{
           fontFamily: "'Outfit', sans-serif",
@@ -57,15 +54,15 @@ export default function Hero() {
       {/* Layer 3: Person cutout (transparent PNG) — slides down */}
       <div
         ref={personRef}
-        className="absolute left-0 top-0 z-[2] w-full"
-        style={{ height: "122.8vh", transform: "scale(1.09) translateY(-3%)" }}
+        className="absolute left-0 top-[1rem] z-[2] w-full "
+        style={{ height: "122.8vh", transform: "scale(1) translateY(-3%)" }}
       >
         <div className="relative h-full w-full">
           <Image
             src="/images/hero-person.png"
             alt="Caregiver assisting person in wheelchair"
             fill
-            className="object-cover object-bottom"
+            className="object-cover object-top"
             sizes="100vw"
             priority
           />
@@ -103,10 +100,8 @@ export default function Hero() {
           ref={titleRef}
           className={cn(
             "pointer-events-auto absolute whitespace-pre-wrap leading-[1.2] tracking-[1.38px] text-white opacity-0",
-            "left-6 top-[55%] max-w-[90%] text-[28px]",
-            "sm:left-8 sm:text-[36px]",
-            "md:left-12 md:text-[50px] md:max-w-[70%]",
-            "lg:left-[7.8%] lg:top-[56.2%] lg:text-[69px] lg:max-w-[48vw]"
+            "left-[clamp(1.5rem,7.8%,7.8%)] top-[55%] max-w-[90%] text-[clamp(1.75rem,3.59vw,4.3rem)]",
+            "lg:top-[56.2%] lg:max-w-[48vw]"
           )}
           style={{
             fontFamily: "'Outfit', sans-serif",
@@ -122,10 +117,10 @@ export default function Hero() {
           ref={descRef}
           className={cn(
             "pointer-events-auto absolute whitespace-pre-wrap leading-[1.5] text-white opacity-0",
-            "left-6 top-[72%] max-w-[90%] text-[14px]",
-            "sm:left-8 sm:text-[16px] sm:max-w-[360px]",
-            "md:left-12 md:text-[18px] md:max-w-[420px]",
-            "lg:left-[62.3%] lg:right-auto lg:top-[78.5%] lg:text-[28px] lg:max-w-[29.8vw]"
+            "left-[clamp(1.5rem,7.8%,7.8%)] top-[72%] max-w-[90%] text-[clamp(0.875rem,1.46vw,1.75rem)]",
+            "sm:max-w-[360px]",
+            "md:max-w-[420px]",
+            "lg:left-[62.3%] lg:right-auto lg:top-[73.5%] lg:max-w-[29.8vw] "
           )}
           style={{
             fontFamily: "'Outfit', sans-serif",
@@ -143,16 +138,14 @@ export default function Hero() {
           ref={tagsRef}
           className={cn(
             "pointer-events-auto absolute flex flex-wrap gap-2 sm:gap-[10px]",
-            "left-6 bottom-[8%]",
-            "sm:left-8",
-            "md:left-12",
-            "lg:left-[7.8%] lg:bottom-auto lg:top-[90.7%]"
+            "left-[clamp(1.5rem,7.8%,7.8%)] bottom-[8%]",
+            "lg:bottom-auto lg:top-[84.7%]"
           )}
         >
           {TAGS.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-white/80 px-4 py-2 text-[#252525] opacity-0 text-sm sm:px-5 sm:py-2.5 sm:text-base lg:text-xl"
+              className="rounded-full bg-white/80 px-4 py-2 text-[#252525] opacity-0 text-[clamp(0.875rem,1.04vw,1.25rem)] sm:px-5 sm:py-2.5"
               style={{
                 fontFamily: "'Outfit', sans-serif",
                 transform: "translateY(1rem)",
