@@ -109,7 +109,7 @@ export default function PropertyHero({ property }: { property: Property }) {
           <h2 className="font-afacad text-[clamp(1.75rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.3] text-[#252525]">
             Description
           </h2>
-          <p className="max-w-[42.5rem] font-outfit text-[clamp(0.875rem,1.11vw,1.333rem)] short:text-[2vh] leading-[1.6] text-[#61656e] sm:leading-[1.875rem]">
+          <p className="max-w-[42.5rem] font-outfit text-[clamp(0.875rem,1.11vw,1.333rem)] short:text-[2vh] leading-[1.6] text-[#61656e] sm:leading-[1.875rem] short:leading-[1.3]">
             {property.description}
           </p>
           {property.brochureUrl && (
