@@ -67,13 +67,13 @@ export default function Footer() {
 
         {/* Email */}
         <div>
-          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] text-primary">Email</h3>
+          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] !text-[#3040ad]">Email</h3>
           <a href={`mailto:${COMPANY_INFO.email}`} className="mt-3 block font-outfit text-[0.875rem] text-body">{COMPANY_INFO.email}</a>
         </div>
 
         {/* Social */}
         <div>
-          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] text-primary">Social</h3>
+          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] !text-[#3040ad]">Social</h3>
           <div className="mt-3 flex items-center justify-center gap-3">
             <SocialIcon href="#" label="LinkedIn" icon="/images/social-linkedin.svg" />
             <SocialIcon href="#" label="Facebook" icon="/images/social-facebook.svg" />
@@ -83,7 +83,7 @@ export default function Footer() {
 
         {/* Company */}
         <div>
-          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] text-primary">Company</h3>
+          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] !text-[#3040ad]">Company</h3>
           <ul className="mt-3 flex flex-col gap-1">
             {FOOTER_LINKS.map((link) => (
               <li key={link.href}>
@@ -267,7 +267,7 @@ function FooterColumn({
         className
       )}
     >
-      <h3 className="font-outfit text-[clamp(1.25rem,1.875vw,2.25rem)] short:text-[3.4vh] font-medium leading-[1.26em] text-primary">
+      <h3 className="font-outfit text-[clamp(1.25rem,1.875vw,2.25rem)] short:text-[3.4vh] font-medium leading-[1.26em] !text-[#3040ad]">
         {title}
       </h3>
       <div className="mt-[clamp(1rem,1.67vw,2rem)] short:mt-[2.5vh]">{children}</div>
