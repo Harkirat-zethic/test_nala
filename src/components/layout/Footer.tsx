@@ -128,7 +128,7 @@ export default function Footer() {
       </div>
 
       {/* ── NALA letters + property collage + clouds + copyright overlay ── */}
-      <div className="relative mt-4 h-[clamp(18rem,28vw,35rem)] w-full lg:h-[clamp(20rem,28vw,38rem)] xl:h-[clamp(26rem,30vw,45rem)] short:h-[45vh]">
+      <div className="relative mt-4 short:mt-[16vh] h-[clamp(18rem,28vw,35rem)] w-full lg:h-[clamp(20rem,28vw,38rem)] xl:h-[clamp(26rem,30vw,45rem)] short:h-[45vh]">
         {/* Layer 1: NALA text — shrinks from 142% to 96.5% width */}
         <img
           src="/images/nala-letters.svg"

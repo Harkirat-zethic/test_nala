@@ -120,7 +120,7 @@ export default function WhyChooseNala() {
 
         {/* Centered white card — overlaid on top of Swiper */}
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-          <div className="relative w-[clamp(20rem,40.4vw,48.5rem)] short:w-[55vh] rounded shadow-2xl">
+          <div className="relative w-[clamp(20rem,40.4vw,48.5rem)] short:w-[65vh] rounded shadow-2xl">
             {/* White top — heading */}
             <div className="rounded-t bg-white px-8 pt-[clamp(1.25rem,1.8vw,2.25rem)] short:pt-[2.5vh] pb-[clamp(0.75rem,1.2vw,1.5rem)] short:pb-[1.5vh] text-center">
               <h2 className="font-afacad text-[clamp(1.75rem,2.5vw,3rem)] short:text-[4.5vh] font-medium leading-[1.17] text-[#252525]">
@@ -151,7 +151,7 @@ export default function WhyChooseNala() {
                 {/* Title + Description overlaid on gradient */}
                 <div className="absolute bottom-[clamp(1.5rem,2.5vw,3rem)] short:bottom-[3.5vh] left-0 right-0 z-20 text-center">
                   {/* Animated title */}
-                  <div className="relative mx-auto h-[clamp(1.75rem,2.25vw,2.7rem)] short:h-[4vh] overflow-clip">
+                  <div className="relative mx-auto h-[clamp(1.75rem,2.25vw,2.7rem)] short:h-[5vh] overflow-clip">
                     {WHY_CHOOSE_ITEMS.map((item, index) => (
                       <p
                         key={`title-${item.title}`}
@@ -170,7 +170,7 @@ export default function WhyChooseNala() {
                   </div>
 
                   {/* Animated description */}
-                  <div className="relative mx-auto mt-[clamp(0.5rem,0.8vw,1.25rem)] short:mt-[1.2vh] h-[clamp(2.5rem,3.6vw,4.3rem)] short:h-[5.5vh] w-[clamp(14rem,24.7vw,29.6rem)] short:w-[40vh] overflow-clip">
+                  <div className="relative mx-auto mt-[clamp(0.5rem,0.8vw,1.25rem)] short:mt-[1.2vh] h-[clamp(2.5rem,3.6vw,4.3rem)] short:h-[7vh] w-[clamp(14rem,24.7vw,29.6rem)] short:w-[48vh] overflow-clip">
                     {WHY_CHOOSE_ITEMS.map((item, index) => (
                       <p
                         key={`desc-${item.title}`}
