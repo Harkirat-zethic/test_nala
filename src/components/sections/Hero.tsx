@@ -40,7 +40,7 @@ export default function Hero() {
         ref={buildingRef}
         className={cn(
           "absolute z-[1] font-extrabold uppercase leading-[1.2] tracking-[4.56px] text-white opacity-0",
-          "left-[clamp(1.5rem,7.8%,7.8%)] top-[15%] text-[clamp(20px,9.42vw,200px)] short:text-[16vh]",
+          "left-[clamp(1.5rem,7.8%,7.8%)] top-[15%] text-[clamp(20px,9.42vw,200px)] short:text-[19vh]",
           "md:top-[20%]"
         )}
         style={{
