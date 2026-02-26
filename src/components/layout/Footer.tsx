@@ -47,23 +47,66 @@ export default function Footer() {
   return (
     <footer ref={ref} className="relative overflow-hidden bg-light">
       {/* ── Top row: logo, NDIS, email, social, company ── */}
-      <div className="relative z-10 mx-auto flex flex-wrap items-start justify-between gap-10 px-[clamp(1.5rem,4.17vw,5rem)] pt-[clamp(3rem,6vw,7.25rem)] short:pt-[7vh]">
+      {/* ── Mobile layout ── */}
+      <div className="relative z-10 flex flex-col items-center gap-8 px-[1.5rem] pt-[3rem] text-center sm:px-[2rem] sm:pt-[4rem] md:hidden">
+        {/* Logo */}
+        <Link href="/" className="relative h-[4.5rem] w-[3.5rem] shrink-0">
+          <Image src="/images/footer-logo-3040ad.png" alt="NALA Properties" fill className="object-contain" />
+        </Link>
+
+        {/* NDIS */}
+        <div className="flex flex-col items-center gap-3">
+          <div className="relative h-[2.5rem] w-[5.5rem]">
+            <Image src="/images/ndis-badge.png" alt="NDIS Registered Provider" fill className="object-contain" />
+          </div>
+          <div className="flex flex-col gap-1 font-outfit text-[0.875rem] text-body">
+            <p>NDIS SDA Provider Number:</p>
+            <p className="font-bold">{COMPANY_INFO.ndisProvider}</p>
+          </div>
+        </div>
+
+        {/* Email */}
+        <div>
+          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] text-primary">Email</h3>
+          <a href={`mailto:${COMPANY_INFO.email}`} className="mt-3 block font-outfit text-[0.875rem] text-body">{COMPANY_INFO.email}</a>
+        </div>
+
+        {/* Social */}
+        <div>
+          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] text-primary">Social</h3>
+          <div className="mt-3 flex items-center justify-center gap-3">
+            <SocialIcon href="#" label="LinkedIn" icon="/images/social-linkedin.svg" />
+            <SocialIcon href="#" label="Facebook" icon="/images/social-facebook.svg" />
+            <SocialIcon href="#" label="Twitter" icon="/images/social-twitter.svg" />
+          </div>
+        </div>
+
+        {/* Company */}
+        <div>
+          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] text-primary">Company</h3>
+          <ul className="mt-3 flex flex-col gap-1">
+            {FOOTER_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="font-outfit text-[0.875rem] text-body">{link.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* ── Desktop layout ── */}
+      <div className="relative z-10 mx-auto hidden md:flex md:flex-wrap md:items-start md:justify-between md:gap-10 md:px-[clamp(1.5rem,4.17vw,5rem)] md:pt-[clamp(3rem,6vw,7.25rem)] short:pt-[7vh]">
         {/* Logo */}
         <Link
           href="/"
           className={cn(
-            "relative h-[clamp(4.5rem,6.25vw,7.5rem)] short:h-[9vh] w-[clamp(3.5rem,5.36vw,6.44rem)] short:w-[7vh] shrink-0 transition-all duration-[1500ms] ease-out",
+            "relative shrink-0 transition-all duration-[1500ms] ease-out md:h-[clamp(4.5rem,6.25vw,7.5rem)] md:w-[clamp(3.5rem,5.36vw,6.44rem)] short:h-[9vh] short:w-[7vh]",
             isVisible
               ? "translate-y-0 opacity-100"
               : "translate-y-6 opacity-0"
           )}
         >
-          <Image
-            src="/images/footer-logo-3040ad.png"
-            alt="NALA Properties"
-            fill
-            className="object-contain"
-          />
+          <Image src="/images/footer-logo-3040ad.png" alt="NALA Properties" fill className="object-contain" />
         </Link>
 
         {/* NDIS badge + provider number */}
@@ -76,18 +119,11 @@ export default function Footer() {
           )}
         >
           <div className="relative h-[clamp(2.5rem,3.11vw,3.74rem)] short:h-[5vh] w-[clamp(5.5rem,7.3vw,8.77rem)] short:w-[10vh]">
-            <Image
-              src="/images/ndis-badge.png"
-              alt="NDIS Registered Provider"
-              fill
-              className="object-contain"
-            />
+            <Image src="/images/ndis-badge.png" alt="NDIS Registered Provider" fill className="object-contain" />
           </div>
           <div className="flex flex-col gap-[0.75rem] font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] short:text-[1.9vh] text-body">
             <p className="leading-[0.7em]">NDIS SDA Provider Number:</p>
-            <p className="font-bold leading-[0.8em]">
-              {COMPANY_INFO.ndisProvider}
-            </p>
+            <p className="font-bold leading-[0.8em]">{COMPANY_INFO.ndisProvider}</p>
           </div>
         </div>
 
@@ -128,7 +164,7 @@ export default function Footer() {
       </div>
 
       {/* ── NALA letters + property collage + clouds + copyright overlay ── */}
-      <div className="relative mt-4 short:mt-[16vh] h-[clamp(18rem,28vw,35rem)] w-full lg:h-[clamp(20rem,28vw,38rem)] xl:h-[clamp(26rem,30vw,45rem)] short:h-[45vh]">
+      <div className="relative mt-4 short:mt-[16vh] h-[10rem] w-full sm:h-[clamp(14rem,28vw,35rem)] lg:h-[clamp(20rem,28vw,38rem)] xl:h-[clamp(26rem,30vw,45rem)] short:h-[45vh]">
         {/* Layer 1: NALA text — shrinks from 142% to 96.5% width */}
         <img
           src="/images/nala-letters.svg"
@@ -187,10 +223,10 @@ export default function Footer() {
           />
         ))}
 
-        {/* Layer 4: Copyright — overlays on top of NALA + clouds */}
+        {/* Layer 4: Copyright — overlays on top of NALA + clouds (desktop), below on mobile */}
         <p
           className={cn(
-            "absolute bottom-0 left-0 z-20 w-full py-[clamp(1rem,1.5vw,1.75rem)] short:py-[2vh] text-center font-outfit text-[clamp(0.75rem,0.94vw,1.125rem)] short:text-[1.7vh] text-body transition-all duration-[1500ms] delay-1000 ease-out",
+            "hidden md:block absolute bottom-0 left-0 z-20 w-full py-[clamp(1rem,1.5vw,1.75rem)] short:py-[2vh] text-center font-outfit text-[clamp(0.75rem,0.94vw,1.125rem)] short:text-[1.7vh] text-body transition-all duration-[1500ms] delay-1000 ease-out",
             isVisible
               ? "translate-y-0 opacity-100"
               : "translate-y-4 opacity-0"
@@ -199,6 +235,10 @@ export default function Footer() {
           {COMPANY_INFO.copyright}
         </p>
       </div>
+      {/* Mobile copyright */}
+      <p className="relative z-20 py-4 text-center font-outfit text-[0.75rem] text-body md:hidden">
+        {COMPANY_INFO.copyright}
+      </p>
     </footer>
   );
 }
@@ -209,11 +249,13 @@ function FooterColumn({
   title,
   isVisible,
   delay,
+  className,
   children,
 }: {
   title: string;
   isVisible: boolean;
   delay: string;
+  className?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -221,7 +263,8 @@ function FooterColumn({
       className={cn(
         "transition-all duration-[1500ms] ease-out",
         delay,
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
+        className
       )}
     >
       <h3 className="font-outfit text-[clamp(1.25rem,1.875vw,2.25rem)] short:text-[3.4vh] font-medium leading-[1.26em] text-primary">
