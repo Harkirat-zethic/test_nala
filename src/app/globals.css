@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Height-based viewport variants */
-@custom-variant short (@media (max-height: 750px));
+@custom-variant short (@media (max-height: 750px) and (min-width: 768px));
 @custom-variant tall (@media (min-height: 960px));
 
 @theme inline {
