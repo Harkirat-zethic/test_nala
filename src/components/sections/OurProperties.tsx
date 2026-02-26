@@ -139,7 +139,7 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-[0.5rem]",
+        "group relative overflow-hidden rounded-[0.25rem]",
         isCenter
           ? "h-[clamp(25rem,29.17vw,35rem)] short:h-[52vh]"
           : "h-[clamp(22rem,24.4vw,29.3rem)] short:h-[44vh]"
@@ -150,7 +150,7 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
         src={card.imageSrc}
         alt={card.title}
         fill
-        className="rounded-[0.5rem] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.2]"
+        className="rounded-[0.25rem] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.2]"
         sizes="(max-width: 1023px) 85vw, 35vw"
       />
 
