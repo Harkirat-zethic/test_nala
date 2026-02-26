@@ -6,6 +6,7 @@ const ICON_NAMES = [
   "living-room", "park", "fence", "kitchen", "sink",
   "bathtub", "floor-plan", "tapware", "laundry",
   "battery", "support", "fire-safety",
+  "construction", "customize", "wall", "glass", "lock", "noise", "intercom",
 ];
 
 export default function PropertyDetails({
@@ -36,7 +37,7 @@ export default function PropertyDetails({
                   key={i}
                   className="flex items-center gap-4 rounded bg-white border border-[#e6e6e6] p-4 sm:gap-5 sm:p-5 lg:gap-6 lg:p-6"
                 >
-                  <div className="flex h-[4rem] w-[4rem] shrink-0 items-center justify-center overflow-hidden sm:h-[5rem] sm:w-[5rem] lg:h-[6.25rem] lg:w-[6.25rem]">
+                  <div className="flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center overflow-hidden sm:h-[3rem] sm:w-[3rem] lg:h-[4rem] lg:w-[4rem]">
                     {ICON_NAMES.includes(feature.icon) ? (
                       <Image
                         src={`/images/property-icons/${feature.icon}.svg`}

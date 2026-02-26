@@ -112,7 +112,7 @@ function PropertyListingCard({ property }: { property: Property }) {
           {/* Villa info */}
           {property.villas && (
             <div className="flex items-center">
-              {property.villas.map((villa, i) => (
+              {property.villas.slice(0, 3).map((villa, i) => (
                 <VillaInfo
                   key={villa.name}
                   villa={villa}

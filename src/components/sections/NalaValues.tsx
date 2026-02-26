@@ -31,7 +31,7 @@ export default function NalaValues() {
       {/* Card 01 — top left */}
       <div
         className={cn(
-          "absolute z-10 hidden transition-all duration-[2000ms] delay-[500ms] ease-out lg:block",
+          "absolute z-10 hidden transition-all duration-[1500ms] ease-out lg:block",
           isVisible
             ? "left-[9.9%] top-[28%] max-h-[30rem] opacity-100 blur-0"
             : "left-[15.1%] top-[28%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
@@ -43,7 +43,7 @@ export default function NalaValues() {
       {/* Card 02 — top right */}
       <div
         className={cn(
-          "absolute z-10 hidden transition-all duration-[2000ms] delay-[500ms] ease-out lg:block",
+          "absolute z-10 hidden transition-all duration-[1500ms] ease-out lg:block",
           isVisible
             ? "left-[66.4%] top-[28%] max-h-[30rem] opacity-100 blur-0"
             : "left-[61.2%] top-[28%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
@@ -57,7 +57,7 @@ export default function NalaValues() {
         className={cn(
           "relative z-20 mx-auto mt-8 sm:mt-10",
           "lg:absolute lg:left-[52%] lg:top-[-61.5%] lg:mx-0 lg:mt-0 lg:-translate-x-[calc(50%+3.75%)]",
-          "transition-all duration-[2500ms] delay-[500ms] ease-out",
+          "transition-all duration-[2000ms] ease-out",
           isVisible
             ? "lg:h-[220.5%] lg:w-[129.2%]"
             : "lg:h-[240.3%] lg:w-[143.3%]"
@@ -77,7 +77,7 @@ export default function NalaValues() {
       {/* z-30: Card 03 — bottom center, IN FRONT of the house */}
       <div
         className={cn(
-          "absolute z-30 hidden transition-all duration-[2000ms] delay-[500ms] ease-out lg:block",
+          "absolute z-30 hidden transition-all duration-[1500ms] ease-out lg:block",
           isVisible
             ? "left-[36.1%] top-[51.2%] max-h-[30rem] opacity-100 blur-0"
             : "left-[36.1%] top-[51.2%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
@@ -89,7 +89,7 @@ export default function NalaValues() {
       {/* z-40: Title block — ON TOP of everything */}
       <div
         className={cn(
-          "relative z-40 pt-8 text-center transition-all duration-[2000ms] delay-[500ms] ease-out sm:pt-10",
+          "relative z-40 pt-8 text-center transition-all duration-[1500ms] ease-out sm:pt-10",
           "lg:absolute lg:left-1/2 lg:top-[7.2%] lg:-translate-x-1/2 lg:pt-0",
           isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}
@@ -109,10 +109,9 @@ export default function NalaValues() {
           <div
             key={item.number}
             className={cn(
-              "transition-all duration-[2000ms] ease-out",
+              "transition-all duration-[1500ms] ease-out",
               isVisible ? "opacity-100 blur-0" : "opacity-20 blur-[8px]"
             )}
-            style={{ transitionDelay: `${500 + index * 200}ms` }}
           >
             <ValueCard number={item.number} title={item.title} />
           </div>

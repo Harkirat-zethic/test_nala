@@ -60,7 +60,7 @@ export default function AboutTimeline() {
         {/* Title */}
         <div
           className={cn(
-            "text-center transition-all duration-[2000ms] delay-[500ms] ease-out",
+            "text-center transition-all duration-[1000ms] ease-out",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-20"
           )}
         >
@@ -132,7 +132,7 @@ export default function AboutTimeline() {
         <div
           className={cn(
             "absolute left-1/2 top-[9.5%] -translate-x-1/2 text-center",
-            "transition-all duration-[2000ms] delay-[500ms] ease-out",
+            "transition-all duration-[1000ms] ease-out",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-[clamp(30px,2.8vh,50px)] opacity-20"
           )}
         >
@@ -148,7 +148,7 @@ export default function AboutTimeline() {
         {/* Center vertical dashed line — gradient blue to transparent, 4px wide, 8px dash / 14px gap */}
         <div
           className={cn(
-            "absolute left-[49.8%] top-[32.5%] h-[43.2%] w-[4px] origin-top -translate-x-1/2",
+            "absolute left-[49.8%] short:left-1/2 top-[32.5%] h-[43.2%] w-[4px] origin-top -translate-x-1/2",
             "transition-transform duration-[2500ms] delay-[800ms] ease-out",
             isVisible ? "scale-y-100" : "scale-y-0"
           )}
@@ -213,7 +213,7 @@ export default function AboutTimeline() {
           className={cn(
             "absolute bottom-0 left-[-5.4%] h-[43.2%] w-[114%]",
             "transition-all duration-[2000ms] delay-[2500ms] ease-out",
-            isVisible ? "translate-y-[24rem] opacity-100" : "translate-y-[6rem] opacity-0"
+            isVisible ? "translate-y-[24rem] short:translate-y-[16rem] opacity-100" : "translate-y-[6rem] opacity-0"
           )}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -253,15 +253,15 @@ function TimelineRow({ index }: { index: number }) {
       {/* Dot */}
       <div
         className={cn(
-          "absolute left-[49.8%] z-10 -translate-x-1/2",
-          "transition-all duration-1000 ease-out",
+          "absolute left-[49.8%] short:left-1/2 z-10 -translate-x-1/2",
+          "transition-[scale,opacity] duration-1000 ease-out",
           isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"
         )}
         style={{ top: pos.top }}
       >
         <div className="relative flex items-center justify-center">
           <div className="size-[clamp(1.5rem,1.67vw,2rem)] rounded-full border border-[#445ef0] bg-white" />
-          <div className="absolute size-[clamp(1.125rem,1.26vw,1.52rem)] rounded-full bg-[#5bade8]" />
+          <div className="absolute inset-0 m-auto size-[clamp(1.125rem,1.26vw,1.52rem)] rounded-full bg-[#5bade8]" />
         </div>
       </div>
 

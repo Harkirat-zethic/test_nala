@@ -136,7 +136,7 @@ export default function Footer() {
           aria-hidden
           className="pointer-events-none absolute left-1/2 max-w-none -translate-x-1/2"
           style={{
-            width: isVisible ? "98.5%" : "142%",
+            width: isVisible ? "90%" : "125%",
             bottom: "-8%",
             objectFit: "fill",
             transition: "width 2500ms cubic-bezier(0.25, 0.1, 0.25, 1)",
