@@ -26,7 +26,7 @@ export default function OurProperties() {
   return (
     <section
       ref={ref}
-      className="relative w-full bg-[#f7f7f7] px-[1.5rem] py-[4rem] sm:px-[2rem] sm:py-[5rem] md:px-[3rem] lg:px-[7.8%] lg:py-[7.5rem]"
+      className="relative w-full bg-[#f7f7f7] px-[1.5rem] py-[4rem] sm:px-[2rem] sm:py-[5rem] md:px-[3rem] lg:px-[7.8%] lg:py-[7.5rem] short:py-[10vh]"
     >
       {/* Header row */}
       <div
@@ -38,17 +38,17 @@ export default function OurProperties() {
         )}
       >
         <div>
-          <h2 className="font-afacad text-[clamp(1.5rem,3.8vw,5rem)] font-medium text-[#252525]">
+          <h2 className="font-afacad text-[clamp(1.5rem,3.8vw,5rem)] short:text-[6.5vh] font-medium text-[#252525]">
             Our Properties
           </h2>
-          <p className="mt-[1.5rem] max-w-[33.5rem] font-outfit text-[clamp(0.875rem,1.46vw,1.75rem)] leading-[1.14em] text-[#61656e]">
+          <p className="mt-[1.5rem] max-w-[33.5rem] font-outfit text-[clamp(0.875rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.14em] text-[#61656e]">
             Nala Properties showcases exceptional properties that align with our
             core values.
           </p>
         </div>
         <Link
           href="/properties"
-          className="hidden items-center gap-[1.67rem] font-urbanist text-[clamp(1.2rem,1.6vw,2.09rem)] font-semibold text-[#181a20] transition-colors hover:text-primary md:inline-flex"
+          className="hidden items-center gap-[1.67rem] font-urbanist text-[clamp(1.2rem,1.6vw,2.09rem)] short:text-[2.9vh] font-semibold text-[#181a20] transition-colors hover:text-primary md:inline-flex"
         >
           See All Properties
           <ArrowIcon />
@@ -58,7 +58,7 @@ export default function OurProperties() {
       {/* Swiper Carousel */}
       <div
         className={cn(
-          "relative mt-[4rem] transition-all duration-[2000ms] delay-[600ms] ease-out lg:mt-[clamp(4rem,6vw,8rem)]",
+          "relative mt-[4rem] transition-all duration-[2000ms] delay-[600ms] ease-out lg:mt-[clamp(4rem,6vw,8rem)] short:mt-[5vh]",
           isVisible
             ? "translate-y-0 opacity-100"
             : "translate-y-16 opacity-0"
@@ -158,8 +158,8 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
       className={cn(
         "group relative overflow-hidden rounded-[0.5rem]",
         isCenter
-          ? "h-[clamp(25rem,29.17vw,35rem)]"
-          : "h-[clamp(22rem,24.4vw,29.3rem)]"
+          ? "h-[clamp(25rem,29.17vw,35rem)] short:h-[45vh]"
+          : "h-[clamp(22rem,24.4vw,29.3rem)] short:h-[38vh]"
       )}
     >
       {/* Image — zooms on hover */}
@@ -203,7 +203,7 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
           </div>
           {card.villas && (
             <div className="flex items-center justify-between">
-              {card.villas.flatMap((villa, i) => {
+              {card.villas.slice(0, 3).flatMap((villa, i) => {
                 const items = [];
                 if (i > 0) {
                   items.push(
@@ -217,10 +217,10 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
                     </p>
                     <div className="mt-[0.15rem] flex items-center gap-[0.5rem] lg:gap-[0.4rem] xl:gap-[0.25rem] 2xl:gap-[0.5rem]">
                       <span className="flex items-center gap-[0.25rem] text-[0.75rem] text-[#252525] lg:text-[0.65rem] xl:text-[0.55rem] 2xl:text-[0.75rem]">
-                        <BedIcon /> {villa.bedrooms} Br
+                        <Image src="/images/bed-icon.svg" alt="" width={16} height={16} className="inline-block lg:w-[14px] xl:w-[12px] 2xl:w-[16px]" /> {villa.bedrooms} Br
                       </span>
                       <span className="flex items-center gap-[0.25rem] text-[0.75rem] text-[#252525] lg:text-[0.65rem] xl:text-[0.55rem] 2xl:text-[0.75rem]">
-                        <BathIcon /> {villa.bathrooms} Ba
+                        <Image src="/images/bath-icon.svg" alt="" width={16} height={16} className="inline-block lg:w-[14px] xl:w-[12px] 2xl:w-[16px]" /> {villa.bathrooms} Ba
                       </span>
                     </div>
                   </div>
@@ -245,22 +245,6 @@ function PropertyCardLink({ id, children }: { id: string; children: React.ReactN
 }
 
 /* ── Icons ── */
-function BedIcon() {
-  return (
-    <svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-      <path d="M2 4v16" /><path d="M2 8h18a2 2 0 0 1 2 2v10" /><path d="M2 17h20" /><path d="M6 8v9" />
-    </svg>
-  );
-}
-
-function BathIcon() {
-  return (
-    <svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-      <path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3a1 1 0 0 1 1-1z" /><path d="M6 12V5a2 2 0 0 1 2-2h3v2.25" />
-    </svg>
-  );
-}
-
 function ChevronLeft() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

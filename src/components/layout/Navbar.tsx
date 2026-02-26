@@ -71,8 +71,8 @@ export default function Navbar() {
         mounted ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
       )}
     >
-      <div className="mx-auto w-full max-w-[1920px] px-4 pt-2 pb-3 sm:px-6 sm:pt-[10px] sm:pb-4 md:px-12 lg:px-[7.8%]">
-        <div className="relative flex h-[clamp(50px,5vw,78px)] w-full items-center">
+      <div className="mx-auto w-full max-w-[1920px] px-4 pt-2 pb-3 sm:px-6 sm:pt-[10px] sm:pb-4 md:px-12 lg:px-[7.8%] short:pt-1.5 short:pb-2">
+        <div className="relative flex h-[clamp(50px,5vw,78px)] short:h-[7vh] w-full items-center">
 
           {/* Left: Nav links */}
           <div className="hidden items-end gap-[30px] lg:flex">
@@ -91,12 +91,12 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="group relative flex h-[clamp(40px,3.26vw,50px)] flex-col justify-center"
+                      className="group relative flex h-[clamp(40px,3.26vw,50px)] short:h-[6vh] flex-col justify-center"
                     >
-                      <div className="relative h-[clamp(24px,1.96vw,30px)] overflow-clip">
+                      <div className="relative h-[clamp(24px,1.96vw,30px)] short:h-[3.5vh] overflow-clip">
                         <span
                           className={cn(
-                            "block font-outfit text-[clamp(16px,1.3vw,20px)] font-normal leading-[clamp(24px,1.96vw,30px)] transition-transform duration-300 ease-out group-hover:-translate-y-full",
+                            "block font-outfit text-[clamp(16px,1.3vw,20px)] short:text-[2.5vh] font-normal leading-[clamp(24px,1.96vw,30px)] short:leading-[3.5vh] transition-transform duration-300 ease-out group-hover:-translate-y-full",
                             textColor
                           )}
                         >
@@ -104,7 +104,7 @@ export default function Navbar() {
                         </span>
                         <span
                           className={cn(
-                            "block font-outfit text-[clamp(16px,1.3vw,20px)] font-medium leading-[clamp(24px,1.96vw,30px)] transition-transform duration-300 ease-out group-hover:-translate-y-full",
+                            "block font-outfit text-[clamp(16px,1.3vw,20px)] short:text-[2.5vh] font-medium leading-[clamp(24px,1.96vw,30px)] short:leading-[3.5vh] transition-transform duration-300 ease-out group-hover:-translate-y-full",
                             textColor
                           )}
                         >
@@ -127,12 +127,12 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group relative flex h-[clamp(40px,3.26vw,50px)] flex-col justify-center"
+                  className="group relative flex h-[clamp(40px,3.26vw,50px)] short:h-[6vh] flex-col justify-center"
                 >
-                  <div className="relative h-[clamp(24px,1.96vw,30px)] overflow-clip">
+                  <div className="relative h-[clamp(24px,1.96vw,30px)] short:h-[3.5vh] overflow-clip">
                     <span
                       className={cn(
-                        "block font-outfit text-[clamp(16px,1.3vw,20px)] font-normal leading-[clamp(24px,1.96vw,30px)] transition-transform duration-300 ease-out group-hover:-translate-y-full",
+                        "block font-outfit text-[clamp(16px,1.3vw,20px)] short:text-[2.5vh] font-normal leading-[clamp(24px,1.96vw,30px)] short:leading-[3.5vh] transition-transform duration-300 ease-out group-hover:-translate-y-full",
                         textColor
                       )}
                     >
@@ -140,7 +140,7 @@ export default function Navbar() {
                     </span>
                     <span
                       className={cn(
-                        "block font-outfit text-[clamp(16px,1.3vw,20px)] font-medium leading-[clamp(24px,1.96vw,30px)] transition-transform duration-300 ease-out group-hover:-translate-y-full",
+                        "block font-outfit text-[clamp(16px,1.3vw,20px)] short:text-[2.5vh] font-medium leading-[clamp(24px,1.96vw,30px)] short:leading-[3.5vh] transition-transform duration-300 ease-out group-hover:-translate-y-full",
                         textColor
                       )}
                     >
@@ -172,7 +172,7 @@ export default function Navbar() {
               />
             )}
             <Link href="/" className="relative">
-              <div className="relative h-[clamp(32px,3.6vw,55px)] w-[clamp(80px,10.4vw,157.5px)]">
+              <div className="relative h-[clamp(32px,3.6vw,55px)] short:h-[5vh] w-[clamp(80px,10.4vw,157.5px)] short:w-[14vh]">
                 <Image
                   src={isDark ? "/images/logo.png" : "/images/logo-white.png"}
                   alt="NALA Properties"
@@ -195,7 +195,7 @@ export default function Navbar() {
               className={isDark ? "brightness-0" : ""}
             />
             <span className={cn(
-              "font-outfit text-[clamp(16px,1.3vw,20px)] font-normal",
+              "font-outfit text-[clamp(16px,1.3vw,20px)] short:text-[2.5vh] font-normal",
               isDark ? "text-[#252525]" : "text-white"
             )}>
               {COMPANY_INFO.email}

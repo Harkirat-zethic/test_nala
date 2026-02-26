@@ -94,10 +94,10 @@ export default function NalaValues() {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}
       >
-        <h2 className="font-afacad text-[clamp(2rem,4.17vw,5rem)] font-medium text-[#252525]">
+        <h2 className="font-afacad text-[clamp(2rem,4.17vw,5rem)] short:text-[7.5vh] font-medium text-[#252525]">
           NALA Values
         </h2>
-        <p className="mx-auto mt-4 font-outfit text-[clamp(0.875rem,1.46vw,1.75rem)] leading-[1.36em] text-[#61656e] max-lg:max-w-[90%] max-lg:text-base lg:mt-[1.5rem] lg:w-[32.8vw]">
+        <p className="mx-auto mt-4 font-outfit text-[clamp(0.875rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.36em] text-[#61656e] max-lg:max-w-[90%] max-lg:text-base lg:mt-[1.5rem] lg:w-[32.8vw]">
           Nala Properties showcases exceptional properties that align with our
           core values.
         </p>
@@ -124,9 +124,9 @@ export default function NalaValues() {
 
 function ValueCard({ number, title }: { number: string; title: string }) {
   return (
-    <div className="flex flex-col gap-[clamp(1.5rem,2.5vw,3rem)] rounded-[0.25rem] bg-white p-[clamp(1.5rem,2.7vw,3.25rem)]">
+    <div className="flex flex-col gap-[clamp(1.5rem,2.5vw,3rem)] short:gap-[3.5vh] rounded-[0.25rem] bg-white p-[clamp(1.5rem,2.7vw,3.25rem)] short:p-[4vh]">
       {/* Number */}
-      <span className="font-outfit text-[clamp(2.5rem,4.17vw,5rem)] font-extrabold leading-[0.65em] text-[#e8e8e8]">
+      <span className="font-outfit text-[clamp(2.5rem,4.17vw,5rem)] short:text-[7.5vh] font-extrabold leading-[0.65em] text-[#e8e8e8]">
         {number}
       </span>
 
@@ -134,7 +134,7 @@ function ValueCard({ number, title }: { number: string; title: string }) {
       <div className="h-[1px] w-full max-w-[25rem] bg-[#e2e4e5] lg:w-[clamp(12rem,20.83vw,25rem)]" />
 
       {/* Title */}
-      <h3 className="font-outfit text-[clamp(1.25rem,2.5vw,3rem)] font-normal leading-[1.08em] text-[#252525] lg:max-w-[clamp(12rem,20vw,24rem)]">
+      <h3 className="font-outfit text-[clamp(1.25rem,2.5vw,3rem)] short:text-[4.5vh] font-normal leading-[1.08em] text-[#252525] lg:max-w-[clamp(12rem,20vw,24rem)]">
         {title}
       </h3>
     </div>

@@ -47,12 +47,12 @@ export default function Footer() {
   return (
     <footer ref={ref} className="relative overflow-hidden bg-light">
       {/* ── Top row: logo, NDIS, email, social, company ── */}
-      <div className="relative z-10 mx-auto flex flex-wrap items-start justify-between gap-10 px-[clamp(1.5rem,4.17vw,5rem)] pt-[clamp(3rem,6vw,7.25rem)]">
+      <div className="relative z-10 mx-auto flex flex-wrap items-start justify-between gap-10 px-[clamp(1.5rem,4.17vw,5rem)] pt-[clamp(3rem,6vw,7.25rem)] short:pt-[7vh]">
         {/* Logo */}
         <Link
           href="/"
           className={cn(
-            "relative h-[clamp(4.5rem,6.25vw,7.5rem)] w-[clamp(3.5rem,5.36vw,6.44rem)] shrink-0 transition-all duration-[1500ms] ease-out",
+            "relative h-[clamp(4.5rem,6.25vw,7.5rem)] short:h-[9vh] w-[clamp(3.5rem,5.36vw,6.44rem)] short:w-[7vh] shrink-0 transition-all duration-[1500ms] ease-out",
             isVisible
               ? "translate-y-0 opacity-100"
               : "translate-y-6 opacity-0"
@@ -75,7 +75,7 @@ export default function Footer() {
               : "translate-y-6 opacity-0"
           )}
         >
-          <div className="relative h-[clamp(2.5rem,3.11vw,3.74rem)] w-[clamp(5.5rem,7.3vw,8.77rem)]">
+          <div className="relative h-[clamp(2.5rem,3.11vw,3.74rem)] short:h-[5vh] w-[clamp(5.5rem,7.3vw,8.77rem)] short:w-[10vh]">
             <Image
               src="/images/ndis-badge.png"
               alt="NDIS Registered Provider"
@@ -83,7 +83,7 @@ export default function Footer() {
               className="object-contain"
             />
           </div>
-          <div className="flex flex-col gap-[0.75rem] font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] text-body">
+          <div className="flex flex-col gap-[0.75rem] font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] short:text-[1.9vh] text-body">
             <p className="leading-[0.7em]">NDIS SDA Provider Number:</p>
             <p className="font-bold leading-[0.8em]">
               {COMPANY_INFO.ndisProvider}
@@ -128,7 +128,7 @@ export default function Footer() {
       </div>
 
       {/* ── NALA letters + property collage + clouds + copyright overlay ── */}
-      <div className="relative mt-4 h-[clamp(18rem,28vw,35rem)] w-full lg:h-[clamp(20rem,28vw,38rem)] xl:h-[clamp(26rem,30vw,45rem)]">
+      <div className="relative mt-4 h-[clamp(18rem,28vw,35rem)] w-full lg:h-[clamp(20rem,28vw,38rem)] xl:h-[clamp(26rem,30vw,45rem)] short:h-[45vh]">
         {/* Layer 1: NALA text — shrinks from 142% to 96.5% width */}
         <img
           src="/images/nala-letters.svg"
@@ -156,11 +156,14 @@ export default function Footer() {
         />
 
         {/* Layer 2b: Static bottom clouds — hug the very bottom edge */}
-        <Image src="/images/cloud3.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-28%", left: "-8%", width: "45%", opacity: 0.9 }} />
-        <Image src="/images/cloud5.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-22%", left: "15%", width: "40%", opacity: 0.85 }} />
-        <Image src="/images/cloud4.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-18%", right: "-8%", width: "45%", opacity: 0.9 }} />
-        <Image src="/images/cloud6.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-22%", left: "70%", width: "40%", opacity: 0.85 }} />
-        <Image src="/images/cloud.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-20%", left: "30%", width: "42%", opacity: 0.8 }} />
+        <Image src="/images/cloud3.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-38%", left: "-20%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud3.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-38%", left: "35%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud5.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-22%", left: "-1%", width: "40%", opacity: 0.85 }} />
+        <Image src="/images/cloud4.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-25%", right: "-10%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud4.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "60%", right: "-20%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud4.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "60%", left: "-30%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud6.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-22%", left: "1%", width: "40%", opacity: 0.85 }} />
+        <Image src="/images/cloud.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-38%", left: "1%", width: "42%", opacity: 0.8 }} />
 
         {/* Layer 3: Clouds — start covering NALA, drift far outward to reveal */}
         {FOOTER_CLOUDS.map((cloud, i) => (
@@ -187,7 +190,7 @@ export default function Footer() {
         {/* Layer 4: Copyright — overlays on top of NALA + clouds */}
         <p
           className={cn(
-            "absolute bottom-0 left-0 z-20 w-full py-[clamp(1rem,1.5vw,1.75rem)] text-center font-outfit text-[clamp(0.75rem,0.94vw,1.125rem)] text-body transition-all duration-[1500ms] delay-1000 ease-out",
+            "absolute bottom-0 left-0 z-20 w-full py-[clamp(1rem,1.5vw,1.75rem)] short:py-[2vh] text-center font-outfit text-[clamp(0.75rem,0.94vw,1.125rem)] short:text-[1.7vh] text-body transition-all duration-[1500ms] delay-1000 ease-out",
             isVisible
               ? "translate-y-0 opacity-100"
               : "translate-y-4 opacity-0"
@@ -221,10 +224,10 @@ function FooterColumn({
         isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
       )}
     >
-      <h3 className="font-outfit text-[clamp(1.25rem,1.875vw,2.25rem)] font-medium leading-[1.26em] text-primary">
+      <h3 className="font-outfit text-[clamp(1.25rem,1.875vw,2.25rem)] short:text-[3.4vh] font-medium leading-[1.26em] text-primary">
         {title}
       </h3>
-      <div className="mt-[clamp(1rem,1.67vw,2rem)]">{children}</div>
+      <div className="mt-[clamp(1rem,1.67vw,2rem)] short:mt-[2.5vh]">{children}</div>
     </div>
   );
 }
@@ -244,7 +247,7 @@ function SocialIcon({
     <a
       href={href}
       aria-label={label}
-      className="group flex h-[clamp(2.25rem,2.24vw,2.69rem)] w-[clamp(2.25rem,2.24vw,2.69rem)] items-center justify-center transition-transform duration-300 hover:scale-110"
+      className="group flex h-[clamp(2.25rem,2.24vw,2.69rem)] short:h-[3.5vh] w-[clamp(2.25rem,2.24vw,2.69rem)] short:w-[3.5vh] items-center justify-center transition-transform duration-300 hover:scale-110"
     >
       <img src={icon} alt="" className="h-full w-full" />
     </a>

@@ -47,10 +47,14 @@ export interface PropertyDetailCategory {
 export interface Property {
   id: string;
   title: string;
+  address: string;
   imageSrc: string;
   location: string;
   silProvider?: string;
   supportLevel?: string;
+  designStandard?: string;
+  propertySubtitle?: string;
+  staffRooms?: number;
   images: PropertyImage[];
   description: string;
   brochureUrl?: string;

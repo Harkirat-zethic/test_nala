@@ -7,10 +7,10 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function WhatWeOffer() {
   return (
-    <section className="w-full bg-white py-[4rem] sm:py-[5rem] lg:py-[7.5rem]">
+    <section className="w-full bg-white py-[4rem] sm:py-[5rem] lg:py-[7.5rem] short:py-[10vh]">
       {/* Section heading */}
       <div className="px-[1.5rem] sm:px-[2rem] md:px-[3rem] lg:px-[5.2%]">
-        <h2 className="font-afacad text-[clamp(1.75rem,3.5vw,4.5rem)] font-medium text-[#252525]">
+        <h2 className="font-afacad text-[clamp(1.75rem,3.5vw,4.5rem)] short:text-[6vh] font-medium text-[#252525]">
           What we offer
         </h2>
       </div>
@@ -62,16 +62,16 @@ function OfferRow({
     >
       {/* Left: Number + Title */}
       <div className="flex items-center gap-[0.75rem] md:gap-[1.25rem] lg:gap-[clamp(1.25rem,2.5vw,3.5rem)]">
-        <span className="font-afacad text-[clamp(1.75rem,4.5vw,5rem)] font-bold leading-none text-[#e3e3e3]">
+        <span className="font-afacad text-[clamp(1.75rem,4.5vw,5rem)] short:text-[7vh] font-bold leading-none text-[#e3e3e3]">
           {number}
         </span>
-        <h3 className="font-afacad text-[clamp(1rem,2vw,2.25rem)] font-normal leading-[1.2] text-[#252525] lg:max-w-[28vw]">
+        <h3 className="font-afacad text-[clamp(1rem,2vw,2.25rem)] short:text-[3.5vh] font-normal leading-[1.2] text-[#252525] lg:max-w-[28vw]">
           {title}
         </h3>
       </div>
 
       {/* Right: Description */}
-      <p className="text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.78em] text-[#555] md:max-w-[13rem] lg:max-w-[20vw]">
+      <p className="text-[clamp(0.875rem,1.04vw,1.25rem)] short:text-[1.9vh] leading-[1.78em] text-[#555] md:max-w-[13rem] lg:max-w-[20vw]">
         {description}
       </p>
 
@@ -82,7 +82,7 @@ function OfferRow({
           isVisible ? "scale-150 opacity-100" : "scale-0 opacity-0"
         )}
       >
-        <div className="relative h-[clamp(7rem,10vw,15rem)] w-[clamp(10.5rem,15vw,22.5rem)] overflow-hidden rounded-[0.25rem] shadow-[0_0.3125rem_2.8125rem_0_rgba(0,0,0,0.12)]">
+        <div className="relative h-[clamp(7rem,10vw,15rem)] short:h-[14vh] w-[clamp(10.5rem,15vw,22.5rem)] short:w-[21vh] overflow-hidden rounded-[0.25rem] shadow-[0_0.3125rem_2.8125rem_0_rgba(0,0,0,0.12)]">
           <Image
             src={imageSrc}
             alt=""
