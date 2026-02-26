@@ -6,7 +6,6 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Mousewheel, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { PROPERTIES } from "@/lib/properties";
 import { cn } from "@/lib/cn";
 import type { Property } from "@/types";
@@ -15,27 +14,17 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 export default function OurProperties() {
-  const { ref, isVisible } = useIntersectionObserver({
-    triggerOnce: false,
-    threshold: 0.15,
-  });
-
   const [activeIndex, setActiveIndex] = useState(0);
+  const [swiperReady, setSwiperReady] = useState(false);
   const swiperRef = useRef<SwiperType | null>(null);
 
   return (
     <section
-      ref={ref}
       className="relative w-full bg-[#f7f7f7] px-[1.5rem] py-[4rem] sm:px-[2rem] sm:py-[5rem] md:px-[3rem] lg:px-[7.8%] lg:py-[7.5rem] short:py-[10vh]"
     >
       {/* Header row */}
       <div
-        className={cn(
-          "flex items-end justify-between transition-all duration-[2000ms] delay-[300ms] ease-out",
-          isVisible
-            ? "translate-y-0 opacity-100"
-            : "translate-y-10 opacity-0"
-        )}
+        className="flex items-end justify-between"
       >
         <div>
           <h2 className="font-afacad text-[clamp(1.5rem,3.8vw,5rem)] short:text-[6.5vh] font-medium text-[#252525]">
@@ -58,10 +47,8 @@ export default function OurProperties() {
       {/* Swiper Carousel */}
       <div
         className={cn(
-          "relative mt-[4rem] transition-all duration-[2000ms] delay-[600ms] ease-out lg:mt-[clamp(4rem,6vw,8rem)] short:mt-[5vh]",
-          isVisible
-            ? "translate-y-0 opacity-100"
-            : "translate-y-16 opacity-0"
+          "relative mt-[4rem] lg:mt-[clamp(4rem,6vw,8rem)] short:mt-[5vh] transition-opacity duration-300",
+          swiperReady ? "opacity-100" : "opacity-0"
         )}
       >
         <Swiper
@@ -76,6 +63,7 @@ export default function OurProperties() {
           className="swiper-align-bottom"
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
+            setSwiperReady(true);
           }}
           onSlideChange={(swiper) => {
             setActiveIndex(swiper.realIndex);
@@ -100,12 +88,7 @@ export default function OurProperties() {
 
       {/* Carousel controls */}
       <div
-        className={cn(
-          "mt-[3rem] flex items-center justify-center gap-[0.625rem] transition-all duration-[2000ms] delay-[1500ms] ease-out lg:mt-[4rem]",
-          isVisible
-            ? "translate-y-0 opacity-100"
-            : "translate-y-6 opacity-0"
-        )}
+        className="mt-[3rem] flex items-center justify-center gap-[0.625rem] lg:mt-[4rem]"
       >
         <button
           onClick={() => swiperRef.current?.slidePrev()}
@@ -158,8 +141,8 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
       className={cn(
         "group relative overflow-hidden rounded-[0.5rem]",
         isCenter
-          ? "h-[clamp(25rem,29.17vw,35rem)] short:h-[45vh]"
-          : "h-[clamp(22rem,24.4vw,29.3rem)] short:h-[38vh]"
+          ? "h-[clamp(25rem,29.17vw,35rem)] short:h-[52vh]"
+          : "h-[clamp(22rem,24.4vw,29.3rem)] short:h-[44vh]"
       )}
     >
       {/* Image — zooms on hover */}

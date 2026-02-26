@@ -103,7 +103,7 @@ export default function PropertyHero({ property }: { property: Property }) {
       </div>
 
       {/* Description + Villas */}
-      <div className="mt-8 flex flex-col gap-6 sm:mt-10 sm:gap-8 lg:mt-16 lg:flex-row lg:items-end lg:gap-[4.167rem]">
+      <div className="mt-8 flex flex-col gap-6 sm:mt-10 sm:gap-8 lg:mt-16 lg:flex-row lg:items-start lg:gap-[4.167rem]">
         {/* Description */}
         <div className="flex flex-1 flex-col gap-4 sm:gap-6">
           <h2 className="font-afacad text-[clamp(1.75rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.3] text-[#252525]">
@@ -115,16 +115,17 @@ export default function PropertyHero({ property }: { property: Property }) {
           {property.brochureUrl && (
             <a
               href={property.brochureUrl}
-              className="relative inline-flex w-fit items-center gap-3 overflow-clip rounded-[4px] bg-[white] px-5 py-4 font-outfit text-[1rem] font-normal text-[#252525] shadow-[0px_1px_0px_0px_#b9b6cd,inset_0px_1px_0px_0px_white] transition-opacity hover:opacity-80 sm:gap-[24px] sm:p-[28px] sm:text-[clamp(1rem,1.46vw,1.75rem)]"
+              className="group relative inline-flex w-fit items-center gap-3 overflow-clip rounded-[4px] bg-white px-5 py-4 font-outfit text-[1rem] font-normal text-[#252525] shadow-[0px_1px_0px_0px_#b9b6cd,inset_0px_1px_0px_0px_white] transition-all duration-300 hover:bg-[#F5F5F5] hover:shadow-[0px_1px_0px_0px_#b9b6cd,0px_2px_16px_0px_rgba(0,0,0,0.08),inset_0px_1px_0px_0px_white] sm:gap-[24px] sm:p-[28px] sm:text-[clamp(1rem,1.46vw,1.75rem)]"
             >
-              Download Brochure
-              <Image src="/images/property-icons/download.svg" alt="" width={40} height={40} className="h-[clamp(20px,2.6vw,40px)] w-[clamp(20px,2.6vw,40px)]" />
+              <span className="pointer-events-none absolute left-0 top-[-39px] h-[176px] w-[6px] -translate-x-[60px] rotate-[20deg] bg-[linear-gradient(138deg,rgba(27,117,188,1)_0%,rgba(0,169,155,0.9)_100%)] blur-[10px] opacity-70 transition-transform duration-700 ease-in-out group-hover:translate-x-[360px]" />
+              <span className="relative">Download Brochure</span>
+              <Image src="/images/property-icons/download.svg" alt="" width={40} height={40} className="relative h-[clamp(20px,2.6vw,40px)] w-[clamp(20px,2.6vw,40px)]" />
             </a>
           )}
         </div>
 
         {/* Villa cards */}
-        <div className="flex flex-1 flex-col gap-2 sm:gap-[0.667rem]">
+        <div className="flex flex-1 flex-col gap-2 sm:gap-[0.667rem] lg:mt-[clamp(3.5rem,6.9vw,8.5rem)]">
           {property.villas.map((villa) => (
             <div
               key={villa.name}
@@ -135,10 +136,10 @@ export default function PropertyHero({ property }: { property: Property }) {
               </h3>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 sm:gap-x-5">
                 <span className="flex items-center gap-2 font-outfit text-[clamp(0.875rem,0.94vw,1.125rem)] text-[#181a20]">
-                  <Image src="/images/property-icons/hero-bed.svg" alt="" width={28} height={28} className="h-[clamp(22px,1.82vw,28px)] w-[clamp(22px,1.82vw,28px)]" /> {villa.bedrooms} Beds
+                  <Image src="/images/property-icons/hero-bed.svg" alt="" width={28} height={28} className="h-[clamp(22px,1.82vw,28px)] w-[clamp(22px,1.82vw,28px)] rotate-180" /> {villa.bedrooms} Beds
                 </span>
                 <span className="flex items-center gap-2 font-outfit text-[clamp(0.875rem,0.94vw,1.125rem)] text-[#181a20]">
-                  <Image src="/images/property-icons/hero-bath.svg" alt="" width={28} height={28} className="h-[clamp(22px,1.82vw,28px)] w-[clamp(22px,1.82vw,28px)]" /> {villa.bathrooms} Baths
+                  <Image src="/images/property-icons/hero-bath.svg" alt="" width={28} height={28} className="h-[clamp(22px,1.82vw,28px)] w-[clamp(22px,1.82vw,28px)] rotate-180" /> {villa.bathrooms} Baths
                 </span>
               </div>
             </div>

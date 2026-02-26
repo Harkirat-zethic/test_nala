@@ -1,6 +1,6 @@
 export default function PropertyLocation({ mapEmbedUrl }: { mapEmbedUrl: string }) {
   return (
-    <section className="px-[1.25rem] py-[2rem] sm:px-[2rem] sm:py-[3rem] md:px-[3rem] lg:px-[7.8%] lg:py-[5rem]">
+    <section className="bg-[#F7F7F7] px-[1.25rem] py-[2rem] sm:px-[2rem] sm:py-[3rem] md:px-[3rem] lg:px-[7.8%] lg:py-[5rem]">
       <h2 className="font-afacad text-[clamp(1.75rem,4.17vw,5rem)] short:text-[7.5vh] font-medium text-[#252525]">
         Location
       </h2>
@@ -13,7 +13,7 @@ export default function PropertyLocation({ mapEmbedUrl }: { mapEmbedUrl: string 
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Property location"
-          className="h-[clamp(18rem,52vw,50rem)] short:h-[65vh] w-full"
+          className="h-[clamp(18rem,42vw,40rem)] short:h-[65vh] w-full"
         />
       </div>
     </section>

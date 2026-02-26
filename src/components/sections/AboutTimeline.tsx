@@ -213,7 +213,7 @@ export default function AboutTimeline() {
           className={cn(
             "absolute bottom-0 left-[-5.4%] h-[43.2%] w-[114%]",
             "transition-all duration-[2000ms] ease-out",
-            isVisible ? "translate-y-[24rem] short:translate-y-[20rem] opacity-100" : "translate-y-[6rem] opacity-0"
+            isVisible ? "translate-y-[24rem] short:translate-y-[16rem] opacity-100" : "translate-y-[6rem] opacity-0"
           )}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
