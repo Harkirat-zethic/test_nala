@@ -55,7 +55,7 @@ export default function Hero() {
       <div
         ref={personRef}
         className="absolute left-0 top-0 z-[2] w-full"
-        style={{ height: "126vh", transform: "scale(1) translateY(-24.7%)" }}
+        style={{ height: "126vh", transform: "scale(1.09) translateY(-12.7%)" }}
       >
         <div className="relative h-full w-full">
           <Image
@@ -100,8 +100,8 @@ export default function Hero() {
           ref={titleRef}
           className={cn(
             "pointer-events-auto absolute whitespace-pre-wrap leading-[1.2] tracking-[1.38px] text-white opacity-0",
-            "left-[clamp(1.5rem,7.8%,7.8%)] top-[50%] max-w-[90%] text-[clamp(1.75rem,3.59vw,4.3rem)] short:text-[6.5vh]",
-            "lg:top-[48.2%] lg:max-w-[48vw] short:top-[45%]"
+            "left-[clamp(1.5rem,7.8%,7.8%)] top-[40%] max-w-[90%] text-[clamp(1.75rem,3.59vw,4.3rem)] short:text-[6.5vh]",
+            "lg:top-[48.2%] lg:max-w-[48vw] short:top-[40%] tall:top-[40%]"
           )}
           style={{
             fontFamily: "'Outfit', sans-serif",
