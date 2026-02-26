@@ -1,0 +1,7 @@
+services:
+  nala-properties-website:
+    build: .
+    image: registry.zethic.xyz/nala-properties-website:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
