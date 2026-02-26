@@ -19,7 +19,7 @@ export default function ContactSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[clamp(10rem,12.25vw,7.5rem)]"
+      className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[clamp(10rem,12.25vw,7.5rem)] short:py-[12vh]"
     >
       {/* Watercolor textured background — anchored left */}
       <div className="absolute inset-y-0 left-[-33rem] w-[130%] opacity-70">
@@ -43,10 +43,10 @@ export default function ContactSection() {
               : "-translate-x-8 opacity-0"
           )}
         >
-          <h2 className="font-afacad text-[clamp(2.5rem,4.17vw,5rem)] font-medium leading-[1.075] text-[#252525]">
+          <h2 className="font-afacad text-[clamp(2.5rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.075] text-[#252525]">
             Get In Touch With Us
           </h2>
-          <p className="mt-[clamp(2.5rem,4.17vw,5rem)] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] leading-[1.3] text-body">
+          <p className="mt-[clamp(2.5rem,4.17vw,5rem)] short:mt-[5vh] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.3] text-body">
             Looking to buy, sell, or invest in property? We&apos;re here to
             guide you every step of the way. Send us a message and let&apos;s
             start the conversation — no pressure, just real support from real
@@ -83,10 +83,10 @@ export default function ContactSection() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-[clamp(1.5rem,2.3vw,2.375rem)] rounded border border-border bg-white p-[clamp(1.25rem,2.3vw,2.375rem)]"
+              className="flex flex-col gap-[clamp(1.5rem,2.3vw,2.375rem)] short:gap-[3vh] rounded border border-border bg-white p-[clamp(1.25rem,2.3vw,2.375rem)] short:p-[3vh]"
             >
               {/* Row 1: Name + Email */}
-              <div className="grid gap-[clamp(1.5rem,2.66vw,3.2rem)] sm:grid-cols-2">
+              <div className="grid gap-[clamp(1.5rem,2.66vw,3.2rem)] short:gap-[3.5vh] sm:grid-cols-2">
                 <FormField
                   label="Name"
                   name="name"
@@ -107,7 +107,7 @@ export default function ContactSection() {
               </div>
 
               {/* Row 2: Phone + Subject */}
-              <div className="grid gap-[clamp(1.5rem,2.66vw,3.2rem)] sm:grid-cols-2">
+              <div className="grid gap-[clamp(1.5rem,2.66vw,3.2rem)] short:gap-[3.5vh] sm:grid-cols-2">
                 <FormField
                   label="Phone Number"
                   name="phone"
@@ -129,7 +129,7 @@ export default function ContactSection() {
               <div className="flex flex-col gap-[0.8rem]">
                 <label
                   htmlFor="message"
-                  className="font-afacad text-[clamp(1rem,1.25vw,1.5rem)] text-dark-secondary"
+                  className="font-afacad text-[clamp(1rem,1.25vw,1.5rem)] short:text-[2.25vh] text-dark-secondary"
                 >
                   Message
                 </label>
@@ -139,7 +139,7 @@ export default function ContactSection() {
                   placeholder="Your message..."
                   value={formData.message}
                   onChange={handleChange}
-                  className="min-h-[13rem] resize-none border-b border-[#c5c9d2] bg-transparent px-2 py-3 font-afacad text-[clamp(1.125rem,1.46vw,1.75rem)] text-dark outline-none transition-colors placeholder:text-[#c5c9d2] focus:border-primary"
+                  className="min-h-[13rem] resize-none border-b border-[#c5c9d2] bg-transparent px-2 py-3 font-afacad text-[clamp(1.125rem,1.46vw,1.75rem)] short:text-[2.6vh] text-dark outline-none transition-colors placeholder:text-[#c5c9d2] focus:border-primary"
                 />
                 {errors.message && (
                   <p className="text-sm text-red-500">{errors.message}</p>
@@ -150,7 +150,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="relative flex w-fit cursor-pointer items-center gap-5 rounded bg-light px-7 py-6 font-outfit text-[clamp(1rem,1.46vw,1.75rem)] text-[#252525] shadow-[0px_1px_0px_0px_#b9b6cd,inset_0px_1px_0px_0px_white] transition-colors hover:bg-light-gray disabled:opacity-60"
+                className="relative flex w-fit cursor-pointer items-center gap-5 rounded bg-light px-7 py-6 font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] text-[#252525] shadow-[0px_1px_0px_0px_#b9b6cd,inset_0px_1px_0px_0px_white] transition-colors hover:bg-light-gray disabled:opacity-60"
               >
                 {isSubmitting ? "Sending..." : "Contact Us Now"}
                 {!isSubmitting && (
@@ -195,7 +195,7 @@ function FormField({
     <div className="flex flex-col gap-[0.8rem]">
       <label
         htmlFor={name}
-        className="font-afacad text-[clamp(1rem,1.25vw,1.5rem)] text-dark-secondary"
+        className="font-afacad text-[clamp(1rem,1.25vw,1.5rem)] short:text-[2.25vh] text-dark-secondary"
       >
         {label}
       </label>
@@ -206,7 +206,7 @@ function FormField({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="border-b border-[#c5c9d2] bg-transparent px-2 py-3 font-afacad text-[clamp(1.125rem,1.46vw,1.75rem)] text-dark outline-none transition-colors placeholder:text-[#c5c9d2] focus:border-primary"
+        className="border-b border-[#c5c9d2] bg-transparent px-2 py-3 font-afacad text-[clamp(1.125rem,1.46vw,1.75rem)] short:text-[2.6vh] text-dark outline-none transition-colors placeholder:text-[#c5c9d2] focus:border-primary"
       />
       {error && <p className="text-sm text-red-500">{error}</p>}
     </div>

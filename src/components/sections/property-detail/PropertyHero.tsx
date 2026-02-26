@@ -10,11 +10,11 @@ export default function PropertyHero({ property }: { property: Property }) {
     useGallery({ totalImages: property.images.length });
 
   return (
-    <section className="bg-[#f7f7f7] rounded-[0.75rem] px-[1.25rem] pt-[5.5rem] pb-[2rem] sm:rounded-[1rem] sm:px-[2rem] sm:pt-[6rem] sm:pb-[2.5rem] md:px-[3rem] lg:px-[7.7%] lg:pt-[10.8rem] lg:pb-[5rem]">
+    <section className="bg-[#f7f7f7] rounded-[0.75rem] px-[1.25rem] pt-[5.5rem] pb-[2rem] sm:rounded-[1rem] sm:px-[2rem] sm:pt-[6rem] sm:pb-[2.5rem] md:px-[3rem] lg:px-[7.7%] lg:pt-[10.8rem] lg:pb-[5rem] short:pt-[14vh]">
       {/* Header: title + meta */}
       <div className="flex flex-col gap-3 sm:gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-          <h1 className="font-afacad text-[clamp(1.75rem,4.17vw,5rem)] font-medium leading-[1.3] text-[#252525]">
+          <h1 className="font-afacad text-[clamp(1.75rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.3] text-[#252525]">
             {property.title}
           </h1>
           <span className="inline-flex items-center gap-[6px] rounded-full border border-[#c0c0c0] px-2 py-1.5 sm:p-[10px]">
@@ -106,10 +106,10 @@ export default function PropertyHero({ property }: { property: Property }) {
       <div className="mt-8 flex flex-col gap-6 sm:mt-10 sm:gap-8 lg:mt-16 lg:flex-row lg:items-end lg:gap-[4.167rem]">
         {/* Description */}
         <div className="flex flex-1 flex-col gap-4 sm:gap-6">
-          <h2 className="font-afacad text-[clamp(1.75rem,4.17vw,5rem)] font-medium leading-[1.3] text-[#252525]">
+          <h2 className="font-afacad text-[clamp(1.75rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.3] text-[#252525]">
             Description
           </h2>
-          <p className="max-w-[42.5rem] font-outfit text-[clamp(0.875rem,1.11vw,1.333rem)] leading-[1.6] text-[#61656e] sm:leading-[1.875rem]">
+          <p className="max-w-[42.5rem] font-outfit text-[clamp(0.875rem,1.11vw,1.333rem)] short:text-[2vh] leading-[1.6] text-[#61656e] sm:leading-[1.875rem]">
             {property.description}
           </p>
           {property.brochureUrl && (
@@ -130,7 +130,7 @@ export default function PropertyHero({ property }: { property: Property }) {
               key={villa.name}
               className="flex flex-col gap-3 rounded-lg bg-white p-5 sm:gap-4 sm:rounded-[0.667rem] sm:p-6 lg:p-8"
             >
-              <h3 className="font-afacad text-[clamp(1.25rem,1.67vw,2rem)] font-medium text-[#252525]">
+              <h3 className="font-afacad text-[clamp(1.25rem,1.67vw,2rem)] short:text-[3vh] font-medium text-[#252525]">
                 {villa.name}
               </h3>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 sm:gap-x-5">

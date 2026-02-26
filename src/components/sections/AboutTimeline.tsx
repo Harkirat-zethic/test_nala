@@ -136,10 +136,10 @@ export default function AboutTimeline() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-[clamp(30px,2.8vh,50px)] opacity-20"
           )}
         >
-          <h2 className="font-afacad text-[clamp(60px,5.2vw,100px)] font-medium leading-[0.86em] text-[#252525]">
+          <h2 className="font-afacad text-[clamp(60px,5.2vw,100px)] short:text-[9vh] font-medium leading-[0.86em] text-[#252525]">
             SDA Properties
           </h2>
-          <div className="mt-[10px] font-afacad text-[clamp(48px,4.17vw,80px)] font-normal leading-[1.075em] text-[#6c6c6c]">
+          <div className="mt-[10px] font-afacad text-[clamp(48px,4.17vw,80px)] short:text-[7.5vh] font-normal leading-[1.075em] text-[#6c6c6c]">
             <p>by Nanak Accessible Living</p>
             <p>Australia</p>
           </div>

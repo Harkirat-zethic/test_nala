@@ -13,7 +13,7 @@ export default function PropertiesListing() {
   return (
     <section
       ref={ref}
-      className="px-[clamp(1.5rem,7.8vw,9.375rem)] pt-[clamp(7rem,9.6vw,11.5rem)] pb-[clamp(3rem,4.17vw,5rem)]"
+      className="px-[clamp(1.5rem,7.8vw,9.375rem)] pt-[clamp(7rem,9.6vw,11.5rem)] short:pt-[14vh] pb-[clamp(3rem,4.17vw,5rem)]"
     >
       {/* Title */}
       <div
@@ -24,17 +24,17 @@ export default function PropertiesListing() {
             : "translate-y-8 opacity-0"
         )}
       >
-        <h1 className="font-afacad text-[clamp(2.5rem,4.17vw,5rem)] font-medium leading-[1.075] text-[#252525]">
+        <h1 className="font-afacad text-[clamp(2.5rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.075] text-[#252525]">
           Our Properties
         </h1>
-        <p className="mt-6 max-w-[33.5rem] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] leading-[1.14] text-body">
+        <p className="mt-6 max-w-[33.5rem] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.14] text-body">
           Nala Properties showcases exceptional properties that align with
           our core values.
         </p>
       </div>
 
       {/* Property grid */}
-      <div className="mt-[clamp(2rem,3.33vw,4rem)] grid gap-[clamp(0.75rem,0.73vw,0.875rem)] sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-[clamp(2rem,3.33vw,4rem)] short:mt-[5vh] grid gap-[clamp(0.75rem,0.73vw,0.875rem)] sm:grid-cols-2 lg:grid-cols-3">
         {PROPERTIES.map((property, index) => (
           <div
             key={property.id}

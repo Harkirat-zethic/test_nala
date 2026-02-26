@@ -15,7 +15,7 @@ export default function PropertyDetails({
 }) {
   return (
     <section className="px-[1.25rem] py-[2rem] sm:px-[2rem] sm:py-[3rem] md:px-[3rem] lg:px-[7.7%] lg:py-[5rem]">
-      <h2 className="font-afacad text-[clamp(1.75rem,4.17vw,5rem)] font-medium text-[#252525]">
+      <h2 className="font-afacad text-[clamp(1.75rem,4.17vw,5rem)] short:text-[7.5vh] font-medium text-[#252525]">
         Property details
       </h2>
 
@@ -24,7 +24,7 @@ export default function PropertyDetails({
           <div key={category.title}>
             {/* Category heading + divider */}
             <div className="border-b border-[#e2e4e5] pb-3 sm:pb-5">
-              <h3 className="font-afacad text-[clamp(1.25rem,2.5vw,3rem)] font-medium tracking-[0.01em] text-[#252525]">
+              <h3 className="font-afacad text-[clamp(1.25rem,2.5vw,3rem)] short:text-[4.5vh] font-medium tracking-[0.01em] text-[#252525]">
                 {category.title}
               </h3>
             </div>

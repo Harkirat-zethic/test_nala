@@ -13,7 +13,7 @@ export default function AboutHero() {
   }, []);
 
   return (
-    <section className="relative h-[clamp(28rem,52.08vw,62.5rem)] w-full overflow-hidden bg-[#252525]">
+    <section className="relative h-[clamp(28rem,52.08vw,62.5rem)] short:h-[80vh] w-full overflow-hidden bg-[#252525]">
       {/* Layer 1: House background */}
       <div
         className={cn(
@@ -39,7 +39,7 @@ export default function AboutHero() {
           "left-6 top-[20%] text-[48px]",
           "sm:left-8 sm:text-[70px]",
           "md:left-12 md:text-[100px]",
-          "lg:left-[7.8%] lg:top-[14.8%] lg:text-[clamp(120px,11.875vw,228px)]",
+          "lg:left-[7.8%] lg:top-[14.8%] lg:text-[clamp(120px,11.875vw,228px)] short:text-[20vh]",
           "transition-all duration-[1200ms] ease-out",
           mounted ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
         )}

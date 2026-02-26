@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Height-based viewport variants */
+@custom-variant short (@media (max-height: 750px));
+@custom-variant tall (@media (min-height: 960px));
+
 @theme inline {
   --color-primary: #1867a5;
   --color-primary-dark: #135a8f;
