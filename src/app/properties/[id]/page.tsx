@@ -36,7 +36,9 @@ export default async function PropertyDetailPage({ params }: PageProps) {
       <PropertyHero property={property} />
       <PropertyDetails details={property.details} />
       <PropertyLocation mapEmbedUrl={property.mapEmbedUrl} />
-      <OurProperties />
+      <div className="[&>section]:bg-white">
+        <OurProperties />
+      </div>
       <WhyChooseNala />
     </main>
   );

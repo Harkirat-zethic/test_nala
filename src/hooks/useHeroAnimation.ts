@@ -49,13 +49,13 @@
 
       ctxRef.current = gsap.context(() => {
         const vh = sectionRef.current?.clientHeight || window.innerHeight;
-
         // Phase 2 shift: 73px at 1080px viewport, scaled proportionally
         const contentShift = -(73 / 1080) * vh;
+         const isShort = window.innerHeight <= 750;     
 
         // Person positions (relative to element's own height ~122.8vh)
-        const personMidY = (-220 / 1080) * vh;
-        const personEndY = (-120 / 1080) * vh;
+        const personMidY = (-180 / 1080) * vh;
+        const personEndY = isShort?(-100 / 1080) * vh: (-20 / 1080) * vh;
 
         if (skipAnimation) {
           // Jump to final state immediately (after resize)
@@ -87,7 +87,6 @@
         }, 0);
 
         // Person cutout scales down and slides to mid position
-        // Reset yPercent (CSS has translateY(-5%)) so only pixel y is used
         tl.to(personRef.current, {
           scale: 1,
           y: personMidY,
@@ -97,7 +96,7 @@
 
         // "BUILDING" text appears as faint watermark
         tl.to(buildingRef.current, {
-          opacity: 0.06,
+          opacity: 1,
           y: 0,
           duration: 2,
         }, 0);

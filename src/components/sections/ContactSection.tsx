@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { useContactForm } from "@/hooks/useContactForm";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
@@ -7,6 +8,19 @@ import { cn } from "@/lib/cn";
 
 export default function ContactSection() {
   const { ref, isVisible } = useIntersectionObserver();
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const [headingWidth, setHeadingWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver(() => {
+      setHeadingWidth(el.offsetWidth);
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const {
     formData,
     isSubmitting,
@@ -19,10 +33,10 @@ export default function ContactSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[clamp(10rem,12.25vw,7.5rem)] short:py-[12vh]"
+      className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[clamp(10rem,12.25vw,7.5rem)] short:py-[12vh] short:pt-[16vh]"
     >
       {/* Watercolor textured background — anchored left */}
-      <div className="absolute inset-y-0 left-[-33rem] w-[130%] opacity-70">
+      <div className="absolute inset-y-0 left-[-33rem] short:left-[-20rem] w-[130%] short:w-[150%] opacity-70">
         <Image
           src="/images/watercolor-bg.jpg"
           alt=""
@@ -37,16 +51,17 @@ export default function ContactSection() {
         {/* Left — heading + description */}
         <div
           className={cn(
-            "max-w-[40.5rem] transition-all duration-500",
+            "transition-all duration-500",
             isVisible
               ? "translate-x-0 opacity-100"
               : "-translate-x-8 opacity-0"
           )}
         >
-          <h2 className="font-afacad text-[clamp(2.5rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.075] text-[#252525]">
+          <h2 ref={headingRef} className="w-fit font-afacad text-[clamp(2.5rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.075] text-[#252525]">
             Get In Touch With Us
           </h2>
-          <p className="mt-[clamp(2.5rem,4.17vw,5rem)] short:mt-[5vh] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.3] text-body">
+          <p className="mt-[clamp(2.5rem,4.17vw,5rem)] short:mt-[5vh] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.3] text-body"
+            style={headingWidth ? { maxWidth: headingWidth } : undefined}>
             Looking to buy, sell, or invest in property? We&apos;re here to
             guide you every step of the way. Send us a message and let&apos;s
             start the conversation — no pressure, just real support from real

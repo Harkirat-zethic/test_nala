@@ -1,0 +1,24 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shatter-proof glass / window with protection -->
+  <!-- Window frame -->
+  <rect x="16" y="10" width="68" height="80" rx="4" fill="#DBEAF6"/>
+  <rect x="22" y="16" width="56" height="68" rx="2" fill="white"/>
+  <!-- Window panes -->
+  <line x1="50" y1="16" x2="50" y2="84" stroke="#5487AE" stroke-width="2"/>
+  <line x1="22" y1="50" x2="78" y2="50" stroke="#5487AE" stroke-width="2"/>
+  <!-- Glass sheen lines -->
+  <line x1="28" y1="22" x2="34" y2="28" stroke="#DBEAF6" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="28" y1="28" x2="30" y2="30" stroke="#DBEAF6" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="56" y1="56" x2="62" y2="62" stroke="#DBEAF6" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Frame outline -->
+  <rect x="16" y="10" width="68" height="80" rx="4" stroke="#5487AE" stroke-width="2.5" fill="none"/>
+  <rect x="22" y="16" width="56" height="68" rx="2" stroke="#5487AE" stroke-width="1.5" fill="none"/>
+  <!-- Shield badge (shatter-proof indicator) -->
+  <path d="M74 68C74 68 64 71 64 78C64 85 68 90 74 93C80 90 84 85 84 78C84 71 74 68 74 68Z" fill="white" stroke="#5487AE" stroke-width="2.2"/>
+  <path d="M70 78L73 81L79 74" stroke="#5487AE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Impact star (showing shatter resistance) -->
+  <circle cx="36" cy="36" r="5" fill="white" stroke="#5487AE" stroke-width="1.5"/>
+  <line x1="36" y1="28" x2="36" y2="24" stroke="#5487AE" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="42" y1="30" x2="45" y2="27" stroke="#5487AE" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="30" y1="30" x2="27" y2="27" stroke="#5487AE" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

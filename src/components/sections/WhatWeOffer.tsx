@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { OFFER_ITEMS } from "@/lib/constants";
 import { cn } from "@/lib/cn";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function WhatWeOffer() {
   return (
@@ -45,19 +44,12 @@ function OfferRow({
   imageSrc: string;
   isLast: boolean;
 }) {
-  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0,
-    rootMargin: "-48% 0px -48% 0px",
-    triggerOnce: false,
-  });
-
   return (
     <div
-      ref={ref}
       className={cn(
-        "relative flex flex-col gap-[1rem] border-t border-[#e0e0e0] px-[1.5rem] py-[1rem] transition-colors duration-500 sm:px-[2rem] md:flex-row md:items-center md:justify-between md:px-[3rem] md:py-[2rem] lg:px-[7.8%] lg:py-[2rem]",
+        "group relative flex flex-col gap-[1rem] border-t border-[#e0e0e0] px-[1.5rem] py-[1rem] transition-colors duration-500 sm:px-[2rem] md:flex-row md:items-center md:justify-between md:px-[3rem] md:py-[2rem] lg:px-[7.8%] lg:py-[2rem]",
         isLast && "border-b",
-        isVisible ? "bg-[#f7f7f7]" : "bg-white"
+        "hover:bg-[#f7f7f7]"
       )}
     >
       {/* Left: Number + Title */}
@@ -77,10 +69,7 @@ function OfferRow({
 
       {/* Image card — scales in/out as row enters/exits viewport */}
       <div
-        className={cn(
-          "pointer-events-none absolute left-[58%] top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 -rotate-[4deg] transition-all duration-700 ease-out lg:block",
-          isVisible ? "scale-150 opacity-100" : "scale-0 opacity-0"
-        )}
+        className="pointer-events-none absolute left-[58%] top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 -rotate-[4deg] scale-0 opacity-0 transition-all duration-700 ease-out group-hover:scale-150 group-hover:opacity-100 lg:block"
       >
         <div className="relative h-[clamp(7rem,10vw,15rem)] short:h-[14vh] w-[clamp(10.5rem,15vw,22.5rem)] short:w-[21vh] overflow-hidden rounded-[0.25rem] shadow-[0_0.3125rem_2.8125rem_0_rgba(0,0,0,0.12)]">
           <Image

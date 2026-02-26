@@ -16,12 +16,12 @@ function DropdownItem({ property }: { property: Property }) {
   return (
     <Link
       href={`/properties/${property.id}`}
-      className="group/item flex flex-1 flex-col gap-[6px]"
+      className="group/item flex flex-1 flex-col gap-[6px] short:gap-[0.6vh]"
     >
-      <span className="font-afacad text-[20px] font-normal leading-[1.357] text-black">
+      <span className="font-afacad text-[20px] short:text-[2.4vh] font-normal leading-[1.357] text-black">
         {property.title}
       </span>
-      <div className="relative h-[90px] w-full overflow-hidden rounded-sm">
+      <div className="relative h-[110px] short:h-[15vh] w-full overflow-hidden rounded-sm">
         <Image
           src={property.imageSrc}
           alt={property.title}
@@ -64,6 +64,7 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
     <header
       className={cn(
         "absolute left-0 top-0 z-50 w-full",
@@ -166,7 +167,7 @@ export default function Navbar() {
                 className="pointer-events-none absolute left-1/2 top-[-50%] -translate-x-1/2 -translate-y-1/2 w-[clamp(18rem,43.6vw,52.4rem)] h-[clamp(6rem,14.9vw,17.9rem)]"
                 style={{
                   background:
-                    "radial-gradient(40% 50% at 50% 52%, rgba(255,255,255,0.7) 10%, rgba(255,255,255,0) 100%)",
+                    "radial-gradient(40% 50% at 50% 52%, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0) 100%)",
                 }}
                 aria-hidden
               />
@@ -244,62 +245,61 @@ export default function Navbar() {
           "absolute left-0 hidden w-full lg:block",
           "transition-all duration-300 ease-out",
           dropdownOpen
-            ? "pointer-events-auto translate-y-0 opacity-100"
+            ? "translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-3 opacity-0"
         )}
-        onMouseEnter={openDropdown}
-        onMouseLeave={closeDropdown}
       >
         <div className="mx-auto w-full max-w-[1920px] px-4 pt-3 sm:px-6 md:px-12 lg:px-[7.8%]">
-          <div className="rounded-[4px] bg-white shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
-            <div className="flex flex-col gap-6 p-6">
+          <div
+            className="rounded-[4px] bg-white shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+            onMouseEnter={openDropdown}
+            onMouseLeave={closeDropdown}
+          >
+            <div className="grid grid-cols-5 gap-3 short:gap-2 p-6 short:p-[2vh]">
               {/* Top row — 5 properties */}
-              <div className="flex gap-3">
-                {DROPDOWN_TOP.map((property) => (
-                  <DropdownItem key={property.id} property={property} />
-                ))}
+              {DROPDOWN_TOP.map((property) => (
+                <DropdownItem key={property.id} property={property} />
+              ))}
+
+              {/* Solid divider — spans all columns */}
+              <div className="col-span-5 py-2 short:py-[1vh]">
+                <div className="h-px w-full bg-black/10" />
               </div>
 
-              {/* Solid divider */}
-              <div className="h-px w-full bg-black/10" />
-
-              {/* Bottom row — 3 visible + 2 invisible spacers */}
-              <div className="flex gap-3">
-                {DROPDOWN_BOTTOM.map((property) => (
-                  <DropdownItem key={property.id} property={property} />
-                ))}
-                {/* 2 invisible spacers to keep column alignment with top row */}
-                <div className="flex-1 opacity-0" aria-hidden />
-                <div className="flex-1 opacity-0" aria-hidden />
-              </div>
+              {/* Bottom row — 3 properties, grid auto-places them in first 3 columns */}
+              {DROPDOWN_BOTTOM.map((property) => (
+                <DropdownItem key={property.id} property={property} />
+              ))}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu overlay */}
-      <div
-        className={cn(
-          "fixed inset-0 z-[55] flex flex-col items-center justify-center bg-dark/95 backdrop-blur-md transition-opacity duration-300 lg:hidden",
-          mobileMenuOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        )}
-      >
-        <ul className="flex flex-col items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-2xl text-white"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
     </header>
+
+    {/* Mobile menu overlay — outside header to avoid transform containing block */}
+    <div
+      className={cn(
+        "fixed inset-0 z-[55] flex flex-col items-center justify-center bg-dark/95 backdrop-blur-md transition-opacity duration-300 lg:hidden",
+        mobileMenuOpen
+          ? "pointer-events-auto opacity-100"
+          : "pointer-events-none opacity-0"
+      )}
+    >
+      <ul className="flex flex-col items-center gap-8">
+        {NAV_LINKS.map((link) => (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-2xl text-white"
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+    </>
   );
 }
