@@ -13,7 +13,7 @@ export default function AboutHero() {
   }, []);
 
   return (
-    <section className="relative h-[clamp(28rem,52.08vw,62.5rem)] short:h-[80vh] w-full overflow-hidden bg-[#252525]">
+    <section className="relative h-[clamp(28rem,52.08vw,62.5rem)] short:h-[95vh] w-full overflow-hidden bg-[#252525]">
       {/* Layer 1: House background */}
       <div
         className={cn(
@@ -52,7 +52,7 @@ export default function AboutHero() {
         className={cn(
           "absolute left-1/2 z-[2] h-[164.3%] w-[128%] -translate-x-1/2",
           "transition-all duration-[1200ms] ease-out",
-          mounted ? "top-[2%]" : "top-[-8%]"
+          mounted ? "top-[2%] short:top-[8%]" : "top-[-8%]"
         )}
       >
         <Image
