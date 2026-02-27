@@ -43,4 +43,5 @@ h6 {
 /* Align Swiper slides at the bottom so cards with different heights share the same baseline */
 .swiper-align-bottom .swiper-wrapper {
   align-items: flex-end;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
 }

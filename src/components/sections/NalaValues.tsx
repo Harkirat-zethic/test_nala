@@ -14,7 +14,7 @@ export default function NalaValues() {
   return (
     <section
       ref={ref}
-      className="relative w-full overflow-hidden bg-[#f7f7f7] py-16 sm:py-20 lg:h-screen lg:py-0"
+      className="relative w-full overflow-hidden bg-[#f7f7f7] py-6 sm:py-20 lg:h-screen lg:py-0"
     >
       {/* z-0: Background house image at 17% opacity */}
       <div className="absolute inset-0 z-0">
@@ -55,7 +55,7 @@ export default function NalaValues() {
       {/* z-20: Center house image (transparent cutout) — IN FRONT of cards 01/02, BEHIND card 03 */}
       <div
         className={cn(
-          "relative z-20 mx-auto mt-8 sm:mt-10",
+          "relative z-20 mx-auto mt-0 sm:mt-10",
           "lg:absolute lg:left-[52%] lg:top-[-61.5%] lg:mx-0 lg:mt-0 lg:-translate-x-[calc(50%+3.75%)]",
           "transition-all duration-[2000ms] ease-out",
           isVisible
@@ -63,12 +63,12 @@ export default function NalaValues() {
             : "lg:h-[240.3%] lg:w-[143.3%]"
         )}
       >
-        <div className="relative mx-auto h-[25rem] w-full max-w-[30rem] sm:h-[30rem] lg:h-full lg:max-w-none">
+        <div className="relative mx-auto h-[20rem] w-full  sm:h-[30rem] lg:h-full lg:max-w-none">
           <Image
             src="/images/values-house.png"
             alt="Modern NALA Property"
             fill
-            className="object-fill"
+            className="object-cover [object-position:100%_100%] sm:object-center"
             sizes="(max-width: 1023px) 90vw, 130vw"
           />
         </div>

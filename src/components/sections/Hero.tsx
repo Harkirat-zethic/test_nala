@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full overflow-hidden bg-[#252525]"
+      className="relative h-screen max-h-[600px] w-full overflow-hidden bg-[#252525] sm:max-h-none"
     >
       {/* Layer 1: Sky background — stays fixed */}
       <div className="absolute inset-0">
@@ -40,7 +40,7 @@ export default function Hero() {
         ref={buildingRef}
         className={cn(
           "absolute z-[1] font-extrabold uppercase leading-[1.2] tracking-[4.56px] text-white opacity-0",
-          "left-[clamp(1.5rem,7.8%,7.8%)] top-[15%] text-[16vw] short:text-[19vh] md:text-[clamp(20px,9.42vw,200px)] ",
+          "left-[clamp(1.5rem,7.8%,7.8%)] top-[23%] text-[14vw] short:text-[19vh] tall:text-[clamp(20px,9.42vw,200px)] ",
           "md:top-[20%]"
         )}
         style={{
@@ -54,8 +54,7 @@ export default function Hero() {
       {/* Layer 3: House image — slides down */}
       <div
         ref={personRef}
-        className="absolute left-0 top-0 z-[2] w-full"
-        style={{ height: "126vh", transform: "scale(1.09) translateY(-12.7%)" }}
+        className="absolute left-0 top-0 z-[2] h-full w-full sm:h-[126vh]"
       >
         <div className="relative h-full w-full">
           <Image
@@ -81,7 +80,7 @@ export default function Hero() {
       {/* Layer 5: Green leaves — slides UP */}
       <div
         ref={leavesRef}
-        className="pointer-events-none absolute inset-0 z-[4] overflow-hidden mix-blend-multiply"
+        className="pointer-events-none absolute inset-0 z-[4] hidden overflow-hidden mix-blend-multiply sm:block"
       >
         <Image
           src="/images/green-leaves.png"
@@ -100,7 +99,7 @@ export default function Hero() {
           ref={titleRef}
           className={cn(
             "pointer-events-auto absolute whitespace-pre-wrap leading-[1.2] tracking-[1.38px] text-white opacity-0",
-            "left-[clamp(1.5rem,7.8%,7.8%)] top-[28%] max-w-[80%] text-[6vw] short:text-[6.5vh]",
+            "left-[clamp(1.5rem,7.8%,7.8%)] top-[35%] max-w-[80%] text-[5.5vw] short:text-[6.5vh]",
             "sm:top-[40%] sm:max-w-[100%] sm:text-[clamp(2.75rem,4.59vw,4.3rem)]",
             "lg:top-[48.2%] lg:max-w-[48vw] short:top-[40%] tall:top-[40%] tall:text-[clamp(1.75rem,3.59vw,4.3rem)]"
           )}
@@ -118,7 +117,7 @@ export default function Hero() {
           ref={descRef}
           className={cn(
             "pointer-events-auto absolute whitespace-pre-wrap leading-[1.5] text-white opacity-0",
-            "left-[clamp(1.5rem,7.8%,7.8%)] top-[65%] max-w-[80%] text-[4.8vw] short:text-[2.6vh]",
+            "left-[clamp(1.5rem,7.8%,7.8%)] top-[65%] max-w-[80%] text-[3.8vw] short:text-[2.6vh]",
             "sm:top-[72%] sm:max-w-[360px] sm:text-[clamp(0.875rem,1.46vw,1.75rem)]",
             "md:max-w-[420px]",
             "lg:left-[62.3%] lg:right-auto lg:top-[80.5%] lg:max-w-[29.8vw] short:lg:top-[78%]"

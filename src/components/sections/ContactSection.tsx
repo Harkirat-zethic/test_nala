@@ -33,15 +33,15 @@ export default function ContactSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[clamp(10rem,12.25vw,7.5rem)] short:py-[12vh] short:pt-[16vh]"
+      className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[3rem] sm:py-[clamp(10rem,12.25vw,7.5rem)] short:py-[12vh] short:pt-[16vh]"
     >
       {/* Watercolor textured background — anchored left */}
-      <div className="absolute inset-y-0 left-[-33rem] short:left-[-20rem] w-[130%] short:w-[150%] opacity-70">
+      <div className="absolute inset-0 opacity-70 sm:inset-y-0 sm:left-[-33rem] sm:w-[130%] short:left-[-20rem] short:w-[150%]">
         <Image
           src="/images/watercolor-bg.jpg"
           alt=""
           fill
-          className="object-cover object-left scale-[1.1]"
+          className="object-cover object-center sm:object-left sm:scale-[1.1]"
           aria-hidden
         />
       </div>

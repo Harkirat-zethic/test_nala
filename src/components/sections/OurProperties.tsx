@@ -57,7 +57,8 @@ export default function OurProperties() {
           centeredSlides
           loop
           spaceBetween={15}
-          speed={400}
+          speed={800}
+          cssMode={false}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           mousewheel={{ forceToAxis: true, thresholdDelta: 50 }}
           className="swiper-align-bottom"
@@ -139,10 +140,10 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-[0.25rem]",
+        "group relative overflow-hidden rounded-[0.25rem] h-[clamp(25rem,29.17vw,35rem)] short:h-[52vh] transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] origin-bottom",
         isCenter
-          ? "h-[clamp(25rem,29.17vw,35rem)] short:h-[52vh]"
-          : "h-[clamp(22rem,24.4vw,29.3rem)] short:h-[44vh]"
+          ? "scale-100"
+          : "scale-[0.88]"
       )}
     >
       {/* Image — zooms on hover */}
@@ -174,56 +175,85 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
       </div>
 
       {/* Info card at bottom — villas layout for all positions */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 p-[0.6rem] lg:p-[0.75rem] xl:p-[0.5rem] 2xl:p-[1rem]">
-        <div className="flex flex-col gap-[0.6rem] rounded-[0.25rem] bg-white p-[0.6rem] lg:gap-[0.75rem] lg:p-[0.75rem] xl:gap-[0.5rem] xl:p-[0.5rem] 2xl:gap-[0.875rem] 2xl:p-[0.875rem]">
+      <div className="absolute bottom-0 left-0 right-0 z-20 p-3 lg:p-[0.75rem] xl:p-[0.5rem] 2xl:p-[1rem]">
+        <div className="flex flex-col gap-3 rounded-[0.25rem] bg-white p-3 lg:gap-[0.75rem] lg:p-[0.75rem] xl:gap-[0.5rem] xl:p-[0.5rem] 2xl:gap-[0.875rem] 2xl:p-[0.875rem]">
           <div className="relative h-[1.5rem] overflow-clip xl:h-[1.2rem] 2xl:h-[1.5rem]">
-            <h3 className="absolute left-0 top-1/2 w-full -translate-y-1/2 font-outfit text-[0.875rem] font-medium text-[#181a20] transition-all duration-500 ease-out group-hover:-top-[0.75rem] lg:text-[0.875rem] xl:text-[0.75rem] 2xl:text-[1rem]">
+            <h3 className="absolute left-0 top-1/2 w-full -translate-y-1/2 font-outfit text-[0.938rem] font-medium text-[#181a20] transition-all duration-500 ease-out group-hover:-top-[0.75rem] lg:text-[0.875rem] xl:text-[0.75rem] 2xl:text-[1rem]">
               {card.title}
             </h3>
-            <h3 className="absolute left-0 top-[2rem] w-full -translate-y-1/2 font-outfit text-[0.875rem] font-medium text-[#181a20] transition-all duration-500 ease-out group-hover:top-1/2 lg:text-[0.875rem] xl:text-[0.75rem] 2xl:text-[1rem]">
+            <h3 className="absolute left-0 top-[2rem] w-full -translate-y-1/2 font-outfit text-[0.938rem] font-medium text-[#181a20] transition-all duration-500 ease-out group-hover:top-1/2 lg:text-[0.875rem] xl:text-[0.75rem] 2xl:text-[1rem]">
               {card.title}
             </h3>
           </div>
+          {/* Mobile: stacked rows | Desktop: horizontal layout */}
           {card.villas && (
-            <div className="flex items-center justify-between">
-              {card.villas.slice(0, 3).flatMap((villa, i) => {
-                const items = [];
-                if (i > 0) {
-                  items.push(
-                    <div key={`divider-${i}`} className="h-[2.2rem] border-l border-dashed border-[#e2e4e5] lg:h-[2rem] xl:h-[1.6rem] 2xl:h-[2.4rem]" />
-                  );
-                }
-                items.push(
-                  <div key={villa.name}>
-                    <p className="font-outfit text-[0.75rem] font-normal text-[#717171] lg:text-[0.7rem] xl:text-[0.55rem] 2xl:text-[0.8rem]">
+            <>
+              {/* Mobile layout — each villa as a row */}
+              <div className="flex flex-col gap-2 lg:hidden">
+                {card.villas.slice(0, 3).map((villa) => (
+                  <div key={villa.name} className="flex items-center justify-between border-b border-dashed border-[#e2e4e5] pb-2 last:border-0 last:pb-0">
+                    <p className="font-outfit text-[0.813rem] font-medium text-[#717171]">
                       {villa.name}
                     </p>
-                    <div className="mt-[0.15rem] flex items-center gap-[0.5rem] lg:gap-[0.4rem] xl:gap-[0.25rem] 2xl:gap-[0.5rem]">
-                      <span className="flex items-center gap-[0.25rem] text-[0.75rem] text-[#252525] lg:text-[0.65rem] xl:text-[0.55rem] 2xl:text-[0.75rem]">
-                        <Image src="/images/bed-icon.svg" alt="" width={16} height={16} className="inline-block lg:w-[14px] xl:w-[12px] 2xl:w-[16px]" /> {villa.bedrooms} Br
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center gap-1 font-outfit text-[0.813rem] text-[#252525]">
+                        <Image src="/images/bed-icon.svg" alt="" width={14} height={14} className="inline-block" /> {villa.bedrooms} Br
                       </span>
-                      <span className="flex items-center gap-[0.25rem] text-[0.75rem] text-[#252525] lg:text-[0.65rem] xl:text-[0.55rem] 2xl:text-[0.75rem]">
-                        <Image src="/images/bath-icon.svg" alt="" width={16} height={16} className="inline-block lg:w-[14px] xl:w-[12px] 2xl:w-[16px]" /> {villa.bathrooms} Ba
+                      <span className="flex items-center gap-1 font-outfit text-[0.813rem] text-[#252525]">
+                        <Image src="/images/bath-icon.svg" alt="" width={14} height={14} className="inline-block" /> {villa.bathrooms} Ba
                       </span>
                     </div>
                   </div>
-                );
-                return items;
-              })}
-              {card.staff?.map((item, i) => (
-                <>
-                  <div key={`staff-divider-${i}`} className="h-[2.2rem] border-l border-dashed border-[#e2e4e5] lg:h-[2rem] xl:h-[1.6rem] 2xl:h-[2.4rem]" />
-                  <div key={`staff-${i}`}>
-                    <p className="font-outfit text-[0.75rem] font-normal text-[#717171] lg:text-[0.7rem] xl:text-[0.55rem] 2xl:text-[0.8rem]">
-                      Staff
-                    </p>
-                    <p className="mt-[0.15rem] text-[0.75rem] text-[#252525] lg:text-[0.65rem] xl:text-[0.55rem] 2xl:text-[0.75rem]">
-                      {item.text}
-                    </p>
+                ))}
+                {card.staff?.map((item, i) => (
+                  <div key={`staff-m-${i}`} className="flex items-center justify-between">
+                    <p className="font-outfit text-[0.813rem] font-medium text-[#717171]">Staff</p>
+                    <p className="font-outfit text-[0.813rem] text-[#252525]">{item.text}</p>
                   </div>
-                </>
-              ))}
-            </div>
+                ))}
+              </div>
+
+              {/* Desktop layout — horizontal with dividers */}
+              <div className="hidden items-center justify-between lg:flex">
+                {card.villas.slice(0, 3).flatMap((villa, i) => {
+                  const items = [];
+                  if (i > 0) {
+                    items.push(
+                      <div key={`divider-${i}`} className="h-[2rem] border-l border-dashed border-[#e2e4e5] xl:h-[1.6rem] 2xl:h-[2.4rem]" />
+                    );
+                  }
+                  items.push(
+                    <div key={villa.name}>
+                      <p className="font-outfit text-[0.7rem] font-normal text-[#717171] xl:text-[0.55rem] 2xl:text-[0.8rem]">
+                        {villa.name}
+                      </p>
+                      <div className="mt-[0.15rem] flex items-center gap-[0.4rem] xl:gap-[0.25rem] 2xl:gap-[0.5rem]">
+                        <span className="flex items-center gap-[0.25rem] text-[0.65rem] text-[#252525] xl:text-[0.55rem] 2xl:text-[0.75rem]">
+                          <Image src="/images/bed-icon.svg" alt="" width={16} height={16} className="inline-block w-[14px] xl:w-[12px] 2xl:w-[16px]" /> {villa.bedrooms} Br
+                        </span>
+                        <span className="flex items-center gap-[0.25rem] text-[0.65rem] text-[#252525] xl:text-[0.55rem] 2xl:text-[0.75rem]">
+                          <Image src="/images/bath-icon.svg" alt="" width={16} height={16} className="inline-block w-[14px] xl:w-[12px] 2xl:w-[16px]" /> {villa.bathrooms} Ba
+                        </span>
+                      </div>
+                    </div>
+                  );
+                  return items;
+                })}
+                {card.staff?.map((item, i) => (
+                  <>
+                    <div key={`staff-divider-${i}`} className="h-[2rem] border-l border-dashed border-[#e2e4e5] xl:h-[1.6rem] 2xl:h-[2.4rem]" />
+                    <div key={`staff-${i}`}>
+                      <p className="font-outfit text-[0.7rem] font-normal text-[#717171] xl:text-[0.55rem] 2xl:text-[0.8rem]">
+                        Staff
+                      </p>
+                      <p className="mt-[0.15rem] text-[0.65rem] text-[#252525] xl:text-[0.55rem] 2xl:text-[0.75rem]">
+                        {item.text}
+                      </p>
+                    </div>
+                  </>
+                ))}
+              </div>
+            </>
           )}
         </div>
       </div>

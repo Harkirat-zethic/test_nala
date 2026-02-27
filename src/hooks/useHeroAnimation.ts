@@ -1,6 +1,6 @@
   "use client";
 
-  import { useRef, useEffect, useCallback } from "react";
+  import { useRef, useLayoutEffect, useCallback } from "react";
   import gsap from "gsap";
 
   interface HeroAnimationRefs {
@@ -57,12 +57,14 @@
         const personMidY = (-180 / 1080) * vh;
         const personEndY = isShort?(-100 / 1080) * vh: (-20 / 1080) * vh;
 
+        const isMobile = window.innerWidth < 768;
+
         if (skipAnimation) {
           // Jump to final state immediately (after resize)
           gsap.set(leavesRef.current, { yPercent: -100, opacity: 0 });
           gsap.set(personRef.current, { scale: 1, y: personEndY, yPercent: 0 });
-          gsap.set(buildingRef.current, { opacity: 1, y: contentShift });
-          gsap.set(titleRef.current, { y: contentShift, opacity: 1 });
+          gsap.set(buildingRef.current, { opacity: 1, y: isMobile ? 0 : contentShift });
+          gsap.set(titleRef.current, { y: isMobile ? 0 : contentShift, opacity: 1 });
           gsap.set(descRef.current, { y: 0, opacity: 1 });
           const tags = tagsRef.current?.children;
           if (tags) {
@@ -70,6 +72,25 @@
           }
           return;
         }
+
+        // Mobile: set house in place, simple fade-ins
+        if (isMobile) {
+          gsap.set(leavesRef.current, { yPercent: -100, opacity: 0 });
+          gsap.set(personRef.current, { scale: 1, y: 0, yPercent: 0 });
+
+          const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+          tl.to(buildingRef.current, { opacity: 1, y: 0, duration: 0.8 }, 0);
+          tl.to(titleRef.current, { y: 0, opacity: 1, duration: 0.8 }, 0.15);
+          tl.to(descRef.current, { y: 0, opacity: 1, duration: 0.8 }, 0.3);
+          const tags = tagsRef.current?.children;
+          if (tags) {
+            tl.to(tags, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.45);
+          }
+          return;
+        }
+
+        // Desktop: set initial position, then run full animation
+        gsap.set(personRef.current, { scale: 1, yPercent: -12.7 });
 
         const tl = gsap.timeline({
           defaults: { ease: "power2.inOut" },
@@ -154,7 +175,7 @@
       }, sectionRef);
     }, []);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
       // Initial animation — play fully
       buildTimeline(false);
       hasPlayedRef.current = true;
