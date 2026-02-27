@@ -122,8 +122,24 @@ const ROBUST_DETAILS: PropertyDetailCategory[] = [
   ...DEFAULT_HPS_DETAILS.slice(0, 4),
 ];
 
-const DEFAULT_MAP_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.123456789!2d150.9!3d-33.77!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDQ2JzEyLjAiUyAxNTDCsDU0JzAwLjAiRQ!5e0!3m2!1sen!2sau!4v1234567890";
+const MAP_URLS = {
+  doonside:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6633.669101718997!2d150.890352!3d-33.764941!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1299098929b68b%3A0xc2c0fcbd0500279a!2s51A%20Doonside%20Cres%2C%20Blacktown%20NSW%202148%2C%20Australia!5e0!3m2!1sen!2sin!4v1772174673690!5m2!1sen!2sin",
+  reservoir:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6632.586627793489!2d150.900865!3d-33.778923!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1299ae103070cd%3A0x4df0a7b20c3846b3!2s24%20Reservoir%20Rd%2C%20Blacktown%20NSW%202148%2C%20Australia!5e0!3m2!1sen!2sin!4v1772174642538!5m2!1sen!2sin",
+  wallpark:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6632.842146452423!2d150.921349!3d-33.775623!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12985865e88e47%3A0xe8c0f7537f9e2d18!2s101%20Wall%20Park%20Ave%2C%20Blacktown%20NSW%202148%2C%20Australia!5e0!3m2!1sen!2sin!4v1772174589628!5m2!1sen!2sin",
+  newton:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6633.041745417371!2d150.899056!3d-33.773045!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1299a921634f4b%3A0x340118fe32d4252!2s78%20Newton%20Rd%2C%20Blacktown%20NSW%202148%2C%20Australia!5e0!3m2!1sen!2sin!4v1772174553354!5m2!1sen!2sin",
+  duckmallois:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6632.228167724363!2d150.909785!3d-33.783552!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12984d0dd7520b%3A0x1c97457244b98ba8!2s76%20Duckmallois%20Ave%2C%20Blacktown%20NSW%202148%2C%20Australia!5e0!3m2!1sen!2sin!4v1772174510999!5m2!1sen!2sin",
+  ross:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6630.355248003922!2d151.00767!3d-33.807729!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a31b462c3b21%3A0x8700d2cbd89ca2d9!2s36%20Ross%20St%2C%20North%20Parramatta%20NSW%202151%2C%20Australia!5e0!3m2!1sen!2sin!4v1772174268656!5m2!1sen!2sin",
+  raymond:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6634.75156748258!2d150.918624!3d-33.750954!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1298dcd638dd33%3A0x76efbaee195ebc1d!2s5%20Raymond%20St%2C%20Blacktown%20NSW%202148%2C%20Australia!5e0!3m2!1sen!2sin!4v1772174240498!5m2!1sen!2sin",
+  turner:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6634.491570320174!2d150.92151!3d-33.754314!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1298c28270a583%3A0xc574fc23b8f3d5fd!2s64%20Turner%20St%2C%20Blacktown%20NSW%202148%2C%20Australia!5e0!3m2!1sen!2sin!4v1772174177561!5m2!1sen!2sin",
+};
 
 export const PROPERTIES: Property[] = [
   {
@@ -158,7 +174,7 @@ export const PROPERTIES: Property[] = [
       { name: "Villa 2", bedrooms: 1, bathrooms: 1 },
     ],
     details: DOONSIDE_DETAILS,
-    mapEmbedUrl: DEFAULT_MAP_URL,
+    mapEmbedUrl: MAP_URLS.doonside,
   },
   {
     id: "reservoir-rd",
@@ -193,7 +209,7 @@ export const PROPERTIES: Property[] = [
       { name: "Villa", bedrooms: 2, bathrooms: 1 },
     ],
     details: RESERVOIR_DETAILS,
-    mapEmbedUrl: DEFAULT_MAP_URL,
+    mapEmbedUrl: MAP_URLS.reservoir,
   },
   {
     id: "wall-park-ave",
@@ -228,7 +244,7 @@ export const PROPERTIES: Property[] = [
       { name: "Villa 2", bedrooms: 1, bathrooms: 1 },
     ],
     details: RESERVOIR_DETAILS,
-    mapEmbedUrl: DEFAULT_MAP_URL,
+    mapEmbedUrl: MAP_URLS.wallpark,
   },
   {
     id: "newton-rd",
@@ -269,7 +285,7 @@ export const PROPERTIES: Property[] = [
       { name: "Villa 5", bedrooms: 1, bathrooms: 1 },
     ],
     details: INTERCOM_HPS_DETAILS,
-    mapEmbedUrl: DEFAULT_MAP_URL,
+    mapEmbedUrl: MAP_URLS.newton,
   },
   {
     id: "duckmallois-ave",
@@ -310,7 +326,7 @@ export const PROPERTIES: Property[] = [
       { name: "Villa", bedrooms: 2, bathrooms: 2 },
     ],
     details: ROBUST_DETAILS,
-    mapEmbedUrl: DEFAULT_MAP_URL,
+    mapEmbedUrl: MAP_URLS.duckmallois,
   },
   {
     id: "ross-st",
@@ -345,7 +361,7 @@ export const PROPERTIES: Property[] = [
       { name: "Villa", bedrooms: 1, bathrooms: 1 },
     ],
     details: INTERCOM_HPS_DETAILS,
-    mapEmbedUrl: DEFAULT_MAP_URL,
+    mapEmbedUrl: MAP_URLS.ross,
   },
   {
     id: "raymond-st",
@@ -370,7 +386,7 @@ export const PROPERTIES: Property[] = [
       { name: "Houses", bedrooms: 2, bathrooms: 2 },
     ],
     details: INTERCOM_HPS_DETAILS,
-    mapEmbedUrl: DEFAULT_MAP_URL,
+    mapEmbedUrl: MAP_URLS.raymond,
   },
   {
     id: "turner-st",
@@ -402,7 +418,7 @@ export const PROPERTIES: Property[] = [
       {text: "Two Overnight Staff Rooms"}
     ],
     details: INTERCOM_HPS_DETAILS,
-    mapEmbedUrl: DEFAULT_MAP_URL,
+    mapEmbedUrl: MAP_URLS.turner,
   },
 ];
 
