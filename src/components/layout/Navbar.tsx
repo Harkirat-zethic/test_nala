@@ -164,10 +164,10 @@ export default function Navbar() {
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             {!isDark && (
               <div
-                className="pointer-events-none absolute left-1/2 top-[-50%] -translate-x-1/2 -translate-y-1/2 w-[clamp(18rem,43.6vw,52.4rem)] h-[clamp(6rem,14.9vw,17.9rem)]"
+                className="pointer-events-none absolute left-1/2 top-[0%] -translate-x-1/2 -translate-y-1/2 w-[clamp(18rem,43.6vw,52.4rem)] h-[clamp(6rem,15.9vw,17.9rem)] overflow-visible"
                 style={{
                   background:
-                    "radial-gradient(40% 50% at 50% 52%, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0) 100%)",
+                    "radial-gradient(40% 40% at 50% 52%, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)",
                 }}
                 aria-hidden
               />
