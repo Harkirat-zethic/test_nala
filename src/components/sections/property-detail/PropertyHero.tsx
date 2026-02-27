@@ -124,7 +124,7 @@ export default function PropertyHero({ property }: { property: Property }) {
           )}
         </div>
 
-        {/* Villa cards */}
+        {/* Villa + Staff cards */}
         <div className="flex flex-1 flex-col gap-2 sm:gap-[0.667rem] lg:mt-[clamp(3.5rem,6.9vw,8.5rem)]">
           {property.villas.map((villa) => (
             <div
@@ -140,6 +140,21 @@ export default function PropertyHero({ property }: { property: Property }) {
                 </span>
                 <span className="flex items-center gap-2 font-outfit text-[clamp(0.875rem,0.94vw,1.125rem)] text-[#181a20]">
                   <Image src="/images/property-icons/hero-bath.svg" alt="" width={28} height={28} className="h-[clamp(22px,1.82vw,28px)] w-[clamp(22px,1.82vw,28px)] rotate-180" /> {villa.bathrooms} Baths
+                </span>
+              </div>
+            </div>
+          ))}
+          {property.staff?.map((item, i) => (
+            <div
+              key={i}
+              className="flex flex-col gap-3 rounded-lg bg-white p-5 sm:gap-4 sm:rounded-[0.667rem] sm:p-6 lg:p-8"
+            >
+              <h3 className="font-afacad text-[clamp(1.25rem,1.67vw,2rem)] short:text-[3vh] font-medium text-[#252525]">
+                Staff Rooms
+              </h3>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 sm:gap-x-5">
+                <span className="flex items-center gap-2 font-outfit text-[clamp(0.875rem,0.94vw,1.125rem)] text-[#181a20]">
+                  <Image src="/images/property-icons/staff.svg" alt="" width={28} height={28} className="h-[clamp(22px,1.82vw,28px)] w-[clamp(22px,1.82vw,28px)]" /> {item.text}
                 </span>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import type { Property, PropertyDetailCategory } from "@/types";
+import { text } from "stream/consumers";
 
 const DEFAULT_HPS_DETAILS: PropertyDetailCategory[] = [
   {
@@ -396,6 +397,9 @@ export const PROPERTIES: Property[] = [
     brochureUrl: "#",
     villas: [
       { name: "Villa", bedrooms: 1, bathrooms: 1 },
+    ],
+    staff:[
+      {text: "Two Overnight Staff Rooms"}
     ],
     details: INTERCOM_HPS_DETAILS,
     mapEmbedUrl: DEFAULT_MAP_URL,

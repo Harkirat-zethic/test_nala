@@ -210,6 +210,19 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
                 );
                 return items;
               })}
+              {card.staff?.map((item, i) => (
+                <>
+                  <div key={`staff-divider-${i}`} className="h-[2.2rem] border-l border-dashed border-[#e2e4e5] lg:h-[2rem] xl:h-[1.6rem] 2xl:h-[2.4rem]" />
+                  <div key={`staff-${i}`}>
+                    <p className="font-outfit text-[0.75rem] font-normal text-[#717171] lg:text-[0.7rem] xl:text-[0.55rem] 2xl:text-[0.8rem]">
+                      Staff
+                    </p>
+                    <p className="mt-[0.15rem] text-[0.75rem] text-[#252525] lg:text-[0.65rem] xl:text-[0.55rem] 2xl:text-[0.75rem]">
+                      {item.text}
+                    </p>
+                  </div>
+                </>
+              ))}
             </div>
           )}
         </div>

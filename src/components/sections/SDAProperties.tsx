@@ -58,13 +58,13 @@ export default function SDAProperties() {
       >
         <div className="relative h-[480px] w-full sm:h-[550px] lg:h-full">
           {/* Radial gradient background — behind the image */}
-          <div
+          {/* <div
             className="absolute inset-0 z-0 opacity-40"
             style={{
               background:
                 "radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(188,205,233,1) 100%)",
             }}
-          />
+          /> */}
           {/* Image — on top, fully clear */}
           <Image
             src="/images/sda-house.jpg"

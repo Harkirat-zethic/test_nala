@@ -34,7 +34,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
   return (
     <main>
       <PropertyHero property={property} />
-      <PropertyDetails details={property.details} />
+      <PropertyDetails details={property.details} staff={property.staff} />
       <PropertyLocation mapEmbedUrl={property.mapEmbedUrl} />
       <div className="[&>section]:bg-white">
         <OurProperties />

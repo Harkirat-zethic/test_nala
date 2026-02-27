@@ -109,7 +109,7 @@ function PropertyListingCard({ property }: { property: Property }) {
             </h3>
           </div>
 
-          {/* Villa info */}
+          {/* Villa + Staff info */}
           {property.villas && (
             <div className="flex items-center">
               {property.villas.slice(0, 3).map((villa, i) => (
@@ -118,6 +118,19 @@ function PropertyListingCard({ property }: { property: Property }) {
                   villa={villa}
                   showDivider={i > 0}
                 />
+              ))}
+              {property.staff?.map((item, i) => (
+                <div key={i} className="flex flex-1 items-center">
+                  <div className="h-[3.3rem] w-px shrink-0 bg-border xl:h-8 2xl:h-[3.3rem]" />
+                  <div className="pl-3 xl:pl-2 2xl:pl-3">
+                    <p className="font-outfit text-[clamp(0.75rem,0.83vw,1rem)] text-body-light xl:text-[0.6rem] 2xl:text-[clamp(0.75rem,0.83vw,1rem)]">
+                      Staff
+                    </p>
+                    <p className="mt-1 font-outfit text-[clamp(0.688rem,0.73vw,0.875rem)] text-[#252525] xl:text-[0.55rem] 2xl:text-[clamp(0.688rem,0.73vw,0.875rem)]">
+                      {item.text}
+                    </p>
+                  </div>
+                </div>
               ))}
             </div>
           )}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { PropertyDetailCategory } from "@/types";
+import type { PropertyDetailCategory, PropertyStaff } from "@/types";
 
 const ICON_NAMES = [
   "bedroom", "wardrobe", "window", "hoist", "ac",
@@ -11,8 +11,10 @@ const ICON_NAMES = [
 
 export default function PropertyDetails({
   details,
+  staff,
 }: {
   details: PropertyDetailCategory[];
+  staff?: PropertyStaff[];
 }) {
   return (
     <section className="px-[1.25rem] py-[2rem] sm:px-[2rem] sm:py-[3rem] md:px-[3rem] lg:px-[7.7%] lg:py-[5rem]">
@@ -69,6 +71,7 @@ export default function PropertyDetails({
             </div>
           </div>
         ))}
+
       </div>
     </section>
   );

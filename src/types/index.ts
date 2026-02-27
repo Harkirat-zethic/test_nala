@@ -44,6 +44,10 @@ export interface PropertyDetailCategory {
   features: PropertyFeature[];
 }
 
+export interface PropertyStaff {
+  text: string;
+}
+
 export interface Property {
   id: string;
   title: string;
@@ -59,6 +63,7 @@ export interface Property {
   description: string;
   brochureUrl?: string;
   villas: PropertyVilla[];
+  staff?: PropertyStaff[];
   details: PropertyDetailCategory[];
   mapEmbedUrl: string;
   dropdownName: string;

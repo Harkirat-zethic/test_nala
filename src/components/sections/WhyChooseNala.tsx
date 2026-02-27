@@ -17,7 +17,7 @@ export default function WhyChooseNala() {
   const totalSlides = WHY_CHOOSE_ITEMS.length;
   const scrollProgress = ((currentIndex + 1) / totalSlides) * 100;
 
-  // Snap wrapper scroll position to match the current slide
+  // Snap wrapper scroll position to match the current slide (desktop only)
   const syncScroll = useCallback(
     (index: number) => {
       const wrapper = wrapperRef.current;
@@ -30,9 +30,7 @@ export default function WhyChooseNala() {
     [totalSlides]
   );
 
-  // Lock scroll position during slide transitions
-  const lockedScrollY = useRef<number | null>(null);
-
+  // Desktop: wheel-driven slide changes
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
@@ -47,18 +45,17 @@ export default function WhyChooseNala() {
       const atEnd =
         swiper.activeIndex === totalSlides - 1 && e.deltaY > 0;
 
-      // Let normal scroll take over at boundaries
       if (atStart || atEnd) return;
 
-      // Always block page scroll while section is active
       e.preventDefault();
 
-      // Only advance one slide, ignore everything during transition
       if (isAnimating.current) return;
       if (Math.abs(e.deltaY) < 10) return;
 
       isAnimating.current = true;
-      lockedScrollY.current = window.scrollY;
+
+      // Lock body scroll during transition instead of using a scroll listener
+      document.body.style.overflow = "hidden";
 
       if (e.deltaY > 0) {
         swiper.slideNext();
@@ -67,25 +64,48 @@ export default function WhyChooseNala() {
       }
 
       setTimeout(() => {
+        document.body.style.overflow = "";
         syncScroll(swiper.activeIndex);
-        lockedScrollY.current = null;
         isAnimating.current = false;
       }, 850);
     };
 
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      document.body.style.overflow = "";
+    };
+  }, [totalSlides, syncScroll]);
+
+  // Mobile: scroll-position-driven slide changes (passive — no scroll blocking)
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
     const handleScroll = () => {
-      if (lockedScrollY.current !== null) {
-        window.scrollTo({ top: lockedScrollY.current, behavior: "instant" });
+      // Skip while desktop wheel animation is active
+      if (isAnimating.current || !swiperRef.current) return;
+
+      const rect = wrapper.getBoundingClientRect();
+      const scrolledInto = -rect.top;
+      const scrollableDistance = wrapper.offsetHeight - window.innerHeight;
+
+      if (scrolledInto < 0 || scrolledInto > scrollableDistance) return;
+
+      const progress = scrolledInto / scrollableDistance;
+      const targetIndex = Math.min(
+        Math.round(progress * (totalSlides - 1)),
+        totalSlides - 1
+      );
+
+      if (targetIndex !== swiperRef.current.activeIndex) {
+        swiperRef.current.slideTo(targetIndex);
       }
     };
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    window.addEventListener("scroll", handleScroll, { passive: false });
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [totalSlides, syncScroll]);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [totalSlides]);
 
   return (
     <div ref={wrapperRef} style={{ height: `${totalSlides * 100}vh` }}>
@@ -96,7 +116,10 @@ export default function WhyChooseNala() {
           speed={800}
           loop={false}
           allowTouchMove={false}
+          simulateTouch={false}
+          touchStartPreventDefault={false}
           className="h-full w-full"
+          style={{ touchAction: "pan-y" }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
