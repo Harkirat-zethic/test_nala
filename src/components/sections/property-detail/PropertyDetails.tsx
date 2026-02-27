@@ -71,7 +71,6 @@ export default function PropertyDetails({
             </div>
           </div>
         ))}
-
       </div>
     </section>
   );
