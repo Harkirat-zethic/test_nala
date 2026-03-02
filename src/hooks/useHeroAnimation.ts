@@ -119,7 +119,7 @@
         tl.to(buildingRef.current, {
           opacity: 1,
           y: 0,
-          duration: 2,
+          duration: 1,
         }, 0);
 
         // Title slides up and fades in

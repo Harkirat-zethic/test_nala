@@ -45,7 +45,7 @@ export default function Hero() {
         )}
         style={{
           fontFamily: "'Outfit', sans-serif",
-          transform: "translateY(1rem)",
+          transform: "translateY(8rem)",
         }}
       >
         Building
@@ -53,8 +53,8 @@ export default function Hero() {
 
       {/* Layer 3: House image — slides down */}
       <div
-        ref={personRef}
-        className="absolute left-0 top-0 z-[2] h-full w-full sm:h-[126vh]"
+        // ref={personRef}
+        className="absolute left-0 top-[-2rem] z-[2] h-full w-full sm:h-[126vh]"
       >
         <div className="relative h-full w-full">
           <Image
@@ -106,7 +106,7 @@ export default function Hero() {
           style={{
             fontFamily: "'Outfit', sans-serif",
             fontWeight: 400,
-            transform: "translateY(2.5rem)",
+            transform: "translateY(3.5rem)",
           }}
         >
           High Quality Specialist Disability Accommodation
