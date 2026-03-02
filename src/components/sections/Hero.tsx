@@ -78,7 +78,7 @@ export default function Hero() {
       />
 
       {/* Layer 5: Green leaves — slides UP */}
-      <div
+      {/* <div
         ref={leavesRef}
         className="pointer-events-none absolute inset-0 z-[4] hidden overflow-hidden mix-blend-multiply sm:block"
       >
@@ -90,7 +90,7 @@ export default function Hero() {
           className="absolute left-0 top-0 h-[134%] w-[181%] max-w-none"
           aria-hidden
         />
-      </div>
+      </div> */}
 
       {/* Layer 6: Content — absolutely positioned to match Figma layout */}
       <div className="absolute inset-0 z-[6] pointer-events-none">
