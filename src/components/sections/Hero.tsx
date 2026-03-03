@@ -40,7 +40,7 @@ export default function Hero() {
         ref={buildingRef}
         className={cn(
           "absolute z-[1] font-extrabold uppercase leading-[1.2] tracking-[4.56px] text-white opacity-0",
-          "left-[clamp(1.5rem,7.8%,7.8%)] top-[23%] text-[14vw] short:text-[19vh] tall:text-[clamp(20px,9.42vw,200px)] ",
+          "left-[clamp(1.5rem,7.8%,7.8%)] top-[18%] text-[14vw] short:text-[19vh] tall:text-[clamp(20px,9.42vw,200px)] ",
           "md:top-[20%]"
         )}
         style={{
@@ -99,7 +99,7 @@ export default function Hero() {
           ref={titleRef}
           className={cn(
             "pointer-events-auto absolute whitespace-pre-wrap leading-[1.2] tracking-[1.38px] text-white opacity-0",
-            "left-[clamp(1.5rem,7.8%,7.8%)] top-[35%] max-w-[80%] text-[5.5vw] short:text-[6.5vh]",
+            "left-[clamp(1.5rem,7.8%,7.8%)] top-[30%] max-w-[80%] text-[5.5vw] short:text-[6.5vh]",
             "sm:top-[40%] sm:max-w-[100%] sm:text-[clamp(2.75rem,4.59vw,4.3rem)]",
             "lg:top-[48.2%] lg:max-w-[48vw] short:top-[40%] tall:top-[40%] tall:text-[clamp(1.75rem,3.59vw,4.3rem)]"
           )}
