@@ -151,7 +151,7 @@ export default function ContactSection() {
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="Your message..."
+                  placeholder="Your Message..."
                   value={formData.message}
                   onChange={handleChange}
                   className="min-h-[13rem] resize-none border-b border-[#c5c9d2] bg-transparent px-2 py-3 font-afacad text-[clamp(1.125rem,1.46vw,1.75rem)] short:text-[2.6vh] text-dark outline-none transition-colors placeholder:text-[#c5c9d2] focus:border-primary"
