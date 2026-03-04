@@ -51,18 +51,12 @@ export default function Footer() {
       <div className="relative z-10 flex flex-col items-center gap-8 px-[1.5rem] pt-[3rem] text-center sm:px-[2rem] sm:pt-[4rem] md:hidden">
         {/* Logo */}
         <Link href="/" className="relative h-[4.5rem] w-[3.5rem] shrink-0">
-          <Image src="/images/footer-logo-3040ad.png" alt="NALA Properties" fill className="object-contain" />
+          <Image src="/images/footer-logo.png" alt="NALA Properties" fill className="object-contain" />
         </Link>
 
         {/* NDIS */}
-        <div className="flex flex-col items-center gap-3">
-          <div className="relative h-[2.5rem] w-[5.5rem]">
-            <Image src="/images/ndis-badge.png" alt="NDIS Registered Provider" fill className="object-contain" />
-          </div>
-          <div className="flex flex-col gap-1 font-outfit text-[0.875rem] text-body">
-            <p>NDIS SDA Provider Number:</p>
-            <p className="font-bold">{COMPANY_INFO.ndisProvider}</p>
-          </div>
+        <div className="relative h-[4rem] w-[9rem]">
+          <Image src="/images/ndis-badge.png" alt="NDIS Registered Provider" fill className="object-contain" />
         </div>
 
         {/* Email */}
@@ -106,24 +100,20 @@ export default function Footer() {
               : "translate-y-6 opacity-0"
           )}
         >
-          <Image src="/images/footer-logo-3040ad.png" alt="NALA Properties" fill className="object-contain" />
+          <Image src="/images/footer-logo.png" alt="NALA Properties" fill className="object-contain" />
         </Link>
 
-        {/* NDIS badge + provider number */}
+        {/* NDIS badge */}
         <div
           className={cn(
-            "flex shrink-0 flex-col gap-[1.125rem] rounded-[0.875rem] bg-light px-7 transition-all duration-[1500ms] delay-150 ease-out",
+            "shrink-0 transition-all duration-[1500ms] delay-150 ease-out",
             isVisible
               ? "translate-y-0 opacity-100"
               : "translate-y-6 opacity-0"
           )}
         >
-          <div className="relative h-[clamp(2.5rem,3.11vw,3.74rem)] short:h-[5vh] w-[clamp(5.5rem,7.3vw,8.77rem)] short:w-[10vh]">
+          <div className="relative h-[clamp(3.5rem,4.5vw,5.5rem)] short:h-[7vh] w-[clamp(7.5rem,10vw,12rem)] short:w-[14vh]">
             <Image src="/images/ndis-badge.png" alt="NDIS Registered Provider" fill className="object-contain" />
-          </div>
-          <div className="flex flex-col gap-[0.75rem] font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] short:text-[1.9vh] text-body">
-            <p className="leading-[0.7em]">NDIS SDA Provider Number:</p>
-            <p className="font-bold leading-[0.8em]">{COMPANY_INFO.ndisProvider}</p>
           </div>
         </div>
 
