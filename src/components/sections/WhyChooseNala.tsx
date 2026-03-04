@@ -2,16 +2,11 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperType } from "swiper";
 import { WHY_CHOOSE_ITEMS } from "@/lib/constants";
 import { cn } from "@/lib/cn";
 
-import "swiper/css";
-
 export default function WhyChooseNala() {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const swiperRef = useRef<SwiperType | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const isAnimating = useRef(false);
   const totalSlides = WHY_CHOOSE_ITEMS.length;
@@ -38,12 +33,10 @@ export default function WhyChooseNala() {
     const handleWheel = (e: WheelEvent) => {
       const rect = wrapper.getBoundingClientRect();
       const isInView = rect.top <= 0 && rect.bottom >= window.innerHeight;
-      if (!isInView || !swiperRef.current) return;
+      if (!isInView) return;
 
-      const swiper = swiperRef.current;
-      const atStart = swiper.activeIndex === 0 && e.deltaY < 0;
-      const atEnd =
-        swiper.activeIndex === totalSlides - 1 && e.deltaY > 0;
+      const atStart = currentIndex === 0 && e.deltaY < 0;
+      const atEnd = currentIndex === totalSlides - 1 && e.deltaY > 0;
 
       if (atStart || atEnd) return;
 
@@ -53,19 +46,17 @@ export default function WhyChooseNala() {
       if (Math.abs(e.deltaY) < 10) return;
 
       isAnimating.current = true;
-
-      // Lock body scroll during transition instead of using a scroll listener
       document.body.style.overflow = "hidden";
 
-      if (e.deltaY > 0) {
-        swiper.slideNext();
-      } else {
-        swiper.slidePrev();
-      }
+      const nextIndex = e.deltaY > 0
+        ? Math.min(currentIndex + 1, totalSlides - 1)
+        : Math.max(currentIndex - 1, 0);
+
+      setCurrentIndex(nextIndex);
 
       setTimeout(() => {
         document.body.style.overflow = "";
-        syncScroll(swiper.activeIndex);
+        syncScroll(nextIndex);
         isAnimating.current = false;
       }, 850);
     };
@@ -75,16 +66,15 @@ export default function WhyChooseNala() {
       window.removeEventListener("wheel", handleWheel);
       document.body.style.overflow = "";
     };
-  }, [totalSlides, syncScroll]);
+  }, [currentIndex, totalSlides, syncScroll]);
 
-  // Mobile: scroll-position-driven slide changes (passive — no scroll blocking)
+  // Mobile: scroll-position-driven slide changes
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
 
     const handleScroll = () => {
-      // Skip while desktop wheel animation is active
-      if (isAnimating.current || !swiperRef.current) return;
+      if (isAnimating.current) return;
 
       const rect = wrapper.getBoundingClientRect();
       const scrolledInto = -rect.top;
@@ -98,50 +88,29 @@ export default function WhyChooseNala() {
         totalSlides - 1
       );
 
-      if (targetIndex !== swiperRef.current.activeIndex) {
-        swiperRef.current.slideTo(targetIndex);
+      if (targetIndex !== currentIndex) {
+        setCurrentIndex(targetIndex);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [totalSlides]);
+  }, [currentIndex, totalSlides]);
 
   return (
     <div ref={wrapperRef} style={{ height: `${totalSlides * 100}vh` }}>
       <section className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Swiper — vertical, scroll-driven slides */}
-        <Swiper
-          direction="vertical"
-          speed={800}
-          loop={false}
-          allowTouchMove={false}
-          simulateTouch={false}
-          touchStartPreventDefault={false}
-          className="h-full w-full"
-          style={{ touchAction: "pan-y" }}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          onSlideChange={(swiper) => {
-            setCurrentIndex(swiper.activeIndex);
-          }}
-        >
-          {WHY_CHOOSE_ITEMS.map((item, index) => (
-            <SwiperSlide key={item.title} className="relative h-full w-full">
-              <Image
-                src={item.imageSrc}
-                alt=""
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority={index === 0}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {/* Single fixed background image */}
+        <Image
+          src={WHY_CHOOSE_ITEMS[0].imageSrc}
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
 
-        {/* Centered white card — overlaid on top of Swiper */}
+        {/* Centered white card */}
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
           <div className="relative w-[clamp(20rem,40.4vw,48.5rem)] short:w-[65vh] rounded shadow-2xl">
             {/* White top — heading */}

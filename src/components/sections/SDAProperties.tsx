@@ -5,7 +5,7 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
 
 export default function SDAProperties() {
-  const { ref, isVisible } = useIntersectionObserver({ triggerOnce: false, threshold: 0.15 });
+  const { ref, isVisible } = useIntersectionObserver({ triggerOnce: true, threshold: 0.2 });
 
   return (
     <section
@@ -18,7 +18,7 @@ export default function SDAProperties() {
           {/* Title */}
           <div
             className={cn(
-              "transition-all duration-[2000ms] ease-out",
+              "transition-all duration-[2000ms] delay-300 ease-out",
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
           >
@@ -36,7 +36,7 @@ export default function SDAProperties() {
             style={{ fontFamily: "'Outfit', sans-serif" }}
             className={cn(
               "mt-6 text-base leading-relaxed text-[#5b5b5b]",
-              "transition-all duration-[2000ms] ease-out",
+              "transition-all duration-[2000ms] delay-500 ease-out",
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
           >
@@ -51,7 +51,7 @@ export default function SDAProperties() {
             style={{ fontFamily: "'Outfit', sans-serif" }}
             className={cn(
               "mt-4 text-base leading-[28px]",
-              "transition-all duration-[2000ms] ease-out",
+              "transition-all duration-[2000ms] delay-700 ease-out",
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
           >
@@ -65,7 +65,7 @@ export default function SDAProperties() {
         <div
           className={cn(
             "relative mt-8 w-full",
-            "transition-all duration-[2000ms] ease-out",
+            "transition-all duration-[2000ms] delay-[900ms] ease-out",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           )}
         >
@@ -100,7 +100,7 @@ export default function SDAProperties() {
         <div
           className={cn(
             "absolute left-[7.8%] top-[25%] z-10 w-[44.5%]",
-            "transition-all duration-[2000ms] ease-out",
+            "transition-all duration-[2000ms] delay-300 ease-out",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
           )}
         >
@@ -118,7 +118,7 @@ export default function SDAProperties() {
           style={{ fontFamily: "'Outfit', sans-serif" }}
           className={cn(
             "absolute left-[8%] top-[65.4%] z-10 w-[19.6%] text-[clamp(14px,1.04vw,20px)] leading-[28px] short:text-[1.9vh]",
-            "transition-all duration-[2000ms] ease-out",
+            "transition-all duration-[2000ms] delay-700 ease-out",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
           )}
         >
@@ -131,7 +131,7 @@ export default function SDAProperties() {
         <div
           className={cn(
             "absolute bottom-0 left-0 w-full",
-            "transition-all duration-[2000ms] ease-out",
+            "transition-all duration-[2000ms] delay-500 ease-out",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           )}
         >
@@ -150,7 +150,7 @@ export default function SDAProperties() {
         <div
           className={cn(
             "absolute bottom-0 left-1/2 z-[1] h-[90%] w-[38.9%] -translate-x-1/2",
-            "transition-all duration-[2000ms] ease-out",
+            "transition-all duration-[2000ms] delay-[900ms] ease-out",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           )}
         >
@@ -170,7 +170,7 @@ export default function SDAProperties() {
           style={{ fontFamily: "'Outfit', sans-serif" }}
           className={cn(
             "absolute left-[60.1%] top-[30%] z-10 w-[32.1%] text-[clamp(16px,1.46vw,28px)] leading-[1.36em] text-[#5b5b5b] short:text-[2.6vh]",
-            "transition-all duration-[2000ms] ease-out",
+            "transition-all duration-[2000ms] delay-500 ease-out",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
           )}
         >

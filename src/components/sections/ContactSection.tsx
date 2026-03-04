@@ -105,7 +105,7 @@ export default function ContactSection() {
                 <FormField
                   label="Name"
                   name="name"
-                  placeholder="john doe"
+                  placeholder="Your Name"
                   value={formData.name}
                   onChange={handleChange}
                   error={errors.name}
@@ -114,7 +114,7 @@ export default function ContactSection() {
                   label="Email Address"
                   name="email"
                   type="email"
-                  placeholder="john.doe@email.com"
+                  placeholder="Your Email@gmail.com"
                   value={formData.email}
                   onChange={handleChange}
                   error={errors.email}
@@ -127,7 +127,7 @@ export default function ContactSection() {
                   label="Phone Number"
                   name="phone"
                   type="tel"
-                  placeholder="+91 9876543210"
+                  placeholder="Your Phone Number"
                   value={formData.phone}
                   onChange={handleChange}
                 />
