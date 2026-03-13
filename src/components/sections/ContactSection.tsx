@@ -26,6 +26,7 @@ export default function ContactSection() {
     isSubmitting,
     isSubmitted,
     errors,
+    serverError,
     handleChange,
     handleSubmit,
   } = useContactForm();
@@ -160,6 +161,11 @@ export default function ContactSection() {
                   <p className="text-sm text-red-500">{errors.message}</p>
                 )}
               </div>
+
+              {/* Server error */}
+              {serverError && (
+                <p className="font-outfit text-sm text-red-500">{serverError}</p>
+              )}
 
               {/* Submit button */}
               <button

@@ -43,26 +43,27 @@ export default function PropertyHero({ property }: { property: Property }) {
       {/* Gallery */}
       <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:gap-4 lg:mt-12 lg:flex-row lg:gap-[1.875rem]">
         {/* Main image */}
-        <div className="relative aspect-[16/10] w-full  rounded-[0.625rem] sm:aspect-[2.16/1] sm:rounded-[0.875rem] lg:flex-1">
+        <div className="relative w-full rounded-[0.625rem] sm:rounded-[0.875rem] lg:flex-1 overflow-hidden">
           <Image
             src={property.images[selectedIndex].src}
             alt={property.images[selectedIndex].alt}
-            fill
-            className="object-cover transition-all duration-500"
+            width={1200}
+            height={800}
+            className="h-auto w-full object-contain transition-all duration-500"
             sizes="(max-width: 1023px) 100vw, 75vw"
             priority
           />
           {/* Nav arrows */}
           <button
             onClick={goToPrev}
-            className="absolute left-[clamp(0.75rem,2.6vw,-1.5rem)] top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 lg:left-[-1.5rem]"
+            className="absolute left-3 top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 sm:left-4"
             aria-label="Previous image"
           >
             <Image src="/images/arrow-left.svg" alt="" width={30} height={30} className="h-[clamp(16px,1.96vw,30px)] w-[clamp(16px,1.96vw,30px)]" />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-[clamp(0.75rem,2.6vw,-1.5rem)] top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 lg:right-[-1.5rem]"
+            className="absolute right-3 top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 sm:right-4"
             aria-label="Next image"
           >
             <Image src="/images/arrow-right.svg" alt="" width={30} height={30} className="h-[clamp(16px,1.96vw,30px)] w-[clamp(16px,1.96vw,30px)]" />

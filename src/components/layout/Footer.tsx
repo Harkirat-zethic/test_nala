@@ -33,7 +33,7 @@ const FOOTER_CLOUDS: {
   { src: "/images/cloud6.png", top: "35%", startLeft: "42%", revealedLeft: "108%", direction: 1, width: "46%", duration: 2900, delay: 200 },
   { src: "/images/cloud2.png", top: "50%", startLeft: "38%", revealedLeft: "104%", direction: 1, width: "48%", duration: 3000, delay: 350 },
   // Inner fill clouds (cover the center gap → drift fully out)
-  { src: "/images/cloud6.png", top: "10%", startLeft: "25%", revealedLeft: "-52%", direction: -1, width: "38%", duration: 3600, delay: 500 },
+  { src: "/images/cloud3.png", top: "10%", startLeft: "25%", revealedLeft: "-52%", direction: -1, width: "38%", duration: 3600, delay: 500 },
   { src: "/images/cloud4.png", top: "25%", startLeft: "30%", revealedLeft: "106%", direction: 1, width: "40%", duration: 3500, delay: 400 },
   { src: "/images/cloud5.png", top: "42%", startLeft: "28%", revealedLeft: "-54%", direction: -1, width: "42%", duration: 3700, delay: 550 },
 ];

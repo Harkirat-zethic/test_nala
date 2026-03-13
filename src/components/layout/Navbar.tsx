@@ -73,7 +73,7 @@ export default function Navbar() {
       )}
     >
       <div className="mx-auto w-full max-w-[1920px] px-4 pt-2 pb-3 sm:px-6 sm:pt-[10px] sm:pb-4 md:px-12 lg:px-[7.8%] short:pt-1.5 short:pb-2">
-        <div className="relative flex h-[clamp(50px,5vw,78px)] short:h-[7vh] w-full items-center">
+        <div className="relative flex h-[clamp(50px,5vw,78px)] short:h-[9vh] w-full items-center">
 
           {/* Left: Nav links */}
           <div className="hidden items-end gap-[30px] lg:flex">
@@ -173,7 +173,7 @@ export default function Navbar() {
               />
             )}
             <Link href="/" className="relative">
-              <div className="relative h-[clamp(32px,3.6vw,55px)] short:h-[5vh] w-[clamp(80px,10.4vw,157.5px)] short:w-[14vh]">
+              <div className="relative h-[clamp(32px,3.6vw,55px)] short:h-[6.5vh] w-[clamp(80px,10.4vw,157.5px)] short:w-[18vh]">
                 <Image
                   src={isDark ? "/images/logo.png" : "/images/logo-white.png"}
                   alt="NALA Properties"
