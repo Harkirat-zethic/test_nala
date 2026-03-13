@@ -23,19 +23,19 @@ const FOOTER_CLOUDS: {
   delay: number;
 }[] = [
   // Left-drifting clouds (cover center → drift fully off-screen left)
-  { src: "/images/cloud.png", top: "0%", startLeft: "10%", revealedLeft: "-55%", direction: -1, width: "40%", duration: 3000, delay: 0 },
-  { src: "/images/cloud3.png", top: "15%", startLeft: "15%", revealedLeft: "-52%", direction: -1, width: "48%", duration: 2800, delay: 200 },
-  { src: "/images/cloud5.png", top: "30%", startLeft: "8%", revealedLeft: "-58%", direction: -1, width: "52%", duration: 3100, delay: 100 },
-  { src: "/images/cloud.png", top: "45%", startLeft: "12%", revealedLeft: "-54%", direction: -1, width: "44%", duration: 3300, delay: 300 },
+  { src: "/images/cloud.webp", top: "0%", startLeft: "10%", revealedLeft: "-55%", direction: -1, width: "40%", duration: 3000, delay: 0 },
+  { src: "/images/cloud3.webp", top: "15%", startLeft: "15%", revealedLeft: "-52%", direction: -1, width: "48%", duration: 2800, delay: 200 },
+  { src: "/images/cloud5.webp", top: "30%", startLeft: "8%", revealedLeft: "-58%", direction: -1, width: "52%", duration: 3100, delay: 100 },
+  { src: "/images/cloud.webp", top: "45%", startLeft: "12%", revealedLeft: "-54%", direction: -1, width: "44%", duration: 3300, delay: 300 },
   // Right-drifting clouds (cover center → drift fully off-screen right)
-  { src: "/images/cloud2.png", top: "5%", startLeft: "45%", revealedLeft: "105%", direction: 1, width: "42%", duration: 3200, delay: 100 },
-  { src: "/images/cloud4.png", top: "20%", startLeft: "40%", revealedLeft: "102%", direction: 1, width: "50%", duration: 3400, delay: 50 },
-  { src: "/images/cloud6.png", top: "35%", startLeft: "42%", revealedLeft: "108%", direction: 1, width: "46%", duration: 2900, delay: 200 },
-  { src: "/images/cloud2.png", top: "50%", startLeft: "38%", revealedLeft: "104%", direction: 1, width: "48%", duration: 3000, delay: 350 },
+  { src: "/images/cloud2.webp", top: "5%", startLeft: "45%", revealedLeft: "105%", direction: 1, width: "42%", duration: 3200, delay: 100 },
+  { src: "/images/cloud4.webp", top: "20%", startLeft: "40%", revealedLeft: "102%", direction: 1, width: "50%", duration: 3400, delay: 50 },
+  { src: "/images/cloud6.webp", top: "35%", startLeft: "42%", revealedLeft: "108%", direction: 1, width: "46%", duration: 2900, delay: 200 },
+  { src: "/images/cloud2.webp", top: "50%", startLeft: "38%", revealedLeft: "104%", direction: 1, width: "48%", duration: 3000, delay: 350 },
   // Inner fill clouds (cover the center gap → drift fully out)
-  { src: "/images/cloud3.png", top: "10%", startLeft: "25%", revealedLeft: "-52%", direction: -1, width: "38%", duration: 3600, delay: 500 },
-  { src: "/images/cloud4.png", top: "25%", startLeft: "30%", revealedLeft: "106%", direction: 1, width: "40%", duration: 3500, delay: 400 },
-  { src: "/images/cloud5.png", top: "42%", startLeft: "28%", revealedLeft: "-54%", direction: -1, width: "42%", duration: 3700, delay: 550 },
+  { src: "/images/cloud3.webp", top: "10%", startLeft: "25%", revealedLeft: "-52%", direction: -1, width: "38%", duration: 3600, delay: 500 },
+  { src: "/images/cloud4.webp", top: "25%", startLeft: "30%", revealedLeft: "106%", direction: 1, width: "40%", duration: 3500, delay: 400 },
+  { src: "/images/cloud5.webp", top: "42%", startLeft: "28%", revealedLeft: "-54%", direction: -1, width: "42%", duration: 3700, delay: 550 },
 ];
 
 export default function Footer() {
@@ -51,12 +51,12 @@ export default function Footer() {
       <div className="relative z-10 flex flex-col items-center gap-8 px-[1.5rem] pt-[3rem] text-center sm:px-[2rem] sm:pt-[4rem] md:hidden">
         {/* Logo */}
         <Link href="/" className="relative h-[4.5rem] w-[3.5rem] shrink-0">
-          <Image src="/images/footer-logo.png" alt="NALA Properties" fill className="object-contain" />
+          <Image src="/images/footer-logo.webp" alt="NALA Properties" fill className="object-contain" />
         </Link>
 
         {/* NDIS */}
         <div className="relative h-[4rem] w-[9rem]">
-          <Image src="/images/ndis-badge.png" alt="NDIS Registered Provider" fill className="object-contain" />
+          <Image src="/images/ndis-badge.webp" alt="NDIS Registered Provider" fill className="object-contain" />
         </div>
 
         {/* Email */}
@@ -100,7 +100,7 @@ export default function Footer() {
               : "translate-y-6 opacity-0"
           )}
         >
-          <Image src="/images/footer-logo.png" alt="NALA Properties" fill className="object-contain" />
+          <Image src="/images/footer-logo.webp" alt="NALA Properties" fill className="object-contain" />
         </Link>
 
         {/* NDIS badge */}
@@ -113,7 +113,7 @@ export default function Footer() {
           )}
         >
           <div className="relative h-[clamp(3.5rem,4.5vw,5.5rem)] short:h-[7vh] w-[clamp(7.5rem,10vw,12rem)] short:w-[14vh]">
-            <Image src="/images/ndis-badge.png" alt="NDIS Registered Provider" fill className="object-contain" />
+            <Image src="/images/ndis-badge.webp" alt="NDIS Registered Provider" fill className="object-contain" />
           </div>
         </div>
 
@@ -182,14 +182,14 @@ export default function Footer() {
         />
 
         {/* Layer 2b: Static bottom clouds — hug the very bottom edge */}
-        <Image src="/images/cloud3.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-38%", left: "-20%", width: "45%", opacity: 0.9 }} />
-        <Image src="/images/cloud3.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-38%", left: "35%", width: "45%", opacity: 0.9 }} />
-        <Image src="/images/cloud5.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-22%", left: "-1%", width: "40%", opacity: 0.85 }} />
-        <Image src="/images/cloud4.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-25%", right: "-10%", width: "45%", opacity: 0.9 }} />
-        <Image src="/images/cloud4.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "60%", right: "-20%", width: "45%", opacity: 0.9 }} />
-        <Image src="/images/cloud4.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "60%", left: "-30%", width: "45%", opacity: 0.9 }} />
-        <Image src="/images/cloud6.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-22%", left: "1%", width: "40%", opacity: 0.85 }} />
-        <Image src="/images/cloud.png" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-38%", left: "1%", width: "42%", opacity: 0.8 }} />
+        <Image src="/images/cloud3.webp" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-38%", left: "-20%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud3.webp" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-38%", left: "35%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud5.webp" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-22%", left: "-1%", width: "40%", opacity: 0.85 }} />
+        <Image src="/images/cloud4.webp" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-25%", right: "-10%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud4.webp" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "60%", right: "-20%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud4.webp" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "60%", left: "-30%", width: "45%", opacity: 0.9 }} />
+        <Image src="/images/cloud6.webp" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-22%", left: "1%", width: "40%", opacity: 0.85 }} />
+        <Image src="/images/cloud.webp" alt="" width={800} height={400} aria-hidden className="pointer-events-none absolute z-[5]" style={{ bottom: "-38%", left: "1%", width: "42%", opacity: 0.8 }} />
 
         {/* Layer 3: Clouds — start covering NALA, drift far outward to reveal */}
         {FOOTER_CLOUDS.map((cloud, i) => (

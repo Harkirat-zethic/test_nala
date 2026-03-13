@@ -7,17 +7,17 @@ import { cn } from "@/lib/cn";
 const TIMELINE_ITEMS = [
   {
     text: "NALA provides modern, functional and safe SDA homes for NDIS participants. As a development company, NALA focuses on the physical and behavioral needs of its residents by building homes to the highest design standards",
-    imageSrc: "/images/about-timeline-1.jpg",
+    imageSrc: "/images/about-timeline-1.webp",
     textSide: "left" as const,
   },
   {
     text: "NALA homes set the benchmark for disability housing in Sydney, and alongside our leading SDA and SIL partners, ensure the best quality of life for our residents.",
-    imageSrc: "/images/about-timeline-2.png",
+    imageSrc: "/images/about-timeline-2.webp",
     textSide: "right" as const,
   },
   {
     text: null, // rich text — rendered separately
-    imageSrc: "/images/about-timeline-3.png",
+    imageSrc: "/images/about-timeline-3.webp",
     textSide: "left" as const,
   },
 ];
@@ -179,7 +179,7 @@ export default function AboutTimeline() {
           )}
         >
           <Image
-            src="/images/about-house-side.png"
+            src="/images/about-house-side.webp"
             alt=""
             fill
             className="-scale-x-100 object-cover"
@@ -199,7 +199,7 @@ export default function AboutTimeline() {
           )}
         >
           <Image
-            src="/images/about-house-side.png"
+            src="/images/about-house-side.webp"
             alt=""
             fill
             className="object-cover"

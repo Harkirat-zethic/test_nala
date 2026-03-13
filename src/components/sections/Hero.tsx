@@ -25,7 +25,7 @@ export default function Hero() {
       {/* Layer 1: Sky background — stays fixed */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-section-bg.jpg"
+          src="/images/hero-section-bg.webp"
           alt=""
           fill
           className="object-cover opacity-100"
@@ -58,7 +58,7 @@ export default function Hero() {
       >
         <div className="relative h-full w-full">
           <Image
-            src="/images/hero-house.png"
+            src="/images/hero-house.webp"
             alt="NALA property house"
             fill
             className="-scale-x-100 object-cover object-center"
@@ -83,7 +83,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 z-[4] hidden overflow-hidden mix-blend-multiply sm:block"
       >
         <Image
-          src="/images/green-leaves.png"
+          src="/images/green-leaves.webp"
           alt=""
           width={3474}
           height={1434}

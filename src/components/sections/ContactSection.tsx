@@ -39,7 +39,7 @@ export default function ContactSection() {
       {/* Watercolor textured background — anchored left */}
       <div className="absolute inset-0 opacity-70 sm:inset-y-0 sm:left-[-33rem] sm:w-[130%] short:left-[-20rem] short:w-[150%]">
         <Image
-          src="/images/watercolor-bg.jpg"
+          src="/images/watercolor-bg.webp"
           alt=""
           fill
           className="object-cover object-center sm:object-left sm:scale-[1.1]"

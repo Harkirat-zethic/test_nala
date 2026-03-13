@@ -175,7 +175,7 @@ export default function Navbar() {
             <Link href="/" className="relative">
               <div className="relative h-[clamp(32px,3.6vw,55px)] short:h-[6.5vh] w-[clamp(80px,10.4vw,157.5px)] short:w-[18vh]">
                 <Image
-                  src={isDark ? "/images/logo.png" : "/images/logo-white.png"}
+                  src={isDark ? "/images/logo.webp" : "/images/logo-white.webp"}
                   alt="NALA Properties"
                   fill
                   className="object-contain"

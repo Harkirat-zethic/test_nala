@@ -19,7 +19,7 @@ export default function NalaValues() {
       {/* z-0: Background house image at 17% opacity */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/values-bg-house.png"
+          src="/images/values-bg-house.webp"
           alt=""
           fill
           className="object-cover opacity-[0.17]"
@@ -65,7 +65,7 @@ export default function NalaValues() {
       >
         <div className="relative mx-auto h-[20rem] w-full  sm:h-[30rem] lg:h-full lg:max-w-none">
           <Image
-            src="/images/values-house.png"
+            src="/images/values-house.webp"
             alt="Modern NALA Property"
             fill
             className="object-cover [object-position:100%_100%] sm:object-center"

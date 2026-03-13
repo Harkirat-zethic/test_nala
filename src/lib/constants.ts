@@ -13,52 +13,52 @@ export const OFFER_ITEMS: OfferItem[] = [
     title: "Purpose Built Specialist Disability Accommodation",
     description:
       "NALA specializes in properties that meet individual needs. NALA villas can be customized during construction to fit specific requirements.",
-    imageSrc: "/images/offer-01.jpg",
+    imageSrc: "/images/offer-01.webp",
   },
   {
     number: "02",
     title: "Reliability and Care through our SIL Partners",
     description:
       "By partnering with industry leading and experienced SIL providers, NALA ensures its residents consistently receive the best possible care.",
-    imageSrc: "/images/offer-02.jpg",
+    imageSrc: "/images/offer-02.webp",
   },
   {
     number: "03",
     title: "Medium Term Accommodation provides flexible housing.",
     description:
       "NALA provides NDIS participants with the valuable option for MTA lasting up to 90 days, allowing them to carefully select their preferred SDA.",
-    imageSrc: "/images/offer-03.jpg",
+    imageSrc: "/images/offer-03.webp",
   },
   {
     number: "04",
     title: "Individually Tailored Luxury Villas for You",
     description:
       "NALA specializes in properties that meet individual needs. NALA villas can be customized during construction to fit specific requirements.",
-    imageSrc: "/images/offer-04.jpg",
+    imageSrc: "/images/offer-04.webp",
   },
 ];
 
 export const VALUE_ITEMS: ValueItem[] = [
-  { number: "01", title: "Follow your ethics", imageSrc: "/images/value-1.jpg" },
-  { number: "02", title: "Residents needs come first", imageSrc: "/images/value-2.jpg" },
-  { number: "03", title: "Take pride in your work", imageSrc: "/images/value-3.jpg" },
+  { number: "01", title: "Follow your ethics", imageSrc: "/images/value-1.webp" },
+  { number: "02", title: "Residents needs come first", imageSrc: "/images/value-2.webp" },
+  { number: "03", title: "Take pride in your work", imageSrc: "/images/value-3.webp" },
 ];
 
 export const WHY_CHOOSE_ITEMS: WhyChooseItem[] = [
   {
     title: "Tailored Homes",
     description: "Spacious homes that strive for excellence and innovation",
-    imageSrc: "/images/why-choose-1.png",
+    imageSrc: "/images/why-choose-1.webp",
   },
   {
     title: "Convenient Locations",
     description: "Homes in accessible locations for family, friends, and caregivers.",
-    imageSrc: "/images/why-choose-2.jpg",
+    imageSrc: "/images/why-choose-2.webp",
   },
   {
     title: "20 years in Property",
     description: "Ensures functional, easily adaptable, comfortable and safe living",
-    imageSrc: "/images/why-choose-3.jpg",
+    imageSrc: "/images/why-choose-3.webp",
   },
 ];
 

@@ -22,7 +22,7 @@ export default function AboutHero() {
         )}
       >
         <Image
-          src="/images/hero-section-bg.jpg"
+          src="/images/hero-section-bg.webp"
           alt=""
           fill
           className="object-cover opacity-100"
@@ -56,7 +56,7 @@ export default function AboutHero() {
         )}
       >
         <Image
-          src="/images/about-hero-overlay.png"
+          src="/images/about-hero-overlay.webp"
           alt="Modern SDA home"
           fill
           className="object-cover"

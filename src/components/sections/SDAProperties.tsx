@@ -72,7 +72,7 @@ export default function SDAProperties() {
           {/* Building image — sits above the bg */}
           <div className="relative mx-auto h-[250px] w-[65%] sm:h-[320px]">
             <Image
-              src="/images/sda-house.png"
+              src="/images/sda-house.webp"
               alt="Modern SDA Property"
               fill
               className="z-[1] object-contain object-bottom"
@@ -82,7 +82,7 @@ export default function SDAProperties() {
           {/* Background image — anchored to bottom, behind building */}
           <div className="absolute bottom-0 left-0 w-full">
             <Image
-              src="/images/sda-house-bg.png"
+              src="/images/sda-house-bg.webp"
               alt=""
               width={1920}
               height={600}
@@ -136,7 +136,7 @@ export default function SDAProperties() {
           )}
         >
           <Image
-            src="/images/sda-house-bg.png"
+            src="/images/sda-house-bg.webp"
             alt=""
             width={1920}
             height={600}
@@ -156,7 +156,7 @@ export default function SDAProperties() {
         >
           <div className="relative h-full w-full">
             <Image
-              src="/images/sda-house.png"
+              src="/images/sda-house.webp"
               alt="Modern SDA Property"
               fill
               className="z-10 object-contain object-bottom"
