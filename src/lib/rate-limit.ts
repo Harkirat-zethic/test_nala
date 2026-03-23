@@ -1,46 +1,30 @@
-const hits = new Map<string, number[]>();
+import { RateLimiterMemory } from "rate-limiter-flexible";
 
-const WINDOW_MS = 60_000;
-const MAX_REQUESTS = 5;
+const rateLimiter = new RateLimiterMemory({
+  points: 5,
+  duration: 60,
+});
 
-// Prune expired entries every 60s
-setInterval(() => {
-  const now = Date.now();
-  for (const [key, timestamps] of hits) {
-    const valid = timestamps.filter((t) => now - t < WINDOW_MS);
-    if (valid.length === 0) {
-      hits.delete(key);
-    } else {
-      hits.set(key, valid);
-    }
-  }
-}, 60_000).unref?.();
-
-export function checkRateLimit(key: string): {
+export async function checkRateLimit(key: string): Promise<{
   allowed: boolean;
   remaining: number;
   retryAfterMs: number;
-} {
-  const now = Date.now();
-  const timestamps = (hits.get(key) ?? []).filter((t) => now - t < WINDOW_MS);
-
-  if (timestamps.length >= MAX_REQUESTS) {
-    const oldest = timestamps[0];
+}> {
+  try {
+    const res = await rateLimiter.consume(key);
+    return {
+      allowed: true,
+      remaining: res.remainingPoints,
+      retryAfterMs: 0,
+    };
+  } catch (rej) {
+    const res = rej as { msBeforeNext: number };
     return {
       allowed: false,
       remaining: 0,
-      retryAfterMs: WINDOW_MS - (now - oldest),
+      retryAfterMs: res.msBeforeNext,
     };
   }
-
-  timestamps.push(now);
-  hits.set(key, timestamps);
-
-  return {
-    allowed: true,
-    remaining: MAX_REQUESTS - timestamps.length,
-    retryAfterMs: 0,
-  };
 }
 
 export function getClientIp(headers: Headers): string {
