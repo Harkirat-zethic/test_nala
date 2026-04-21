@@ -13,6 +13,7 @@ export interface OfferItem {
 export interface ValueItem {
   number: string;
   title: string;
+  description: string;
   imageSrc: string;
 }
 

@@ -33,11 +33,11 @@ export default function NalaValues() {
         className={cn(
           "absolute z-10 hidden transition-all duration-[1500ms] ease-out lg:block",
           isVisible
-            ? "left-[9.9%] top-[28%] max-h-[30rem] opacity-100 blur-0"
+            ? "left-[15.9%] top-[28%] max-h-[30rem] opacity-100 blur-0"
             : "left-[15.1%] top-[28%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
         )}
       >
-        <ValueCard number={VALUE_ITEMS[0].number} title={VALUE_ITEMS[0].title} />
+        <ValueCard number={VALUE_ITEMS[0].number} title={VALUE_ITEMS[0].title} description={VALUE_ITEMS[0].description} />
       </div>
 
       {/* Card 02 — top right */}
@@ -45,11 +45,11 @@ export default function NalaValues() {
         className={cn(
           "absolute z-10 hidden transition-all duration-[1500ms] ease-out lg:block",
           isVisible
-            ? "left-[66.4%] top-[28%] max-h-[30rem] opacity-100 blur-0"
+            ? "left-[67.4%] top-[28%] max-h-[30rem] opacity-100 blur-0"
             : "left-[61.2%] top-[28%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
         )}
       >
-        <ValueCard number={VALUE_ITEMS[1].number} title={VALUE_ITEMS[1].title} />
+        <ValueCard number={VALUE_ITEMS[1].number} title={VALUE_ITEMS[1].title} description={VALUE_ITEMS[1].description} />
       </div>
 
       {/* z-20: Center house image (transparent cutout) — IN FRONT of cards 01/02, BEHIND card 03 */}
@@ -79,11 +79,11 @@ export default function NalaValues() {
         className={cn(
           "absolute z-30 hidden transition-all duration-[1500ms] ease-out lg:block",
           isVisible
-            ? "left-[36.1%] top-[51.2%] max-h-[30rem] opacity-100 blur-0"
-            : "left-[36.1%] top-[51.2%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
+            ? "left-1/2 -translate-x-1/2 top-[51.2%] max-h-[30rem] opacity-100 blur-0"
+            : "left-1/2 -translate-x-1/2 top-[51.2%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
         )}
       >
-        <ValueCard number={VALUE_ITEMS[2].number} title={VALUE_ITEMS[2].title} />
+        <ValueCard number={VALUE_ITEMS[2].number} title={VALUE_ITEMS[2].title} description={VALUE_ITEMS[2].description} />
       </div>
 
       {/* z-40: Title block — ON TOP of everything */}
@@ -113,7 +113,7 @@ export default function NalaValues() {
               isVisible ? "opacity-100 blur-0" : "opacity-20 blur-[8px]"
             )}
           >
-            <ValueCard number={item.number} title={item.title} />
+            <ValueCard number={item.number} title={item.title} description={item.description} />
           </div>
         ))}
       </div>
@@ -121,21 +121,26 @@ export default function NalaValues() {
   );
 }
 
-function ValueCard({ number, title }: { number: string; title: string }) {
+function ValueCard({ number, title, description }: { number: string; title: string; description: string }) {
   return (
-    <div className="flex flex-col gap-[clamp(1.5rem,2.5vw,3rem)] short:gap-[3.5vh] rounded-[0.25rem] bg-white p-[clamp(1.5rem,2.7vw,3.25rem)] short:p-[4vh]">
+    <div className="flex flex-col gap-[clamp(0.75rem,1.25vw,1.5rem)] short:gap-[1.5vh] rounded-[0.25rem] bg-white p-[clamp(1rem,1.8vw,2.25rem)] short:p-[2.5vh]">
       {/* Number */}
-      <span className="font-outfit text-[clamp(2.5rem,4.17vw,5rem)] short:text-[7.5vh] font-extrabold leading-[0.65em] text-[#e8e8e8]">
+      <span className="font-outfit text-[clamp(1.75rem,2.8vw,3.5rem)] short:text-[5vh] font-extrabold leading-[0.65em] text-[#e8e8e8]">
         {number}
       </span>
 
       {/* Divider line */}
-      <div className="h-[1px] w-full max-w-[25rem] bg-[#e2e4e5] lg:w-[clamp(12rem,20.83vw,25rem)]" />
+      <div className="h-[1px] w-full max-w-[25rem] bg-[#e2e4e5] lg:w-[clamp(10rem,16vw,20rem)]" />
 
       {/* Title */}
-      <h3 className="font-outfit text-[clamp(1.25rem,2.5vw,3rem)] short:text-[4.5vh] font-normal leading-[1.08em] text-[#252525] lg:max-w-[clamp(12rem,20vw,24rem)]">
+      <h3 className="font-outfit text-[clamp(1rem,1.3vw,2rem)] short:text-[2.8vh] font-normal leading-[1.08em] text-[#252525] lg:max-w-[clamp(10rem,16vw,20rem)]">
         {title}
       </h3>
+
+      {/* Description */}
+      <p className="font-outfit text-[clamp(0.7rem,0.9vw,1.1rem)] short:text-[1.8vh] leading-[1.45] text-[#61656e] lg:max-w-[clamp(10rem,16vw,20rem)]">
+        {description}
+      </p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -240,9 +240,9 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
                   return items;
                 })}
                 {card.staff?.map((item, i) => (
-                  <>
-                    <div key={`staff-divider-${i}`} className="h-[2rem] border-l border-dashed border-[#e2e4e5] xl:h-[1.6rem] 2xl:h-[2.4rem]" />
-                    <div key={`staff-${i}`}>
+                  <Fragment key={`staff-${i}`}>
+                    <div className="h-[2rem] border-l border-dashed border-[#e2e4e5] xl:h-[1.6rem] 2xl:h-[2.4rem]" />
+                    <div>
                       <p className="font-outfit text-[0.7rem] font-normal text-[#717171] xl:text-[0.55rem] 2xl:text-[0.8rem]">
                         Staff
                       </p>
@@ -250,7 +250,7 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
                         {item.text}
                       </p>
                     </div>
-                  </>
+                  </Fragment>
                 ))}
               </div>
             </>

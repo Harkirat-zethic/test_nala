@@ -4,7 +4,7 @@ import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { useHeroAnimation } from "@/hooks/useHeroAnimation";
 
-const TAGS = ["Premium", "Accessible", "Accommodation"];
+const TAGS = ["Comfort", "Safety", "Independence"];
 
 export default function Hero() {
   const {

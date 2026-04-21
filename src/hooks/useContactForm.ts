@@ -14,7 +14,9 @@ const INITIAL_STATE: ContactFormData = {
 const STORAGE_KEY = "contact-idempotency-key";
 
 function regenerateKey(): string {
-  const key = crypto.randomUUID();
+  const key = typeof crypto !== "undefined" && crypto.randomUUID
+    ? crypto.randomUUID()
+    : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
   try { sessionStorage.setItem(STORAGE_KEY, key); } catch { /* SSR / private browsing */ }
   return key;
 }

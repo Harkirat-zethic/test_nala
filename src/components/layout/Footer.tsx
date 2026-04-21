@@ -54,24 +54,19 @@ export default function Footer() {
           <Image src="/images/footer-logo.webp" alt="NALA Properties" fill className="object-contain" />
         </Link>
 
-        {/* NDIS */}
-        <div className="relative h-[4rem] w-[9rem]">
-          <Image src="/images/ndis-badge.webp" alt="NDIS Registered Provider" fill className="object-contain" />
-        </div>
 
         {/* Email */}
         <div>
           <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] !text-[#3040ad]">Email</h3>
           <a href={`mailto:${COMPANY_INFO.email}`} className="mt-3 block font-outfit text-[0.875rem] text-body">{COMPANY_INFO.email}</a>
+          <a href="tel:0480850225" className="font-outfit text-[0.875rem] text-body">0480 850 225</a>
         </div>
 
-        {/* Social */}
+        {/* Address */}
         <div>
-          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] !text-[#3040ad]">Social</h3>
-          <div className="mt-3 flex items-center justify-center gap-3">
-            <SocialIcon href="#" label="LinkedIn" icon="/images/social-linkedin.svg" />
-            <SocialIcon href="#" label="Facebook" icon="/images/social-facebook.svg" />
-            <SocialIcon href="#" label="Twitter" icon="/images/social-twitter.svg" />
+          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] !text-[#3040ad]">Address</h3>
+          <div className="mt-3 flex flex-col gap-2">
+            <p className="font-outfit text-[0.875rem] text-body">Suite 320, 9 Union St,<br />Pyrmont NSW 2009</p>
           </div>
         </div>
 
@@ -103,36 +98,30 @@ export default function Footer() {
           <Image src="/images/footer-logo.webp" alt="NALA Properties" fill className="object-contain" />
         </Link>
 
-        {/* NDIS badge */}
-        <div
-          className={cn(
-            "shrink-0 transition-all duration-[1500ms] delay-150 ease-out",
-            isVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-6 opacity-0"
-          )}
-        >
-          <div className="relative h-[clamp(3.5rem,4.5vw,5.5rem)] short:h-[7vh] w-[clamp(7.5rem,10vw,12rem)] short:w-[14vh]">
-            <Image src="/images/ndis-badge.webp" alt="NDIS Registered Provider" fill className="object-contain" />
-          </div>
-        </div>
+
 
         {/* Email */}
         <FooterColumn title="Email" isVisible={isVisible} delay="delay-300">
           <a
             href={`mailto:${COMPANY_INFO.email}`}
-            className="block font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[0.8em] text-body transition-colors duration-300 hover:text-primary"
+            className="block font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[0.8em] text-body transition-colors duration-300 hover:text-primary mb-2"
           >
             {COMPANY_INFO.email}
           </a>
+           <a
+              href="tel:0480850225"
+              className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.6em] text-body transition-colors duration-300 hover:text-primary"
+            >
+              0480 850 225
+            </a>
         </FooterColumn>
 
-        {/* Social */}
-        <FooterColumn title="Social" isVisible={isVisible} delay="delay-500">
-          <div className="flex items-center gap-[clamp(0.875rem,0.96vw,1.15rem)]">
-            <SocialIcon href="#" label="LinkedIn" icon="/images/social-linkedin.svg" />
-            <SocialIcon href="#" label="Facebook" icon="/images/social-facebook.svg" />
-            <SocialIcon href="#" label="Twitter" icon="/images/social-twitter.svg" />
+        {/* Contact */}
+        <FooterColumn title="Address" isVisible={isVisible} delay="delay-500">
+          <div className="flex flex-col gap-1">
+            <p className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.6em] text-body">
+              Suite 320, 9 Union St,<br />Pyrmont NSW 2009
+            </p>
           </div>
         </FooterColumn>
 
@@ -265,24 +254,3 @@ function FooterColumn({
   );
 }
 
-/* ── Social icon ── */
-
-function SocialIcon({
-  href,
-  label,
-  icon,
-}: {
-  href: string;
-  label: string;
-  icon: string;
-}) {
-  return (
-    <a
-      href={href}
-      aria-label={label}
-      className="group flex h-[clamp(2.25rem,2.24vw,2.69rem)] short:h-[3.5vh] w-[clamp(2.25rem,2.24vw,2.69rem)] short:w-[3.5vh] items-center justify-center transition-transform duration-300 hover:scale-110"
-    >
-      <img src={icon} alt="" className="h-full w-full" />
-    </a>
-  );
-}

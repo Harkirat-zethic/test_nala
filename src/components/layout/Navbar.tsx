@@ -185,22 +185,40 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Right: Email */}
-          <div className="ml-auto hidden items-center gap-2 lg:flex">
-            <Image
-              src="/images/sms-icon.svg"
-              alt=""
-              width={20}
-              height={20}
-              aria-hidden
-              className={isDark ? "brightness-0" : ""}
-            />
-            <span className={cn(
-              "font-outfit text-[clamp(16px,1.3vw,20px)] short:text-[2.5vh] font-normal",
-              isDark ? "text-[#252525]" : "text-white"
-            )}>
-              {COMPANY_INFO.email}
-            </span>
+          {/* Right: Email & Phone */}
+          <div className="ml-auto hidden flex-col items-end gap-0.5 lg:flex">
+            <div className="flex items-center gap-2">
+              <Image
+                src="/images/sms-icon.svg"
+                alt=""
+                width={20}
+                height={20}
+                aria-hidden
+                className={isDark ? "brightness-0" : ""}
+              />
+              <span className={cn(
+                "font-outfit text-[clamp(14px,1.1vw,18px)] short:text-[2.2vh] font-normal",
+                isDark ? "text-[#252525]" : "text-white"
+              )}>
+                {COMPANY_INFO.email}
+              </span>
+            </div>
+            <a href="tel:0480850225" className="flex items-center gap-2">
+              <Image
+                src="/images/phone-icon.svg"
+                alt=""
+                width={18}
+                height={18}
+                aria-hidden
+                className={isDark ? "brightness-0" : ""}
+              />
+              <span className={cn(
+                "font-outfit text-[clamp(13px,1vw,16px)] short:text-[2vh] font-normal",
+                isDark ? "text-[#252525]" : "text-white"
+              )}>
+                0480 850 225
+              </span>
+            </a>
           </div>
 
           {/* Mobile menu toggle */}

@@ -8,9 +8,15 @@ import { cn } from "@/lib/cn";
 export default function WhyChooseNala() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const currentIndexRef = useRef(0);
   const isAnimating = useRef(false);
   const totalSlides = WHY_CHOOSE_ITEMS.length;
   const scrollProgress = ((currentIndex + 1) / totalSlides) * 100;
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
 
   // Snap wrapper scroll position to match the current slide (desktop only)
   const syncScroll = useCallback(
@@ -25,7 +31,7 @@ export default function WhyChooseNala() {
     [totalSlides]
   );
 
-  // Desktop: wheel-driven slide changes
+  // Desktop: wheel-driven slide changes (registered once, reads from ref)
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
@@ -35,8 +41,9 @@ export default function WhyChooseNala() {
       const isInView = rect.top <= 0 && rect.bottom >= window.innerHeight;
       if (!isInView) return;
 
-      const atStart = currentIndex === 0 && e.deltaY < 0;
-      const atEnd = currentIndex === totalSlides - 1 && e.deltaY > 0;
+      const idx = currentIndexRef.current;
+      const atStart = idx === 0 && e.deltaY < 0;
+      const atEnd = idx === totalSlides - 1 && e.deltaY > 0;
 
       if (atStart || atEnd) return;
 
@@ -46,16 +53,20 @@ export default function WhyChooseNala() {
       if (Math.abs(e.deltaY) < 10) return;
 
       isAnimating.current = true;
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
 
       const nextIndex = e.deltaY > 0
-        ? Math.min(currentIndex + 1, totalSlides - 1)
-        : Math.max(currentIndex - 1, 0);
+        ? Math.min(idx + 1, totalSlides - 1)
+        : Math.max(idx - 1, 0);
 
+      currentIndexRef.current = nextIndex;
       setCurrentIndex(nextIndex);
 
       setTimeout(() => {
         document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
         syncScroll(nextIndex);
         isAnimating.current = false;
       }, 850);
@@ -65,8 +76,9 @@ export default function WhyChooseNala() {
     return () => {
       window.removeEventListener("wheel", handleWheel);
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
     };
-  }, [currentIndex, totalSlides, syncScroll]);
+  }, [totalSlides, syncScroll]);
 
   // Mobile: scroll-position-driven slide changes
   useEffect(() => {
@@ -141,9 +153,9 @@ export default function WhyChooseNala() {
                 />
 
                 {/* Title + Description overlaid on gradient */}
-                <div className="absolute bottom-[clamp(1.5rem,2.5vw,3rem)] short:bottom-[3.5vh] left-0 right-0 z-20 text-center">
+                <div className="absolute bottom-[clamp(1.5rem,2.8vw,3.5rem)] short:bottom-[3.5vh] left-0 right-0 z-20 text-center">
                   {/* Animated title */}
-                  <div className="relative mx-auto h-[clamp(1.75rem,2.25vw,2.7rem)] short:h-[5vh] overflow-clip">
+                  <div className="relative mx-auto h-[clamp(2.5rem,3.2vw,3.8rem)] short:h-[6vh] overflow-clip">
                     {WHY_CHOOSE_ITEMS.map((item, index) => (
                       <p
                         key={`title-${item.title}`}
@@ -162,12 +174,12 @@ export default function WhyChooseNala() {
                   </div>
 
                   {/* Animated description */}
-                  <div className="relative mx-auto mt-[clamp(0.5rem,0.8vw,1.25rem)] short:mt-[1.2vh] h-[clamp(2.5rem,3.6vw,4.3rem)] short:h-[7vh] w-[clamp(14rem,24.7vw,29.6rem)] short:w-[48vh] overflow-clip">
+                  <div className="relative mx-auto mt-[clamp(0.25rem,0.4vw,0.5rem)] short:mt-[0.6vh] h-[clamp(3.5rem,5vw,6rem)] short:h-[9vh] w-[clamp(14rem,24.7vw,29.6rem)] short:w-[48vh] overflow-clip">
                     {WHY_CHOOSE_ITEMS.map((item, index) => (
                       <p
                         key={`desc-${item.title}`}
                         className={cn(
-                          "absolute inset-x-0 font-urbanist text-[clamp(0.813rem,1.46vw,1.75rem)] short:text-[2.6vh] font-normal leading-[1.3] tracking-[0.02em] text-white/80 transition-all duration-700 ease-out",
+                          "absolute inset-x-0 font-urbanist text-[clamp(0.7rem,1.1vw,1.35rem)] short:text-[2vh] font-normal leading-[1.35] tracking-[0.02em] text-white/80 transition-all duration-700 ease-out",
                           index === currentIndex
                             ? "top-0 opacity-100"
                             : index < currentIndex

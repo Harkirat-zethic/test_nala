@@ -39,25 +39,46 @@ export const OFFER_ITEMS: OfferItem[] = [
 ];
 
 export const VALUE_ITEMS: ValueItem[] = [
-  { number: "01", title: "Follow your ethics", imageSrc: "/images/value-1.webp" },
-  { number: "02", title: "Residents needs come first", imageSrc: "/images/value-2.webp" },
-  { number: "03", title: "Take pride in your work", imageSrc: "/images/value-3.webp" },
+  {
+    number: "01",
+    title: "Act with Integrity",
+    description:
+      "We always do what is right, even when it is not the easiest option. Our decisions are guided by honesty, fairness, and strong ethical standards.",
+    imageSrc: "/images/value-1.webp",
+  },
+  {
+    number: "02",
+    title: "Residents Needs Come First",
+    description:
+      "The wellbeing, safety, and dignity of our residents are at the centre of everything we do. We listen, respond, and design our homes to support each person's individual needs.",
+    imageSrc: "/images/value-2.webp",
+  },
+  {
+    number: "03",
+    title: "Take Pride in Our Work",
+    description:
+      "We care deeply about the quality of every home we create and manage. We aim for excellence, pay attention to detail, and stand behind everything we deliver.",
+    imageSrc: "/images/value-3.webp",
+  },
 ];
 
 export const WHY_CHOOSE_ITEMS: WhyChooseItem[] = [
   {
-    title: "Tailored Homes",
-    description: "Spacious homes that strive for excellence and innovation",
+    title: "Focus on Dignity & Independence",
+    description:
+      "Our homes are designed to support confident, independent living, with a strong focus on privacy, comfort, and ease of movement.",
     imageSrc: "/images/why-choose-1.webp",
   },
   {
-    title: "Convenient Locations",
-    description: "Homes in accessible locations for family, friends, and caregivers.",
+    title: "Designed with Purpose",
+    description:
+      "Every detail is thoughtfully considered to enhance safety, usability, and long term comfort, going beyond minimum standards.",
     imageSrc: "/images/why-choose-2.webp",
   },
   {
-    title: "20 years in Property",
-    description: "Ensures functional, easily adaptable, comfortable and safe living",
+    title: "Built for Trust",
+    description:
+      "We build lasting relationships through clear communication, transparency, and consistently high quality delivery.",
     imageSrc: "/images/why-choose-3.webp",
   },
 ];
