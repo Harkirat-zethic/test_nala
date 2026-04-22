@@ -33,7 +33,7 @@ export default function NalaValues() {
         className={cn(
           "absolute z-10 hidden transition-all duration-[1500ms] ease-out lg:block",
           isVisible
-            ? "left-[15.9%] top-[28%] max-h-[30rem] opacity-100 blur-0"
+            ? "left-[11.1%] top-[28%] max-h-[30rem] opacity-100 blur-0"
             : "left-[15.1%] top-[28%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
         )}
       >
@@ -123,22 +123,22 @@ export default function NalaValues() {
 
 function ValueCard({ number, title, description }: { number: string; title: string; description: string }) {
   return (
-    <div className="flex flex-col gap-[clamp(0.75rem,1.25vw,1.5rem)] short:gap-[1.5vh] rounded-[0.25rem] bg-white p-[clamp(1rem,1.8vw,2.25rem)] short:p-[2.5vh]">
+    <div className="flex flex-col gap-[clamp(0.75rem,1.25vw,1.5rem)] short:gap-[1.5vh] rounded-[0.25rem] bg-white p-[clamp(1rem,1.8vw,2.25rem)] short:p-[2.5vh] lg:w-[clamp(16rem,22vw,26rem)] lg:h-[clamp(12rem,20vw,24rem)] short:h-[32vh]">
       {/* Number */}
       <span className="font-outfit text-[clamp(1.75rem,2.8vw,3.5rem)] short:text-[5vh] font-extrabold leading-[0.65em] text-[#e8e8e8]">
         {number}
       </span>
 
       {/* Divider line */}
-      <div className="h-[1px] w-full max-w-[25rem] bg-[#e2e4e5] lg:w-[clamp(10rem,16vw,20rem)]" />
+      <div className="h-[1px] w-full bg-[#e2e4e5]" />
 
       {/* Title */}
-      <h3 className="font-outfit text-[clamp(1rem,1.3vw,2rem)] short:text-[2.8vh] font-normal leading-[1.08em] text-[#252525] lg:max-w-[clamp(10rem,16vw,20rem)]">
+      <h3 className="font-outfit text-[clamp(1.5rem,3.33vw,2.5rem)] short:text-[4vh] font-normal leading-[1.08em] text-[#252525]">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="font-outfit text-[clamp(0.7rem,0.9vw,1.1rem)] short:text-[1.8vh] leading-[1.45] text-[#61656e] lg:max-w-[clamp(10rem,16vw,20rem)]">
+      <p className="font-outfit text-[clamp(0.7rem,0.9vw,1.1rem)] short:text-[1.8vh] leading-[1.45] text-[#61656e]">
         {description}
       </p>
     </div>

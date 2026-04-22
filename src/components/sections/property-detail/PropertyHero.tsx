@@ -53,21 +53,24 @@ export default function PropertyHero({ property }: { property: Property }) {
             sizes="(max-width: 1023px) 100vw, 75vw"
             priority
           />
-          {/* Nav arrows */}
+          {/* Clickable left/right zones */}
           <button
             onClick={goToPrev}
-            className="absolute left-3 top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 sm:left-4"
+            className="absolute left-0 top-0 z-[5] h-full w-1/2 cursor-pointer"
             aria-label="Previous image"
-          >
-            <Image src="/images/arrow-left.svg" alt="" width={30} height={30} className="h-[clamp(16px,1.96vw,30px)] w-[clamp(16px,1.96vw,30px)]" />
-          </button>
+          />
           <button
             onClick={goToNext}
-            className="absolute right-3 top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-colors hover:bg-white/90 sm:right-4"
+            className="absolute right-0 top-0 z-[5] h-full w-1/2 cursor-pointer"
             aria-label="Next image"
-          >
+          />
+          {/* Nav arrows (visual only) */}
+          <div className="pointer-events-none absolute left-3 top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md sm:left-4">
+            <Image src="/images/arrow-left.svg" alt="" width={30} height={30} className="h-[clamp(16px,1.96vw,30px)] w-[clamp(16px,1.96vw,30px)]" />
+          </div>
+          <div className="pointer-events-none absolute right-3 top-1/2 z-10 flex h-[clamp(2.5rem,3.26vw,3.125rem)] w-[clamp(2.5rem,3.26vw,3.125rem)] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md sm:right-4">
             <Image src="/images/arrow-right.svg" alt="" width={30} height={30} className="h-[clamp(16px,1.96vw,30px)] w-[clamp(16px,1.96vw,30px)]" />
-          </button>
+          </div>
         </div>
 
         {/* Thumbnails — vertical on desktop, horizontal on mobile */}

@@ -160,7 +160,7 @@
           duration: 2,
         }, 2);
 
-        // "BUILDING" text becomes fully visible and shifts upward
+        // "BUILDING" text stays at 0.5 opacity and shifts upward
         tl.to(buildingRef.current, {
           opacity: 1,
           y: contentShift,

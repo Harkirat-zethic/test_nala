@@ -50,17 +50,17 @@ export default function AboutHero() {
       {/* Layer 3: House overlay — creates depth effect over the text */}
       <div
         className={cn(
-          "absolute left-1/2 z-[2] h-[164.3%] w-[128%] -translate-x-1/2",
+          "absolute left-0 z-[2] h-full w-full sm:h-[126%]",
           "transition-all duration-[1200ms] ease-out",
-          mounted ? "top-[2%] short:top-[8%]" : "top-[-8%]"
+          mounted ? "top-[-2%]" : "top-[-8%]"
         )}
       >
         <Image
-          src="/images/about-hero-overlay.webp"
+          src="/images/hero-house.webp"
           alt="Modern SDA home"
           fill
-          className="object-cover"
-          sizes="130vw"
+          className="-scale-x-100 object-cover object-center"
+          sizes="100vw"
           priority
         />
       </div>

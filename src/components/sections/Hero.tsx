@@ -39,29 +39,29 @@ export default function Hero() {
       <div
         ref={buildingRef}
         className={cn(
-          "absolute z-[1] font-extrabold uppercase leading-[1.2] tracking-[4.56px] text-white opacity-0",
-          "left-[clamp(1.5rem,7.8%,7.8%)] top-[18%] text-[14vw] short:text-[19vh] tall:text-[clamp(20px,9.42vw,200px)] ",
-          "md:top-[20%]"
+          "absolute z-[1] font-light leading-[1.2] tracking-[1.28px] text-white whitespace-nowrap",
+          "left-[clamp(1.5rem,7.8%,7.8%)] top-[22%] text-[4.5vw] short:text-[6vh] tall:text-[clamp(16px,3.33vw,4rem)]",
+          "md:top-[22%]"
         )}
         style={{
           fontFamily: "'Outfit', sans-serif",
           transform: "translateY(8rem)",
         }}
       >
-        Building
+        Building High Quality Specialist
       </div>
 
       {/* Layer 3: House image — slides down */}
       <div
         // ref={personRef}
-        className="absolute left-0 top-[-2rem] z-[2] h-full w-full sm:h-[126vh]"
+        className="absolute left-0 top-[6rem] tall:top-[8rem] z-[2] h-full w-full sm:h-[100%] tall:h-[85%]"
       >
         <div className="relative h-full w-full">
           <Image
-            src="/images/hero-house.webp"
-            alt="NALA property house"
+            src="/images/homepage-banner.webp"
+            alt="NALA property banner"
             fill
-            className="-scale-x-100 object-cover object-center"
+            className="object-cover object-center"
             sizes="100vw"
             priority
           />
@@ -70,7 +70,7 @@ export default function Hero() {
 
       {/* Layer 4: Bottom gradient */}
       <div
-        className="absolute bottom-0 left-0 z-[3] h-[65%] w-full md:h-[57%]"
+        className="absolute bottom-0 left-0 z-[3] h-[45%] w-full md:h-[40%]"
         style={{
           backgroundImage:
             "linear-gradient(180deg, rgba(37,37,37,0) 0%, rgba(37,37,37,0.9) 47.66%, rgba(37,37,37,0.9) 73.96%, rgba(37,37,37,0.94) 86.13%, rgb(37,37,37) 100%)",
@@ -98,18 +98,18 @@ export default function Hero() {
         <p
           ref={titleRef}
           className={cn(
-            "pointer-events-auto absolute whitespace-pre-wrap leading-[1.2] tracking-[1.38px] text-white opacity-0",
-            "left-[clamp(1.5rem,7.8%,7.8%)] top-[30%] max-w-[80%] text-[5.5vw] short:text-[6.5vh]",
-            "sm:top-[40%] sm:max-w-[100%] sm:text-[clamp(2.75rem,4.59vw,4.3rem)]",
-            "lg:top-[48.2%] lg:max-w-[48vw] short:top-[40%] tall:top-[40%] tall:text-[clamp(1.75rem,3.59vw,4.3rem)]"
+            "pointer-events-auto absolute whitespace-pre-wrap font-extrabold leading-[1.2] tracking-normal text-white uppercase",
+            "left-[clamp(1.5rem,7.8%,7.8%)] top-[27%] max-w-[90%] text-[9vw] short:text-[11vh]",
+            "sm:top-[29%] sm:max-w-[100%] sm:text-[clamp(3.5rem,6.25vw,7.5rem)]",
+            "lg:top-[31%] lg:max-w-[64vw] short:top-[30%] tall:top-[30%] tall:text-[clamp(2.25rem,5.2vw,6.25rem)]"
           )}
           style={{
             fontFamily: "'Outfit', sans-serif",
-            fontWeight: 400,
+            fontWeight: 800,
             transform: "translateY(3.5rem)",
           }}
         >
-          High Quality Specialist Disability Accommodation
+         Disability Accommodation
         </p>
 
         {/* Description — positioned at ~79% from top on right (Figma: 848/1080, 1197/1920) */}
@@ -117,10 +117,10 @@ export default function Hero() {
           ref={descRef}
           className={cn(
             "pointer-events-auto absolute whitespace-pre-wrap leading-[1.5] text-white opacity-0",
-            "left-[clamp(1.5rem,7.8%,7.8%)] top-[65%] max-w-[80%] text-[3.8vw] short:text-[2.6vh]",
-            "sm:top-[72%] sm:max-w-[360px] sm:text-[clamp(0.875rem,1.46vw,1.75rem)]",
+            "left-[clamp(1.5rem,7.8%,7.8%)] bottom-[8%] max-w-[80%] text-[3.8vw] short:text-[2.6vh]",
+            "sm:max-w-[360px] sm:text-[clamp(0.875rem,1.46vw,1.75rem)]",
             "md:max-w-[420px]",
-            "lg:left-[62.3%] lg:right-auto lg:top-[80.5%] lg:max-w-[29.8vw] short:lg:top-[78%]"
+            "lg:left-[62.3%] lg:right-auto lg:max-w-[29.8vw]"
           )}
           style={{
             fontFamily: "'Outfit', sans-serif",
@@ -139,7 +139,7 @@ export default function Hero() {
           className={cn(
             "pointer-events-auto absolute flex flex-wrap gap-2 sm:gap-[10px]",
             "left-[clamp(1.5rem,7.8%,7.8%)] bottom-[8%]",
-            "lg:bottom-auto lg:top-[89.7%]"
+            ""
           )}
         >
           {TAGS.map((tag) => (

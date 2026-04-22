@@ -7,17 +7,14 @@ import { cn } from "@/lib/cn";
 const TIMELINE_ITEMS = [
   {
     text: "NALA provides modern, functional and safe SDA homes for NDIS participants. As a development company, NALA focuses on the physical and behavioral needs of its residents by building homes to the highest design standards",
-    imageSrc: "/images/about-timeline-1.webp",
     textSide: "left" as const,
   },
   {
     text: "NALA homes set the benchmark for disability housing in Sydney, and alongside our leading SDA and SIL partners, ensure the best quality of life for our residents.",
-    imageSrc: "/images/about-timeline-2.webp",
     textSide: "right" as const,
   },
   {
     text: null, // rich text — rendered separately
-    imageSrc: "/images/about-timeline-3.webp",
     textSide: "left" as const,
   },
 ];
@@ -27,22 +24,16 @@ const ITEM_POSITIONS = [
   {
     textLeft: "25.4%",
     textWidth: "22.4%",
-    imageLeft: "51.2%",
-    imageWidth: "11%",
     top: "30.9%",
   },
   {
     textLeft: "51.9%",
     textWidth: "24.1%",
-    imageLeft: "37.1%",
-    imageWidth: "10.8%",
     top: "55.2%",
   },
   {
     textLeft: "25.3%",
     textWidth: "22.6%",
-    imageLeft: "51.9%",
-    imageWidth: "10.8%",
     top: "75.5%",
   },
 ];
@@ -93,7 +84,6 @@ export default function AboutTimeline() {
           <MobileTimelineItem
             isVisible={isVisible}
             delay="1000ms"
-            imageSrc={TIMELINE_ITEMS[0].imageSrc}
           >
             <p className="font-outfit text-sm leading-[1.75] text-[#5b5b5b] sm:text-base">
               {TIMELINE_ITEMS[0].text}
@@ -104,7 +94,6 @@ export default function AboutTimeline() {
           <MobileTimelineItem
             isVisible={isVisible}
             delay="1500ms"
-            imageSrc={TIMELINE_ITEMS[1].imageSrc}
           >
             <p className="font-outfit text-sm leading-[1.75] text-[#5b5b5b] sm:text-base">
               {TIMELINE_ITEMS[1].text}
@@ -115,7 +104,6 @@ export default function AboutTimeline() {
           <MobileTimelineItem
             isVisible={isVisible}
             delay="2000ms"
-            imageSrc={TIMELINE_ITEMS[2].imageSrc}
           >
             <p className="font-outfit text-sm leading-[1.75] sm:text-base">
               <span className="text-[#5b5b5b]">High Physical Support </span>
@@ -295,33 +283,6 @@ function TimelineRow({ index }: { index: number }) {
         )}
       </div>
 
-      {/* Image card */}
-      <div
-        className={cn(
-          "absolute rounded border border-[#e2e8f5] p-3",
-          "transition-all duration-[2000ms] delay-300 ease-out",
-          isVisible
-            ? "translate-x-0 opacity-100"
-            : isLeftText
-              ? "-translate-x-5 opacity-0"
-              : "translate-x-5 opacity-0"
-        )}
-        style={{
-          left: pos.imageLeft,
-          top: pos.top,
-          width: pos.imageWidth,
-        }}
-      >
-        <div className="relative aspect-[187/112] w-full overflow-hidden rounded-sm">
-          <Image
-            src={item.imageSrc}
-            alt="SDA property"
-            fill
-            className="object-cover"
-            sizes="11vw"
-          />
-        </div>
-      </div>
     </>
   );
 }
@@ -330,12 +291,10 @@ function TimelineRow({ index }: { index: number }) {
 function MobileTimelineItem({
   isVisible,
   delay,
-  imageSrc,
   children,
 }: {
   isVisible: boolean;
   delay: string;
-  imageSrc: string;
   children: React.ReactNode;
 }) {
   return (
@@ -353,21 +312,8 @@ function MobileTimelineItem({
       </div>
 
       {/* Content */}
-      <div className="space-y-4">
-        <div className="rounded border border-[#e2e8f5] bg-[#f8fafe] p-5">
-          {children}
-        </div>
-        <div className="w-40 rounded border border-[#e2e8f5] p-2">
-          <div className="relative aspect-[183/105] w-full overflow-hidden rounded-sm">
-            <Image
-              src={imageSrc}
-              alt="SDA property"
-              fill
-              className="object-cover"
-              sizes="160px"
-            />
-          </div>
-        </div>
+      <div className="rounded border border-[#e2e8f5] bg-[#f8fafe] p-5">
+        {children}
       </div>
     </div>
   );

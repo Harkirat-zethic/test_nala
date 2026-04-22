@@ -55,19 +55,12 @@ export default function Footer() {
         </Link>
 
 
-        {/* Email */}
+        {/* Contact */}
         <div>
-          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] !text-[#3040ad]">Email</h3>
+          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] !text-[#3040ad]">Contact</h3>
           <a href={`mailto:${COMPANY_INFO.email}`} className="mt-3 block font-outfit text-[0.875rem] text-body">{COMPANY_INFO.email}</a>
-          <a href="tel:0480850225" className="font-outfit text-[0.875rem] text-body">0480 850 225</a>
-        </div>
-
-        {/* Address */}
-        <div>
-          <h3 className="font-outfit text-[1.25rem] font-medium leading-[1.26em] !text-[#3040ad]">Address</h3>
-          <div className="mt-3 flex flex-col gap-2">
-            <p className="font-outfit text-[0.875rem] text-body">Suite 320, 9 Union St,<br />Pyrmont NSW 2009</p>
-          </div>
+          <a href="tel:0480850225" className="block font-outfit text-[0.875rem] text-body">0480 850 225</a>
+          <p className="mt-2 font-outfit text-[0.875rem] text-body">Suite 320, 9 Union St,<br />Pyrmont NSW 2009</p>
         </div>
 
         {/* Company */}
@@ -84,7 +77,7 @@ export default function Footer() {
       </div>
 
       {/* ── Desktop layout ── */}
-      <div className="relative z-10 mx-auto hidden md:flex md:flex-wrap md:items-start md:justify-between md:gap-10 md:px-[clamp(1.5rem,4.17vw,5rem)] md:pt-[clamp(3rem,6vw,7.25rem)] short:pt-[7vh]">
+      <div className="relative z-10 mx-auto hidden md:flex md:flex-wrap md:items-start md:justify-around md:gap-10 md:px-[clamp(1.5rem,4.17vw,5rem)] md:pt-[clamp(3rem,6vw,7.25rem)] short:pt-[7vh]">
         {/* Logo */}
         <Link
           href="/"
@@ -100,29 +93,23 @@ export default function Footer() {
 
 
 
-        {/* Email */}
-        <FooterColumn title="Email" isVisible={isVisible} delay="delay-300">
+        {/* Contact */}
+        <FooterColumn title="Contact" isVisible={isVisible} delay="delay-300">
           <a
             href={`mailto:${COMPANY_INFO.email}`}
             className="block font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[0.8em] text-body transition-colors duration-300 hover:text-primary mb-2"
           >
             {COMPANY_INFO.email}
           </a>
-           <a
-              href="tel:0480850225"
-              className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.6em] text-body transition-colors duration-300 hover:text-primary"
-            >
-              0480 850 225
-            </a>
-        </FooterColumn>
-
-        {/* Contact */}
-        <FooterColumn title="Address" isVisible={isVisible} delay="delay-500">
-          <div className="flex flex-col gap-1">
-            <p className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.6em] text-body">
-              Suite 320, 9 Union St,<br />Pyrmont NSW 2009
-            </p>
-          </div>
+          <a
+            href="tel:0480850225"
+            className="block font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.6em] text-body transition-colors duration-300 hover:text-primary"
+          >
+            0480 850 225
+          </a>
+          <p className="mt-2 font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.6em] text-body">
+            Suite 320, 9 Union St,<br />Pyrmont NSW 2009
+          </p>
         </FooterColumn>
 
         {/* Company links */}
