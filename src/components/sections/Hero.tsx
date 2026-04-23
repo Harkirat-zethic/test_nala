@@ -112,48 +112,56 @@ export default function Hero() {
          Disability Accommodation
         </p>
 
-        {/* Description — positioned at ~79% from top on right (Figma: 848/1080, 1197/1920) */}
-        <p
-          ref={descRef}
-          className={cn(
-            "pointer-events-auto absolute whitespace-pre-wrap leading-[1.5] text-white opacity-0",
-            "left-[clamp(1.5rem,7.8%,7.8%)] bottom-[8%] max-w-[80%] text-[3.8vw] short:text-[2.6vh]",
-            "sm:max-w-[360px] sm:text-[clamp(0.875rem,1.46vw,1.75rem)]",
-            "md:max-w-[420px]",
-            "lg:left-[62.3%] lg:right-auto lg:max-w-[29.8vw]"
-          )}
-          style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontWeight: 400,
-            transform: "translateY(1.5rem)",
-          }}
-        >
-          NALA develops homes designed to enrich its residents quality of life.
-          NALA homes are built to suit individuals with High Physical Support and
-          Robust needs.
-        </p>
-
-        {/* Tags — positioned at ~91% from top (Figma: 980/1080) */}
+        {/* Description + Tags — flex column on mobile (tags on top, desc below), transparent on lg+ */}
         <div
-          ref={tagsRef}
           className={cn(
-            "pointer-events-auto absolute flex flex-wrap gap-2 sm:gap-[10px]",
-            "left-[clamp(1.5rem,7.8%,7.8%)] bottom-[8%]",
-            ""
+            "pointer-events-none absolute left-[clamp(1.5rem,7.8%,7.8%)] bottom-[4%] flex flex-col gap-4",
+            "sm:bottom-[8%]",
+            "lg:contents"
           )}
         >
-          {TAGS.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-white/80 px-3 py-1.5 text-[#252525] opacity-0 text-[clamp(0.75rem,1.04vw,1.25rem)] short:text-[2.1vh] sm:px-5 sm:py-2.5 sm:text-[clamp(0.875rem,1.04vw,1.25rem)]"
-              style={{
-                fontFamily: "'Outfit', sans-serif",
-                transform: "translateY(1rem)",
-              }}
-            >
-              {tag}
-            </span>
-          ))}
+          {/* Tags — first in DOM so they render on top in the flex column on mobile */}
+          <div
+            ref={tagsRef}
+            className={cn(
+              "pointer-events-auto flex flex-wrap gap-2 sm:gap-[10px]",
+              "lg:absolute lg:left-[clamp(1.5rem,7.8%,7.8%)] lg:bottom-[8%]"
+            )}
+          >
+            {TAGS.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-white/80 px-3 py-1.5 text-[#252525] opacity-0 text-[clamp(0.75rem,1.04vw,1.25rem)] short:text-[2.1vh] sm:px-5 sm:py-2.5 sm:text-[clamp(0.875rem,1.04vw,1.25rem)]"
+                style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  transform: "translateY(1rem)",
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Description — second in DOM so it renders below tags on mobile */}
+          <p
+            ref={descRef}
+            className={cn(
+              "pointer-events-auto whitespace-pre-wrap leading-[1.5] text-white opacity-0",
+              "max-w-[80%] text-[3.8vw] short:text-[2.6vh]",
+              "sm:max-w-[360px] sm:text-[clamp(0.875rem,1.46vw,1.75rem)]",
+              "md:max-w-[420px]",
+              "lg:absolute lg:bottom-[8%] lg:left-[62.3%] lg:right-auto lg:max-w-[29.8vw]"
+            )}
+            style={{
+              fontFamily: "'Outfit', sans-serif",
+              fontWeight: 400,
+              transform: "translateY(1.5rem)",
+            }}
+          >
+            NALA develops homes designed to enrich its residents quality of life.
+            NALA homes are built to suit individuals with High Physical Support and
+            Robust needs.
+          </p>
         </div>
       </div>
     </section>
