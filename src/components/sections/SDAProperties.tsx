@@ -10,7 +10,7 @@ export default function SDAProperties() {
   return (
     <section
       ref={ref}
-      className="relative w-full overflow-hidden bg-light lg:h-screen"
+      className="w-full overflow-hidden bg-light"
     >
       {/* ─── Mobile Layout (stacked flow) ─── */}
       <div className="flex flex-col lg:hidden">
@@ -33,7 +33,6 @@ export default function SDAProperties() {
 
           {/* Description */}
           <p
-            style={{ fontFamily: "'Outfit', sans-serif" }}
             className={cn(
               "mt-6 text-base leading-relaxed text-[#5b5b5b]",
               "transition-all duration-[2000ms] delay-500 ease-out",
@@ -48,41 +47,29 @@ export default function SDAProperties() {
 
           {/* Standards text */}
           <p
-            style={{ fontFamily: "'Outfit', sans-serif" }}
             className={cn(
               "mt-4 text-base leading-[28px]",
               "transition-all duration-[2000ms] delay-700 ease-out",
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
           >
-            <span className="font-normal text-[#61656e]">High Physical Support </span>
+            <span className="font-normal text-body">High Physical Support </span>
             <span className="font-bold text-[#252525]">2021 NDIS SDA </span>
-            <span className="font-normal text-[#61656e]">Design Standard</span>
+            <span className="font-normal text-body">Design Standard</span>
           </p>
         </div>
 
-        {/* Background + Building image at bottom */}
+        {/* Images — grid stacking for overlap without absolute */}
         <div
           className={cn(
-            "relative mt-8 w-full",
+            " grid items-end",
             "transition-all duration-[2000ms] delay-[900ms] ease-out",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           )}
         >
-          {/* Building image — sits above the bg */}
-          <div className="relative mx-auto h-[250px] w-[65%] sm:h-[320px]">
+          <div className="col-start-1 row-start-1 self-end scale-[1.5]">
             <Image
-              src="/images/sda-house.webp"
-              alt="Modern SDA Property"
-              fill
-              className="z-[1] object-contain object-bottom"
-              sizes="100vw"
-            />
-          </div>
-          {/* Background image — anchored to bottom, behind building */}
-          <div className="absolute bottom-0 left-0 w-full">
-            <Image
-              src="/images/sda-house-bg.webp"
+              src="/images/sda-house-bg.png"
               alt=""
               width={1920}
               height={600}
@@ -94,91 +81,76 @@ export default function SDAProperties() {
         </div>
       </div>
 
-      {/* ─── Desktop Layout (absolute positioned) ─── */}
-      <div className="hidden lg:block lg:h-full">
-        {/* Title block */}
-        <div
-          className={cn(
-            "absolute left-[7.8%] top-[25%] z-10 w-[44.5%]",
-            "transition-all duration-[2000ms] delay-300 ease-out",
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
-          )}
-        >
-          <h2 className="font-afacad text-[3.75rem] font-medium leading-[0.86em] text-[#252525] xl:text-[2.75rem] 2xl:text-[clamp(32px,5.2vw,100px)] short:text-[9vh]">
-            SDA Properties
-          </h2>
-          <div className="mt-[10px] font-afacad text-[3rem] font-normal leading-[1.075em] text-[#6c6c6c] xl:text-[2rem] 2xl:text-[clamp(2rem,3.17vw,80px)] short:text-[5.5vh]">
-            <p>by Nanak Accessible Living</p>
-            <p>Australia</p>
-          </div>
-        </div>
-
-        {/* Standards text */}
-        <p
-          style={{ fontFamily: "'Outfit', sans-serif" }}
-          className={cn(
-            "absolute left-[8%] top-[65.4%] z-10 w-[19.6%] text-[clamp(14px,1.04vw,20px)] leading-[28px] short:text-[1.9vh]",
-            "transition-all duration-[2000ms] delay-700 ease-out",
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
-          )}
-        >
-          <span className="font-normal text-[#61656e]">High Physical Support </span>
-          <span className="font-bold text-[#252525]">2021 NDIS SDA </span>
-          <span className="font-normal text-[#61656e]">Design Standard</span>
-        </p>
-
-        {/* Background image — behind the building */}
-        <div
-          className={cn(
-            "absolute bottom-0 left-0 w-full",
-            "transition-all duration-[2000ms] delay-500 ease-out",
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          )}
-        >
-          <Image
-            src="/images/sda-house-bg.webp"
-            alt=""
-            width={1920}
-            height={600}
-            className="w-full object-contain object-bottom"
-            sizes="100vw"
-            aria-hidden
-          />
-        </div>
-
-        {/* Center building image — on top of bg */}
-        <div
-          className={cn(
-            "absolute bottom-0 left-1/2 z-[1] h-[90%] w-[38.9%] -translate-x-1/2",
-            "transition-all duration-[2000ms] delay-[900ms] ease-out",
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
-          )}
-        >
-          <div className="relative h-full w-full">
+      {/* ─── Desktop Layout (grid overlay — no absolute positioning) ─── */}
+      <div className="hidden lg:grid lg:min-h-screen">
+        {/* Image Layer — bottom-aligned, behind text */}
+        <div className="col-start-1 row-start-1 self-end grid items-end">
+          <div
+            className={cn(
+              "col-start-1 row-start-1 self-end",
+              "transition-all duration-[2000ms] delay-500 ease-out",
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            )}
+          >
             <Image
-              src="/images/sda-house.webp"
-              alt="Modern SDA Property"
-              fill
-              className="z-10 object-contain object-bottom"
-              sizes="39vw"
+              src="/images/sda-house-bg.png"
+              alt=""
+              width={1920}
+              height={600}
+              className="w-full object-contain object-bottom"
+              sizes="100vw"
+              aria-hidden
             />
           </div>
         </div>
 
-        {/* Description */}
-        <p
-          style={{ fontFamily: "'Outfit', sans-serif" }}
-          className={cn(
-            "absolute left-[60.1%] top-[30%] z-10 w-[32.1%] text-[clamp(16px,1.46vw,28px)] leading-[1.36em] text-[#5b5b5b] short:text-[2.6vh]",
-            "transition-all duration-[2000ms] delay-500 ease-out",
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
-          )}
-        >
-          NALA provides modern, functional and safe SDA homes for NDIS
-          participants. As a development company, NALA focuses on the physical
-          and behavioral needs of its residents by building homes to the highest
-          design standards
-        </p>
+        {/* Text Layer — top-aligned, above images */}
+        <div className="col-start-1 row-start-1 self-start z-10 grid grid-cols-2 gap-x-[8%] px-[7.8%] pt-[15vh] short:pt-[10vh]">
+          {/* Left Column: Title + Standards */}
+          <div className="flex flex-col gap-[8vh] short:gap-[4vh]">
+            <div
+              className={cn(
+                "transition-all duration-[2000ms] delay-300 ease-out",
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
+              )}
+            >
+              <h2 className="font-afacad text-[clamp(2rem,5.2vw,100px)] font-medium leading-[0.86em] text-[#252525] short:text-[9vh]">
+                SDA Properties
+              </h2>
+              <div className="mt-[10px] font-afacad text-[clamp(2rem,3.17vw,80px)] font-normal leading-[1.075em] text-[#6c6c6c] short:text-[5.5vh]">
+                <p>by Nanak Accessible Living</p>
+                <p>Australia</p>
+              </div>
+            </div>
+
+            {/* Standards text */}
+            <p
+              className={cn(
+                "text-[clamp(14px,1.04vw,20px)] leading-[28px] short:text-[1.9vh]",
+                "transition-all duration-[2000ms] delay-700 ease-out",
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
+              )}
+            >
+              <span className="font-normal text-body">High Physical Support </span>
+              <span className="font-bold text-[#252525]">2021 NDIS SDA </span><br />
+              <span className="font-normal text-body">Design Standard</span>
+            </p>
+          </div>
+
+          {/* Right Column: Description */}
+          <p
+            className={cn(
+              "text-[clamp(16px,1.46vw,28px)] leading-[1.36em] text-[#5b5b5b] short:text-[2.6vh]",
+              "transition-all duration-[2000ms] delay-500 ease-out",
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
+            )}
+          >
+            NALA provides modern, functional and safe SDA homes for NDIS
+            participants. As a development company, NALA focuses on the physical
+            and behavioral needs of its residents by building homes to the highest
+            design standards
+          </p>
+        </div>
       </div>
     </section>
   );

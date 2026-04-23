@@ -114,7 +114,7 @@ export default function WhyChooseNala() {
       <section className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Single fixed background image */}
         <Image
-          src={WHY_CHOOSE_ITEMS[0].imageSrc}
+          src="/images/why-choose-bg.webp"
           alt=""
           fill
           className="object-cover"
