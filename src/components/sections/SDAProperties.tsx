@@ -22,7 +22,7 @@ export default function SDAProperties() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
           >
-            <h2 className="font-afacad text-[2rem] font-medium leading-[0.86em] text-[#252525] sm:text-[2.5rem]">
+            <h2 className="font-afacad text-[2rem] font-medium leading-[0.86em] !text-[#1867A5] sm:text-[2.5rem]">
               SDA Properties
             </h2>
             <div className="mt-2 font-afacad text-[1.5rem] font-normal leading-[1.075em] text-[#6c6c6c] sm:text-[2rem]">
@@ -39,24 +39,10 @@ export default function SDAProperties() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
           >
-            NALA provides modern, functional and safe SDA homes for NDIS
-            participants. As a development company, NALA focuses on the physical
-            and behavioral needs of its residents by building homes to the highest
-            design standards
+            NALA provides modern, functional and safe SDA homes for NDIS participants. As a development company, NALA focuses on the physical and behavioural needs of its residents by building homes to the highest design standards and in compliance with NDIS requirements.
+            <br/>NALA homes set the benchmark for disability housing in Sydney, and alongside our leading SIL partners, ensure the best quality of life for our residents.
           </p>
 
-          {/* Standards text */}
-          <p
-            className={cn(
-              "mt-4 text-base leading-[28px]",
-              "transition-all duration-[2000ms] delay-700 ease-out",
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            )}
-          >
-            <span className="font-normal text-body">High Physical Support </span>
-            <span className="font-bold text-[#252525]">2021 NDIS SDA </span>
-            <span className="font-normal text-body">Design Standard</span>
-          </p>
         </div>
 
         {/* Images — grid stacking for overlap without absolute */}
@@ -114,7 +100,7 @@ export default function SDAProperties() {
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
               )}
             >
-              <h2 className="font-afacad text-[clamp(2rem,5.2vw,100px)] font-medium leading-[0.86em] text-[#252525] short:text-[9vh]">
+              <h2 className="font-afacad text-[clamp(2rem,5.2vw,100px)] font-medium leading-[0.86em] !text-[#1867A5] short:text-[9vh]">
                 SDA Properties
               </h2>
               <div className="mt-[10px] font-afacad text-[clamp(2rem,3.17vw,80px)] font-normal leading-[1.075em] text-[#6c6c6c] short:text-[5.5vh]">
@@ -123,18 +109,7 @@ export default function SDAProperties() {
               </div>
             </div>
 
-            {/* Standards text */}
-            <p
-              className={cn(
-                "text-[clamp(14px,1.04vw,20px)] leading-[28px] short:text-[1.9vh]",
-                "transition-all duration-[2000ms] delay-700 ease-out",
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
-              )}
-            >
-              <span className="font-normal text-body">High Physical Support </span>
-              <span className="font-bold text-[#252525]">2021 NDIS SDA </span><br />
-              <span className="font-normal text-body">Design Standard</span>
-            </p>
+         
           </div>
 
           {/* Right Column: Description */}
@@ -145,10 +120,8 @@ export default function SDAProperties() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
             )}
           >
-            NALA provides modern, functional and safe SDA homes for NDIS
-            participants. As a development company, NALA focuses on the physical
-            and behavioral needs of its residents by building homes to the highest
-            design standards
+            NALA provides modern, functional and safe SDA homes for NDIS participants. As a development company, NALA focuses on the physical and behavioural needs of its residents by building homes to the highest design standards and in compliance with NDIS requirements. 
+            <br/><br/>`NALA homes set the benchmark for disability housing in Sydney, and alongside our leading SIL partners, ensure the best quality of life for our residents.
           </p>
         </div>
       </div>

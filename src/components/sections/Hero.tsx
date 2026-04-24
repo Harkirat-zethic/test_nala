@@ -48,7 +48,7 @@ export default function Hero() {
           transform: "translateY(8rem)",
         }}
       >
-        Building High Quality Specialist
+        Building High Quality 
       </div>
 
       {/* Layer 3: House image — slides down */}
@@ -109,7 +109,7 @@ export default function Hero() {
             transform: "translateY(3.5rem)",
           }}
         >
-         Disability Accommodation
+         Specialist Disability Accommodation
         </p>
 
         {/* Description + Tags — flex column on mobile (tags on top, desc below), transparent on lg+ */}
