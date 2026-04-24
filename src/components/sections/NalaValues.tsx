@@ -98,10 +98,10 @@ export default function NalaValues() {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}
       >
-        <h2 className="font-afacad text-[clamp(2rem,4.17vw,5rem)] short:text-[7.5vh] font-medium text-[#252525]">
+        <h2 className="font-afacad text-[clamp(1.75rem,3.5vw,4.25rem)] short:text-[7.5vh] font-medium text-[#252525]">
           NALA Values
         </h2>
-        <p className="mx-auto mt-4 font-outfit text-[clamp(0.875rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.36em] text-[#61656e] max-lg:max-w-[90%] max-lg:text-base lg:mt-[1.5rem] lg:w-[32.8vw]">
+        <p className="mx-auto mt-4 font-outfit text-[clamp(0.875rem,1.25vw,1.5rem)] short:text-[2.6vh] leading-[1.36em] text-[#61656e] max-lg:max-w-[90%] max-lg:text-base lg:mt-[1.5rem] lg:w-[32.8vw]">
           Nala Properties showcases exceptional properties that align with our
           core values.
         </p>
@@ -129,7 +129,7 @@ function ValueCard({ number, title, description }: { number: string; title: stri
   return (
     <div className="flex flex-col gap-[clamp(0.75rem,1.25vw,1.5rem)] short:gap-[1.5vh] rounded-[0.25rem] bg-white p-[clamp(1rem,1.8vw,2.25rem)] short:p-[2.5vh] lg:w-[clamp(16rem,22vw,26rem)] lg:h-[clamp(12rem,20vw,24rem)] short:h-[32vh]">
       {/* Number */}
-      <span className="font-outfit text-[clamp(1.75rem,2.8vw,3.5rem)] short:text-[5vh] font-extrabold leading-[0.65em] text-[#e8e8e8]">
+      <span className="font-outfit text-[clamp(1.5rem,2.3vw,3rem)] short:text-[5vh] font-extrabold leading-[0.65em] text-[#e8e8e8]">
         {number}
       </span>
 
@@ -137,7 +137,7 @@ function ValueCard({ number, title, description }: { number: string; title: stri
       <div className="h-[1px] w-full bg-[#e2e4e5]" />
 
       {/* Title */}
-      <h3 className="font-outfit text-[clamp(1.5rem,3.33vw,2.5rem)] short:text-[4vh] font-normal leading-[1.08em] text-[#252525]">
+      <h3 className="font-outfit text-[clamp(1.25rem,2.8vw,2rem)] short:text-[4vh] font-normal leading-[1.08em] text-[#252525]">
         {title}
       </h3>
 
