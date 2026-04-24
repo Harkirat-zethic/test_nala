@@ -23,7 +23,7 @@ export default function SDAProperties() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
           >
-            <h2 className="font-afacad text-[2rem] font-medium leading-[0.86em] !text-[#1867A5] sm:text-[2.5rem]">
+            <h2 className="font-afacad text-[2rem] font-medium leading-[0.86em] !text-[#252525] sm:text-[2.5rem]">
               SDA Properties
             </h2>
             <div className="mt-2 font-afacad text-[1.5rem] font-normal leading-[1.075em] text-[#6c6c6c] sm:text-[2rem]">
@@ -99,7 +99,7 @@ export default function SDAProperties() {
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
               )}
             >
-              <h2 className="font-afacad text-[clamp(2rem,5.2vw,100px)] font-medium leading-[0.86em] !text-[#1867A5] short:text-[9vh]">
+              <h2 className="font-afacad text-[clamp(2rem,5.2vw,100px)] font-medium leading-[0.86em] !text-[#252525] short:text-[9vh]">
                 SDA Properties
               </h2>
               <div className="mt-[10px] font-afacad text-[clamp(2rem,3.17vw,80px)] font-normal leading-[1.075em] text-[#6c6c6c] short:text-[5.5vh]">
