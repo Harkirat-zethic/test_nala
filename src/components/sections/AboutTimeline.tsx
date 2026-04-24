@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
+import aboutHouseSide from "../../../public/images/about-house-side.webp";
 
 const TIMELINE_ITEMS = [
   {
@@ -167,9 +168,10 @@ export default function AboutTimeline() {
           )}
         >
           <Image
-            src="/images/about-house-side.webp"
+            src={aboutHouseSide}
             alt=""
             fill
+            placeholder="blur"
             className="-scale-x-100 object-cover"
             sizes="42vw"
             aria-hidden
@@ -187,9 +189,10 @@ export default function AboutTimeline() {
           )}
         >
           <Image
-            src="/images/about-house-side.webp"
+            src={aboutHouseSide}
             alt=""
             fill
+            placeholder="blur"
             className="object-cover"
             sizes="42vw"
             aria-hidden

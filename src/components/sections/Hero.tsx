@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { useHeroAnimation } from "@/hooks/useHeroAnimation";
+import heroSectionBg from "../../../public/images/hero-section-bg.webp";
+import homepageBanner from "../../../public/images/homepage-banner.webp";
 
 const TAGS = ["Comfort", "Safety", "Independence"];
 
@@ -25,7 +27,7 @@ export default function Hero() {
       {/* Layer 1: Sky background — stays fixed */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-section-bg.webp"
+          src={heroSectionBg}
           alt=""
           fill
           className="object-cover opacity-100"
@@ -58,7 +60,7 @@ export default function Hero() {
       >
         <div className="relative h-full w-full">
           <Image
-            src="/images/homepage-banner.webp"
+            src={homepageBanner}
             alt="NALA property banner"
             fill
             className="object-cover object-center"

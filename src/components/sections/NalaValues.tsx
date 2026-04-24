@@ -4,6 +4,8 @@ import Image from "next/image";
 import { VALUE_ITEMS } from "@/lib/constants";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
+import valuesBgHouse from "../../../public/images/values-bg-house.webp";
+import valuesHouse from "../../../public/images/values-house.webp";
 
 export default function NalaValues() {
   const { ref, isVisible } = useIntersectionObserver({
@@ -19,9 +21,10 @@ export default function NalaValues() {
       {/* z-0: Background house image at 17% opacity */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/values-bg-house.webp"
+          src={valuesBgHouse}
           alt=""
           fill
+          placeholder="blur"
           className="object-cover opacity-[0.17]"
           sizes="100vw"
         />
@@ -65,9 +68,10 @@ export default function NalaValues() {
       >
         <div className="relative mx-auto h-[20rem] w-full  sm:h-[30rem] lg:h-full lg:max-w-none">
           <Image
-            src="/images/values-house.webp"
+            src={valuesHouse}
             alt="Modern NALA Property"
             fill
+            placeholder="blur"
             className="object-cover [object-position:100%_100%] sm:object-center"
             sizes="(max-width: 1023px) 90vw, 130vw"
           />

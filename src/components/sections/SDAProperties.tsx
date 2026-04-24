@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
+import sdaHouseBg from "../../../public/images/sda-house-bg.png";
 
 export default function SDAProperties() {
   const { ref, isVisible } = useIntersectionObserver({ triggerOnce: true, threshold: 0.2 });
@@ -55,10 +56,9 @@ export default function SDAProperties() {
         >
           <div className="col-start-1 row-start-1 self-end scale-[1.5]">
             <Image
-              src="/images/sda-house-bg.png"
+              src={sdaHouseBg}
               alt=""
-              width={1920}
-              height={600}
+              placeholder="blur"
               className="w-full object-contain object-bottom"
               sizes="100vw"
               aria-hidden
@@ -79,10 +79,9 @@ export default function SDAProperties() {
             )}
           >
             <Image
-              src="/images/sda-house-bg.png"
+              src={sdaHouseBg}
               alt=""
-              width={1920}
-              height={600}
+              placeholder="blur"
               className="w-full object-contain object-bottom"
               sizes="100vw"
               aria-hidden
@@ -121,7 +120,7 @@ export default function SDAProperties() {
             )}
           >
             NALA provides modern, functional and safe SDA homes for NDIS participants. As a development company, NALA focuses on the physical and behavioural needs of its residents by building homes to the highest design standards and in compliance with NDIS requirements. 
-            <br/><br/>`NALA homes set the benchmark for disability housing in Sydney, and alongside our leading SIL partners, ensure the best quality of life for our residents.
+            <br/><br/>NALA homes set the benchmark for disability housing in Sydney, and alongside our leading SIL partners, ensure the best quality of life for our residents.
           </p>
         </div>
       </div>

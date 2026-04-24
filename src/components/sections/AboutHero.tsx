@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
+import heroSectionBg from "../../../public/images/hero-section-bg.webp";
+import heroHouse from "../../../public/images/hero-house.webp";
 
 export default function AboutHero() {
   const [mounted, setMounted] = useState(false);
@@ -22,7 +24,7 @@ export default function AboutHero() {
         )}
       >
         <Image
-          src="/images/hero-section-bg.webp"
+          src={heroSectionBg}
           alt=""
           fill
           className="object-cover opacity-100"
@@ -56,7 +58,7 @@ export default function AboutHero() {
         )}
       >
         <Image
-          src="/images/hero-house.webp"
+          src={heroHouse}
           alt="Modern SDA home"
           fill
           className="-scale-x-100 object-cover object-center"

@@ -5,6 +5,9 @@ import Image from "next/image";
 import { useContactForm } from "@/hooks/useContactForm";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
+import watercolorBg from "../../../public/images/watercolor-bg.webp";
+import checkIcon from "../../../public/images/check-icon.svg";
+import arrowLink from "../../../public/images/arrow-link.svg";
 
 export default function ContactSection() {
   const { ref, isVisible } = useIntersectionObserver();
@@ -39,9 +42,10 @@ export default function ContactSection() {
       {/* Watercolor textured background — anchored left */}
       <div className="absolute inset-0 opacity-70 sm:inset-y-0 sm:left-[-33rem] sm:w-[130%] short:left-[-20rem] short:w-[150%]">
         <Image
-          src="/images/watercolor-bg.webp"
+          src={watercolorBg}
           alt=""
           fill
+          placeholder="blur"
           className="object-cover object-center sm:object-left sm:scale-[1.1]"
           aria-hidden
         />
@@ -83,7 +87,7 @@ export default function ContactSection() {
             <div className="flex flex-col items-center rounded border border-border bg-white py-20 text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
                 <Image
-                  src="/images/check-icon.svg"
+                  src={checkIcon}
                   alt="Success"
                   width={32}
                   height={32}
@@ -176,7 +180,7 @@ export default function ContactSection() {
                 {isSubmitting ? "Sending..." : "Contact Us Now"}
                 {!isSubmitting && (
                   <Image
-                    src="/images/arrow-link.svg"
+                    src={arrowLink}
                     alt=""
                     width={20}
                     height={20}

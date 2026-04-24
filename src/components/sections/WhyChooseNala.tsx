@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { WHY_CHOOSE_ITEMS } from "@/lib/constants";
 import { cn } from "@/lib/cn";
+import whyChooseBg from "../../../public/images/why-choose-bg.webp";
 
 export default function WhyChooseNala() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -114,9 +115,10 @@ export default function WhyChooseNala() {
       <section className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Single fixed background image */}
         <Image
-          src="/images/why-choose-bg.webp"
+          src={whyChooseBg}
           alt=""
           fill
+          placeholder="blur"
           className="object-cover"
           sizes="100vw"
           priority

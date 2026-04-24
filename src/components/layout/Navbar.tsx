@@ -8,6 +8,10 @@ import { NAV_LINKS, COMPANY_INFO } from "@/lib/constants";
 import { PROPERTIES } from "@/lib/properties";
 import type { Property } from "@/types";
 import { cn } from "@/lib/cn";
+import logo from "../../../public/images/logo.webp";
+import logoWhite from "../../../public/images/logo-white.webp";
+import smsIcon from "../../../public/images/sms-icon.svg";
+import phoneIcon from "../../../public/images/phone-icon.svg";
 
 const DROPDOWN_TOP = PROPERTIES.slice(0, 5);
 const DROPDOWN_BOTTOM = PROPERTIES.slice(5, 8);
@@ -175,9 +179,10 @@ export default function Navbar() {
             <Link href="/" className="relative">
               <div className="relative h-[clamp(32px,3.6vw,55px)] short:h-[6.5vh] w-[clamp(80px,10.4vw,157.5px)] short:w-[18vh]">
                 <Image
-                  src={isDark ? "/images/logo.webp" : "/images/logo-white.webp"}
+                  src={isDark ? logo : logoWhite}
                   alt="NALA Properties"
                   fill
+                  placeholder="blur"
                   className="object-contain"
                   priority
                 />
@@ -189,7 +194,7 @@ export default function Navbar() {
           <div className="ml-auto hidden flex-col items-end gap-0.5 lg:flex">
             <div className="flex items-center gap-2">
               <Image
-                src="/images/sms-icon.svg"
+                src={smsIcon}
                 alt=""
                 width={20}
                 height={20}
@@ -205,7 +210,7 @@ export default function Navbar() {
             </div>
             <a href="tel:0480850225" className="flex items-center gap-2">
               <Image
-                src="/images/phone-icon.svg"
+                src={phoneIcon}
                 alt=""
                 width={18}
                 height={18}

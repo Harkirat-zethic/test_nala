@@ -5,6 +5,7 @@ import Link from "next/link";
 import { COMPANY_INFO, FOOTER_LINKS } from "@/lib/constants";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
+import footerLogo from "../../../public/images/footer-logo.webp";
 
 /*
  * Clouds start covering the NALA letters area (startLeft), then drift
@@ -51,7 +52,7 @@ export default function Footer() {
       <div className="relative z-10 flex flex-col items-center gap-8 px-[1.5rem] pt-[3rem] text-center sm:px-[2rem] sm:pt-[4rem] md:hidden">
         {/* Logo */}
         <Link href="/" className="relative h-[4.5rem] w-[3.5rem] shrink-0">
-          <Image src="/images/footer-logo.webp" alt="NALA Properties" fill className="object-contain" />
+          <Image src={footerLogo} alt="NALA Properties" fill placeholder="blur" className="object-contain" />
         </Link>
 
 
@@ -88,7 +89,7 @@ export default function Footer() {
               : "translate-y-6 opacity-0"
           )}
         >
-          <Image src="/images/footer-logo.webp" alt="NALA Properties" fill className="object-contain" />
+          <Image src={footerLogo} alt="NALA Properties" fill placeholder="blur" className="object-contain" />
         </Link>
 
 
