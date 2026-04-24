@@ -78,24 +78,27 @@ export default function Footer() {
       </div>
 
       {/* ── Desktop layout ── */}
-      <div className="relative z-10 mx-auto hidden md:flex md:flex-wrap md:items-start md:justify-around md:gap-10 md:px-[clamp(1.5rem,4.17vw,5rem)] md:pt-[clamp(3rem,6vw,7.25rem)] short:pt-[7vh]">
-        {/* Logo */}
-        <Link
-          href="/"
-          className={cn(
-            "relative shrink-0 transition-all duration-[1500ms] ease-out md:h-[clamp(4.5rem,6.25vw,7.5rem)] md:w-[clamp(3.5rem,5.36vw,6.44rem)] short:h-[9vh] short:w-[7vh]",
-            isVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-6 opacity-0"
-          )}
-        >
-          <Image src={footerLogo} alt="NALA Properties" fill placeholder="blur" className="object-contain" />
-        </Link>
+      <div className="relative z-10 mx-auto hidden md:flex md:items-start md:px-[clamp(1.5rem,4.17vw,5rem)] md:pt-[clamp(3rem,6vw,7.25rem)] short:pt-[7vh]">
+        {/* Col 1: Logo */}
+        <div className="flex-1 pl-4">
+          <Link
+            href="/"
+            className={cn(
+              "relative block transition-all duration-[1500ms] ease-out md:h-[clamp(4.5rem,6.25vw,7.5rem)] md:w-[clamp(3.5rem,5.36vw,6.44rem)] short:h-[9vh] short:w-[7vh]",
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-6 opacity-0"
+            )}
+          >
+            <Image src={footerLogo} alt="NALA Properties" fill placeholder="blur" className="object-contain" />
+          </Link>
+        </div>
 
+        {/* Col 2: Empty */}
+        <div className="flex-[1.5]" />
 
-
-        {/* Contact */}
-        <FooterColumn title="Contact" isVisible={isVisible} delay="delay-300">
+        {/* Col 3: Contact */}
+        <FooterColumn title="Contact" isVisible={isVisible} delay="delay-300" className="flex-1 pl-4">
           <a
             href={`mailto:${COMPANY_INFO.email}`}
             className="block font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[0.8em] text-body transition-colors duration-300 hover:text-primary mb-2"
@@ -113,8 +116,8 @@ export default function Footer() {
           </p>
         </FooterColumn>
 
-        {/* Company links */}
-        <FooterColumn title="Company" isVisible={isVisible} delay="delay-700">
+        {/* Col 4: Company */}
+        <FooterColumn title="Company" isVisible={isVisible} delay="delay-700" className="flex-1 pl-4">
           <ul className="flex flex-col">
             {FOOTER_LINKS.map((link) => (
               <li key={link.href}>

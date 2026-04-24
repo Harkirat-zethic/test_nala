@@ -65,13 +65,6 @@ export default function ContactSection() {
           <h2 ref={headingRef} className="w-fit font-afacad text-[clamp(2.5rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.075] text-[#252525]">
             Get In Touch With Us
           </h2>
-          <p className="mt-[clamp(2.5rem,4.17vw,5rem)] short:mt-[5vh] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.3] text-body"
-            style={headingWidth ? { maxWidth: headingWidth } : undefined}>
-            Looking to buy, sell, or invest in property? We&apos;re here to
-            guide you every step of the way. Send us a message and let&apos;s
-            start the conversation — no pressure, just real support from real
-            people who care about your goals.
-          </p>
         </div>
 
         {/* Right — form card */}
