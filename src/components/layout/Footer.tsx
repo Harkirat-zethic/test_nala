@@ -55,6 +55,16 @@ export default function Footer() {
           <Image src={footerLogo} alt="NALA Properties" fill placeholder="blur" className="object-contain" />
         </Link>
 
+        {/* NDIS Badge */}
+        <div className="flex flex-col gap-[1.125rem] items-center rounded-[0.875rem] bg-[#f7f7f7] px-[1.75rem] py-[1.25rem]">
+          <div className="relative h-[3.75rem] w-[8.75rem]">
+            <Image src="/images/ndis-logo.png" alt="Registered NDIS Provider" fill className="object-contain" />
+          </div>
+          <div className="flex flex-col gap-[0.75rem] text-center">
+            <p className="font-outfit text-[0.875rem] leading-[1em] text-body">NDIS SDA Provider Number:</p>
+            <p className="font-outfit text-[0.875rem] font-bold leading-[1em] text-body">4-GMPNJSS</p>
+          </div>
+        </div>
 
         {/* Contact */}
         <div>
@@ -62,6 +72,9 @@ export default function Footer() {
           <a href={`mailto:${COMPANY_INFO.email}`} className="mt-3 block font-outfit text-[0.875rem] text-body">{COMPANY_INFO.email}</a>
           <a href="tel:0480850225" className="block font-outfit text-[0.875rem] text-body">0480 850 225</a>
           <p className="mt-2 font-outfit text-[0.875rem] text-body">Suite 320, 9 Union St,<br />Pyrmont NSW 2009</p>
+          <p className="mt-3 font-outfit text-[0.875rem] font-bold text-body">NALA Properties Pty Ltd.</p>
+          <p className="mt-1 font-outfit text-[0.875rem] text-body">ABN: 85 152 084 985</p>
+          <p className="font-outfit text-[0.875rem] text-body">NDIS Provider Number: 4-GMPNJSS</p>
         </div>
 
         {/* Company */}
@@ -94,8 +107,23 @@ export default function Footer() {
           </Link>
         </div>
 
-        {/* Col 2: Empty */}
-        <div className="flex-[1.5]" />
+        {/* Col 2: NDIS Badge */}
+        <div
+          className={cn(
+            "flex-[1] transition-all duration-[1500ms] ease-out delay-150",
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          )}
+        >
+          <div className="inline-flex flex-col gap-[clamp(0.75rem,1.25vw,1.125rem)] rounded-[0.875rem] bg-[#f7f7f7] px-[clamp(1rem,1.94vw,2.33rem)] py-[clamp(0.875rem,1.4vw,1.68rem)]">
+            <div className="relative h-[clamp(2.5rem,4.16vw,5rem)] w-[clamp(6rem,9.72vw,11.67rem)]">
+              <Image src="/images/ndis-logo.png" alt="Registered NDIS Provider" fill className="object-contain" />
+            </div>
+            <div className="flex flex-col gap-[clamp(0.5rem,0.83vw,1rem)]">
+              <p className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[0.7em] text-body">NDIS SDA Provider Number:</p>
+              <p className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] font-bold leading-[1em] text-body">4-GMPNJSS</p>
+            </div>
+          </div>
+        </div>
 
         {/* Col 3: Contact */}
         <FooterColumn title="Contact" isVisible={isVisible} delay="delay-300" className="flex-1 pl-4">
@@ -114,6 +142,9 @@ export default function Footer() {
           <p className="mt-2 font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.6em] text-body">
             Suite 320, 9 Union St,<br />Pyrmont NSW 2009
           </p>
+          <p className="mt-3 font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] font-bold leading-[1.6em] text-body">NALA Properties Pty Ltd.</p>
+          <p className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.6em] text-body">ABN: 85 152 084 985</p>
+          <p className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.6em] text-body">NDIS Provider Number: 4-GMPNJSS</p>
         </FooterColumn>
 
         {/* Col 4: Company */}

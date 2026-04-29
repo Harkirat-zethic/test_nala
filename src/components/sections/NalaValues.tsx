@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { VALUE_ITEMS } from "@/lib/constants";
+import type { ValueItem } from "@/types";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
 import valuesBgHouse from "../../../public/images/values-bg-house.webp";
@@ -40,7 +41,7 @@ export default function NalaValues() {
             : "left-[15.1%] top-[28%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
         )}
       >
-        <ValueCard number={VALUE_ITEMS[0].number} title={VALUE_ITEMS[0].title} description={VALUE_ITEMS[0].description} />
+        <ValueCard icon={VALUE_ITEMS[0].icon} title={VALUE_ITEMS[0].title} description={VALUE_ITEMS[0].description} />
       </div>
 
       {/* Card 02 — top right */}
@@ -52,7 +53,7 @@ export default function NalaValues() {
             : "left-[61.2%] top-[28%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
         )}
       >
-        <ValueCard number={VALUE_ITEMS[1].number} title={VALUE_ITEMS[1].title} description={VALUE_ITEMS[1].description} />
+        <ValueCard icon={VALUE_ITEMS[1].icon} title={VALUE_ITEMS[1].title} description={VALUE_ITEMS[1].description} />
       </div>
 
       {/* z-20: Center house image (transparent cutout) — IN FRONT of cards 01/02, BEHIND card 03 */}
@@ -87,7 +88,7 @@ export default function NalaValues() {
             : "left-1/2 -translate-x-1/2 top-[51.2%] max-h-[3.25rem] overflow-clip opacity-20 blur-[8px]"
         )}
       >
-        <ValueCard number={VALUE_ITEMS[2].number} title={VALUE_ITEMS[2].title} description={VALUE_ITEMS[2].description} />
+        <ValueCard icon={VALUE_ITEMS[2].icon} title={VALUE_ITEMS[2].title} description={VALUE_ITEMS[2].description} />
       </div>
 
       {/* z-40: Title block — ON TOP of everything */}
@@ -109,15 +110,15 @@ export default function NalaValues() {
 
       {/* Mobile layout — stacked cards */}
       <div className="relative z-20 mx-auto mt-6 flex flex-col gap-4 px-6 sm:px-8 xl:hidden">
-        {VALUE_ITEMS.map((item, index) => (
+        {VALUE_ITEMS.map((item) => (
           <div
-            key={item.number}
+            key={item.title}
             className={cn(
               "transition-all duration-[1500ms] ease-out",
               isVisible ? "opacity-100 blur-0" : "opacity-20 blur-[8px]"
             )}
           >
-            <ValueCard number={item.number} title={item.title} description={item.description} />
+            <ValueCard icon={item.icon} title={item.title} description={item.description} />
           </div>
         ))}
       </div>
@@ -125,13 +126,11 @@ export default function NalaValues() {
   );
 }
 
-function ValueCard({ number, title, description }: { number: string; title: string; description: string }) {
+function ValueCard({ icon: Icon, title, description }: Pick<ValueItem, "icon" | "title" | "description">) {
   return (
     <div className="flex flex-col gap-[clamp(0.75rem,1.25vw,1.5rem)] short:gap-[1.5vh] rounded-[0.25rem] bg-white p-[clamp(1rem,1.8vw,2.25rem)] short:p-[2.5vh] xl:w-[clamp(16rem,22vw,26rem)] xl:h-[clamp(12rem,20vw,24rem)] short:h-[32vh]">
-      {/* Number */}
-      <span className="font-outfit text-[clamp(1.5rem,2.3vw,3rem)] short:text-[5vh] font-extrabold leading-[0.65em] text-[#e8e8e8]">
-        {number}
-      </span>
+      {/* Icon */}
+      <Icon className="size-[clamp(1.5rem,2.3vw,3rem)] short:size-[5vh] text-[#1867a5]" strokeWidth={1.5} />
 
       {/* Divider line */}
       <div className="h-[1px] w-full bg-[#e2e4e5]" />

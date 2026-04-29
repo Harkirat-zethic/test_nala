@@ -178,7 +178,7 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: "reservoir-rd",
-    title: "Reservoir Road, Blacktown",
+    title: "Reservoir Rd, Blacktown",
     address: "24 Reservoir Road, Blacktown NSW 2148",
     imageSrc: "/images/properties/reservoir/1.webp",
     location: "Blacktown, NSW",
@@ -213,7 +213,7 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: "wall-park-ave",
-    title: "Wall Park Avenue, Blacktown",
+    title: "Wall Park Ave, Blacktown",
     address: "101 Wall Park Avenue, Blacktown NSW 2148",
     imageSrc: "/images/properties/wallpark/1.webp",
     location: "Blacktown, NSW",
@@ -248,7 +248,7 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: "newton-rd",
-    title: "Newton Road, Blacktown",
+    title: "Newton Rd, Blacktown",
     address: "78 Newton Road, Blacktown NSW 2148",
     imageSrc: "/images/properties/newton/1.webp",
     location: "Blacktown, NSW",
@@ -289,7 +289,7 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: "duckmallois-ave",
-    title: "Duckmallois Avenue, Blacktown",
+    title: "Duckmallois Ave, Blacktown",
     address: "76 Duckmallois Avenue, Blacktown NSW 2148",
     imageSrc: "/images/properties/duckmallois/1.webp",
     location: "Blacktown, NSW",
@@ -330,7 +330,7 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: "ross-st",
-    title: "Ross Street, North Parramatta",
+    title: "Ross St, North Parramatta",
     address: "36 Ross Street, North Parramatta NSW 2151",
     imageSrc: "/images/properties/ross/1.webp",
     location: "North Parramatta, NSW",

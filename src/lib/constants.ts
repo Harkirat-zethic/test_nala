@@ -1,4 +1,5 @@
 import type { NavLink, OfferItem, ValueItem, WhyChooseItem } from "@/types";
+import { ShieldCheck, HeartHandshake, Award } from "lucide-react";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
@@ -40,21 +41,21 @@ export const OFFER_ITEMS: OfferItem[] = [
 
 export const VALUE_ITEMS: ValueItem[] = [
   {
-    number: "01",
+    icon: ShieldCheck,
     title: "Act with Integrity",
     description:
       "We always do what is right, even when it is not the easiest option. Our decisions are guided by honesty, fairness, and strong ethical standards.",
     imageSrc: "/images/value-1.webp",
   },
   {
-    number: "02",
+    icon: HeartHandshake,
     title: "Residents Needs Come First",
     description:
       "The wellbeing, safety, and dignity of our residents are at the centre of everything we do. We listen, respond, and design our homes to support each person's individual needs.",
     imageSrc: "/images/value-2.webp",
   },
   {
-    number: "03",
+    icon: Award,
     title: "Take Pride in Our Work",
     description:
       "We care deeply about the quality of every home we create and manage. We aim for excellence, pay attention to detail, and stand behind everything we deliver.",
