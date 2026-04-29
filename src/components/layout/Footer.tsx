@@ -57,12 +57,8 @@ export default function Footer() {
 
         {/* NDIS Badge */}
         <div className="flex flex-col gap-[1.125rem] items-center rounded-[0.875rem] bg-[#f7f7f7] px-[1.75rem] py-[1.25rem]">
-          <div className="relative h-[3.75rem] w-[8.75rem]">
+          <div className="relative h-[4.75rem] w-[10.75rem]">
             <Image src="/images/ndis-logo.png" alt="Registered NDIS Provider" fill className="object-contain" />
-          </div>
-          <div className="flex flex-col gap-[0.75rem] text-center">
-            <p className="font-outfit text-[0.875rem] leading-[1em] text-body">NDIS SDA Provider Number:</p>
-            <p className="font-outfit text-[0.875rem] font-bold leading-[1em] text-body">4-GMPNJSS</p>
           </div>
         </div>
 
@@ -91,9 +87,9 @@ export default function Footer() {
       </div>
 
       {/* ── Desktop layout ── */}
-      <div className="relative z-10 mx-auto hidden md:flex md:items-start md:px-[clamp(1.5rem,4.17vw,5rem)] md:pt-[clamp(3rem,6vw,7.25rem)] short:pt-[7vh]">
+      <div className="relative z-10 mx-auto hidden md:flex md:items-start md:px-[clamp(1.5rem,4.17vw,5rem)] md:pt-[clamp(3rem,6vw,7.25rem)] short:pt-[7vh] justify-between items-start">
         {/* Col 1: Logo */}
-        <div className="flex-1 pl-4">
+        <div className="pl-4">
           <Link
             href="/"
             className={cn(
@@ -110,23 +106,19 @@ export default function Footer() {
         {/* Col 2: NDIS Badge */}
         <div
           className={cn(
-            "flex-[1] transition-all duration-[1500ms] ease-out delay-150",
+            " transition-all duration-[1500ms] ease-out delay-150",
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           )}
         >
-          <div className="inline-flex flex-col gap-[clamp(0.75rem,1.25vw,1.125rem)] rounded-[0.875rem] bg-[#f7f7f7] px-[clamp(1rem,1.94vw,2.33rem)] py-[clamp(0.875rem,1.4vw,1.68rem)]">
-            <div className="relative h-[clamp(2.5rem,4.16vw,5rem)] w-[clamp(6rem,9.72vw,11.67rem)]">
+          <div className="inline-flex flex-col gap-[clamp(1rem,1.5vw,1.5rem)] rounded-[0.875rem] bg-[#f7f7f7] ">
+            <div className="relative h-[clamp(2rem,4.5vw,6rem)] w-[clamp(12rem,17vw,20rem)]">
               <Image src="/images/ndis-logo.png" alt="Registered NDIS Provider" fill className="object-contain" />
-            </div>
-            <div className="flex flex-col gap-[clamp(0.5rem,0.83vw,1rem)]">
-              <p className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[0.7em] text-body">NDIS SDA Provider Number:</p>
-              <p className="font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] font-bold leading-[1em] text-body">4-GMPNJSS</p>
             </div>
           </div>
         </div>
 
         {/* Col 3: Contact */}
-        <FooterColumn title="Contact" isVisible={isVisible} delay="delay-300" className="flex-1 pl-4">
+        <FooterColumn title="Contact" isVisible={isVisible} delay="delay-300" className=" pl-4">
           <a
             href={`mailto:${COMPANY_INFO.email}`}
             className="block font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[0.8em] text-body transition-colors duration-300 hover:text-primary mb-2"
@@ -148,7 +140,7 @@ export default function Footer() {
         </FooterColumn>
 
         {/* Col 4: Company */}
-        <FooterColumn title="Company" isVisible={isVisible} delay="delay-700" className="flex-1 pl-4">
+        <FooterColumn title="Company" isVisible={isVisible} delay="delay-700" className=" pl-4">
           <ul className="flex flex-col">
             {FOOTER_LINKS.map((link) => (
               <li key={link.href}>
