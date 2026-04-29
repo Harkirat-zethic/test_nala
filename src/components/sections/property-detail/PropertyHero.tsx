@@ -116,6 +116,7 @@ export default function PropertyHero({ property }: { property: Property }) {
           <p className="max-w-[42.5rem] font-outfit text-[clamp(0.875rem,1.11vw,1.333rem)] short:text-[2vh] leading-[1.6] text-[#61656e] sm:leading-[1.875rem] short:leading-[1.5]">
             {property.description}
           </p>
+          {/* Download Brochure — commented out
           {property.brochureUrl && (
             <a
               href={property.brochureUrl}
@@ -126,6 +127,7 @@ export default function PropertyHero({ property }: { property: Property }) {
               <Image src="/images/property-icons/download.svg" alt="" width={40} height={40} className="relative h-[clamp(20px,2.6vw,40px)] w-[clamp(20px,2.6vw,40px)]" />
             </a>
           )}
+          */}
         </div>
 
         {/* Villa + Staff cards */}
