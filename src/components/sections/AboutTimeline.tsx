@@ -7,15 +7,18 @@ import aboutHouseSide from "../../../public/images/about-house-side.webp";
 
 const TIMELINE_ITEMS = [
   {
-    text: "NALA provides modern, functional and safe SDA homes for NDIS participants. As a development company, NALA focuses on the physical and behavioral needs of its residents by building homes to the highest design standards",
+    title: "NDIS Participant-Centred Living",
+    text: "At NALA, every home is designed around the people who live in it. We create SDA homes that support independence, comfort and everyday routines, while providing safe and practical environments for participants and their support teams.\nOur homes are designed to offer accessible layouts, private living spaces, functional shared areas and features that support assistive technology and high-quality care. From location to design detail, we focus on helping residents feel secure, respected and genuinely at home.",
     textSide: "left" as const,
   },
   {
-    text: "NALA homes set the benchmark for disability housing in Sydney, and alongside our leading SDA and SIL partners, ensure the best quality of life for our residents.",
+    title: "Our Story and Operating Ethos",
+    text: "NALA Properties began in 2019 with a clear purpose: to improve the standard of SDA through better design, careful construction and responsible long-term operation.\nAs both a development and construction entity and an SDA provider, NALA takes a hands-on approach to every home we deliver. We believe SDA housing should be built with care, operated with accountability and designed to meet the real needs of participants, families, support providers and the wider community. Our ethos is grounded in quality, integrity and long-term responsibility.",
     textSide: "right" as const,
   },
   {
-    text: null, // rich text — rendered separately
+    title: "Development, Compliance, and Professional Capability",
+    text: "NALA brings together property development, construction expertise and SDA provider experience under one model. This allows us to manage the full delivery process, from identifying suitable locations and designing purpose-built homes through to construction, certification, ongoing maintenance and tenancy management.\nOur homes are developed in line with applicable NDIS SDA Design Standards and NSW Access Standards. NALA has been a registered NDIS Provider since 2021, with HICAPS and CentrePay registrations as well.",
     textSide: "left" as const,
   },
 ];
@@ -23,19 +26,19 @@ const TIMELINE_ITEMS = [
 // Figma positions as percentages of the 1920×1782 section
 const ITEM_POSITIONS = [
   {
-    textLeft: "25.4%",
-    textWidth: "22.4%",
-    top: "30.9%",
+    textLeft: "20%",
+    textWidth: "28%",
+    top: "5%",
   },
   {
-    textLeft: "51.9%",
-    textWidth: "24.1%",
-    top: "55.2%",
+    textLeft: "52%",
+    textWidth: "28%",
+    top: "30%",
   },
   {
-    textLeft: "25.3%",
-    textWidth: "22.6%",
-    top: "75.5%",
+    textLeft: "20%",
+    textWidth: "28%",
+    top: "55%",
   },
 ];
 
@@ -49,7 +52,7 @@ export default function AboutTimeline() {
     <section ref={ref} className="relative w-full overflow-hidden bg-white">
       {/* ─── Mobile Layout ─── */}
       <div className="px-6 py-16 sm:px-8 lg:hidden">
-        {/* Title */}
+        {/* Title — commented out
         <div
           className={cn(
             "text-center transition-all duration-[1000ms] ease-out",
@@ -64,6 +67,7 @@ export default function AboutTimeline() {
             <p>Australia</p>
           </div>
         </div>
+        */}
 
         {/* Mobile timeline items */}
         <div className="relative mt-12 space-y-8">
@@ -81,43 +85,26 @@ export default function AboutTimeline() {
             }}
           />
 
-          {/* Item 1 */}
-          <MobileTimelineItem
-            isVisible={isVisible}
-            delay="1000ms"
-          >
-            <p className="font-outfit text-sm leading-[1.75] text-[#5b5b5b] sm:text-base">
-              {TIMELINE_ITEMS[0].text}
-            </p>
-          </MobileTimelineItem>
-
-          {/* Item 2 */}
-          <MobileTimelineItem
-            isVisible={isVisible}
-            delay="1500ms"
-          >
-            <p className="font-outfit text-sm leading-[1.75] text-[#5b5b5b] sm:text-base">
-              {TIMELINE_ITEMS[1].text}
-            </p>
-          </MobileTimelineItem>
-
-          {/* Item 3 */}
-          <MobileTimelineItem
-            isVisible={isVisible}
-            delay="2000ms"
-          >
-            <p className="font-outfit text-sm leading-[1.75] sm:text-base">
-              <span className="text-[#5b5b5b]">High Physical Support </span>
-              <span className="font-bold text-[#252525]">2021 NDIS SDA </span>
-              <span className="text-[#5b5b5b]">Design Standard</span>
-            </p>
-          </MobileTimelineItem>
+          {TIMELINE_ITEMS.map((item, index) => (
+            <MobileTimelineItem
+              key={item.title}
+              isVisible={isVisible}
+              delay={`${1000 + index * 500}ms`}
+            >
+              <h3 className="font-urbanist text-base font-bold leading-[1.3] text-[#252525] sm:text-lg">
+                {item.title}
+              </h3>
+              <p className="mt-2 font-outfit text-sm leading-[1.75] text-[#5b5b5b] sm:text-base whitespace-pre-line">
+                {item.text}
+              </p>
+            </MobileTimelineItem>
+          ))}
         </div>
       </div>
 
       {/* ─── Desktop Layout ─── */}
       <div className="hidden lg:block lg:aspect-[1920/1782]">
-        {/* Title */}
+        {/* Title — commented out
         <div
           className={cn(
             "absolute left-1/2 top-[9.5%] -translate-x-1/2 text-center",
@@ -133,11 +120,12 @@ export default function AboutTimeline() {
             <p>Australia</p>
           </div>
         </div>
+        */}
 
         {/* Center vertical dashed line — gradient blue to transparent, 4px wide, 8px dash / 14px gap */}
         <div
           className={cn(
-            "absolute left-[49.8%] short:left-1/2 top-[32.5%] h-[43.2%] w-[4px] origin-top -translate-x-1/2",
+            "absolute left-[49.8%] short:left-1/2 top-[7%] h-[65%] w-[4px] origin-top -translate-x-1/2",
             "transition-transform duration-[2500ms] delay-[800ms] ease-out",
             isVisible ? "scale-y-100" : "scale-y-0"
           )}
@@ -157,7 +145,7 @@ export default function AboutTimeline() {
         {/* ─── Timeline Item 3 ─── text left, image right */}
         <TimelineRow index={2} />
 
-        {/* Left house image — flipped horizontally */}
+        {/* Left house image — commented out
         <div
           className={cn(
             "absolute left-[-2%] top-[23.7%] h-[67.3%] w-[41.7%]",
@@ -177,8 +165,9 @@ export default function AboutTimeline() {
             aria-hidden
           />
         </div>
+        */}
 
-        {/* Right house image */}
+        {/* Right house image — commented out
         <div
           className={cn(
             "absolute right-[-2%] top-[23.7%] h-[67.3%] w-[41.7%]",
@@ -198,6 +187,7 @@ export default function AboutTimeline() {
             aria-hidden
           />
         </div>
+        */}
 
         {/* Bottom decorative wave element */}
         <div
@@ -273,17 +263,12 @@ function TimelineRow({ index }: { index: number }) {
           width: pos.textWidth,
         }}
       >
-        {item.text ? (
-          <p className="font-outfit text-[clamp(14px,1.04vw,20px)] leading-[1.4] text-[#5b5b5b]">
-            {item.text}
-          </p>
-        ) : (
-          <p className="font-outfit text-[clamp(14px,1.04vw,20px)] leading-[1.4]">
-            <span className="text-[#5b5b5b]">High Physical Support </span>
-            <span className="font-bold text-[#252525]">2021 NDIS SDA </span>
-            <span className="text-[#5b5b5b]">Design Standard</span>
-          </p>
-        )}
+        <h3 className="font-urbanist text-[clamp(16px,1.25vw,24px)] font-bold leading-[1.3] text-[#252525]">
+          {item.title}
+        </h3>
+        <p className="mt-2 font-outfit text-[clamp(14px,1.04vw,20px)] leading-[1.4] text-[#5b5b5b] whitespace-pre-line">
+          {item.text}
+        </p>
       </div>
 
     </>
