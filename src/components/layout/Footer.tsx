@@ -55,10 +55,10 @@ export default function Footer() {
           <Image src={footerLogo} alt="NALA Properties" fill placeholder="blur" className="object-contain" />
         </Link>
 
-        {/* NDIS Badge */}
-        <div className="flex flex-col gap-[1.125rem] items-center rounded-[0.875rem] bg-[#f7f7f7] px-[1.75rem] py-[1.25rem]">
-          <div className="relative h-[4.75rem] w-[10.75rem]">
-            <Image src="/images/ndis-logo.png" alt="Registered NDIS Provider" fill className="object-contain" />
+        {/* NDIS Badge + People illustration */}
+        <div className="flex items-center gap-4">
+          <div className="relative h-[4.75rem] w-[14rem] shrink-0">
+            <Image src="/images/ndis-people.png" alt="" fill className="object-contain" />
           </div>
         </div>
 
@@ -110,9 +110,9 @@ export default function Footer() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           )}
         >
-          <div className="inline-flex flex-col gap-[clamp(1rem,1.5vw,1.5rem)] rounded-[0.875rem] bg-[#f7f7f7] ">
-            <div className="relative h-[clamp(2rem,4.5vw,6rem)] w-[clamp(12rem,17vw,20rem)]">
-              <Image src="/images/ndis-logo.png" alt="Registered NDIS Provider" fill className="object-contain" />
+          <div className="inline-flex items-center gap-[clamp(1rem,1.5vw,2rem)]">
+            <div className="relative h-[clamp(3rem,5vw,6rem)] w-[clamp(12rem,20vw,24rem)] shrink-0">
+              <Image src="/images/ndis-people.png" alt="" fill className="object-contain" />
             </div>
           </div>
         </div>
