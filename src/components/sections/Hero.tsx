@@ -133,7 +133,7 @@ export default function Hero() {
             {TAGS.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-white/80 px-3 py-1.5 text-[#252525] opacity-0 text-[clamp(0.75rem,1.04vw,1.25rem)] short:text-[2.1vh] sm:px-5 sm:py-2.5 sm:text-[clamp(0.875rem,1.04vw,1.25rem)]"
+                className="rounded-full bg-white/80 px-3 py-1.5 text-[#252525] opacity-0 font-bold text-[clamp(0.75rem,1.04vw,1.25rem)] short:text-[2.1vh] sm:px-5 sm:py-2.5 sm:text-[clamp(0.875rem,1.04vw,1.25rem)]"
                 style={{
                   fontFamily: "'Outfit', sans-serif",
                   transform: "translateY(1rem)",

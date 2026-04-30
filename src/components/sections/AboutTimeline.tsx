@@ -8,18 +8,18 @@ import { cn } from "@/lib/cn";
 // Figma positions as percentages of the 1920×1782 section
 const ITEM_POSITIONS = [
   {
-    textLeft: "20.2%",
-    textWidth: "28.3%",
+    textLeft: "15%",
+    textWidth: "33%",
     top: "10.5%",
   },
   {
-    textLeft: "51.4%",
-    textWidth: "28.3%",
+    textLeft: "51%",
+    textWidth: "33%",
     top: "36.1%",
   },
   {
-    textLeft: "20.2%",
-    textWidth: "28.3%",
+    textLeft: "15%",
+    textWidth: "33%",
     top: "63%",
   },
 ];
@@ -115,15 +115,9 @@ export default function AboutTimeline() {
 
         {/* Center vertical dashed line — gradient blue to transparent, 4px wide, 8px dash / 14px gap */}
         <div
-          className={cn(
-            "absolute left-[49.8%] short:left-1/2 top-[11.8%] h-[52%] w-[4px] origin-top -translate-x-1/2",
-            "transition-transform duration-[2500ms] delay-[800ms] ease-out",
-            isVisible ? "scale-y-100" : "scale-y-0"
-          )}
+          className="absolute left-[49.8%] short:left-1/2 top-[11.8%] h-[62%] w-[4px] z-[1]"
           style={{
             backgroundImage: "repeating-linear-gradient(to bottom, #5BADE8 0px, #5BADE8 8px, transparent 8px, transparent 22px)",
-            maskImage: "linear-gradient(to bottom, rgba(91,173,232,1), rgba(91,173,232,0))",
-            WebkitMaskImage: "linear-gradient(to bottom, rgba(91,173,232,1), rgba(91,173,232,0))",
           }}
         />
 
@@ -225,7 +219,7 @@ function TimelineRow({ index }: { index: number }) {
       {/* Dot */}
       <div
         className={cn(
-          "absolute left-[49.8%] short:left-1/2 z-10 -translate-x-1/2",
+          "absolute left-[49.9%] short:left-1/2 z-10 -translate-x-1/2",
           "transition-[scale,opacity] duration-1000 ease-out",
           isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"
         )}
