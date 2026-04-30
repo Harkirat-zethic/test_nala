@@ -8,18 +8,18 @@ import { cn } from "@/lib/cn";
 // Figma positions as percentages of the 1920×1782 section
 const ITEM_POSITIONS = [
   {
-    textLeft: "15%",
-    textWidth: "33%",
+    textLeft: "8%",
+    textWidth: "40%",
     top: "10.5%",
   },
   {
-    textLeft: "51%",
-    textWidth: "33%",
+    textLeft: "52%",
+    textWidth: "40%",
     top: "36.1%",
   },
   {
-    textLeft: "15%",
-    textWidth: "33%",
+    textLeft: "8%",
+    textWidth: "40%",
     top: "63%",
   },
 ];

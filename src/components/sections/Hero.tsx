@@ -123,7 +123,7 @@ export default function Hero() {
           )}
         >
           {/* Tags — first in DOM so they render on top in the flex column on mobile */}
-          <div
+          {/* <div
             ref={tagsRef}
             className={cn(
               "pointer-events-auto flex flex-wrap gap-2 sm:gap-[10px]",
@@ -133,7 +133,7 @@ export default function Hero() {
             {TAGS.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-white/80 px-3 py-1.5 text-[#252525] opacity-0 font-bold text-[clamp(0.75rem,1.04vw,1.25rem)] short:text-[2.1vh] sm:px-5 sm:py-2.5 sm:text-[clamp(0.875rem,1.04vw,1.25rem)]"
+                className="px-3 py-1.5 text-white opacity-0 font-bold text-[clamp(0.75rem,1.04vw,1.25rem)] short:text-[2.1vh] sm:px-5 sm:py-2.5 sm:text-[clamp(0.875rem,1.04vw,1.25rem)]"
                 style={{
                   fontFamily: "'Outfit', sans-serif",
                   transform: "translateY(1rem)",
@@ -142,7 +142,7 @@ export default function Hero() {
                 {tag}
               </span>
             ))}
-          </div>
+          </div> */}
 
           {/* Description — second in DOM so it renders below tags on mobile */}
           <p

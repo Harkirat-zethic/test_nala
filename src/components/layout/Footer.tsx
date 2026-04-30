@@ -51,13 +51,13 @@ export default function Footer() {
       {/* ── Mobile layout ── */}
       <div className="relative z-10 flex flex-col items-center gap-8 px-[1.5rem] pt-[3rem] text-center sm:px-[2rem] sm:pt-[4rem] md:hidden">
         {/* Logo */}
-        <Link href="/" className="relative h-[4.5rem] w-[3.5rem] shrink-0">
+        <Link href="/" className="relative h-[6rem] w-[4.5rem] shrink-0">
           <Image src={footerLogo} alt="NALA Properties" fill placeholder="blur" className="object-contain" />
         </Link>
 
         {/* NDIS Badge + People illustration */}
         <div className="flex items-center gap-4">
-          <div className="relative h-[4.75rem] w-[14rem] shrink-0">
+          <div className="relative h-[6rem] w-[18rem] shrink-0">
             <Image src="/images/ndis-people.png" alt="" fill className="object-contain" />
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function Footer() {
           <Link
             href="/"
             className={cn(
-              "relative block transition-all duration-[1500ms] ease-out md:h-[clamp(4.5rem,6.25vw,7.5rem)] md:w-[clamp(3.5rem,5.36vw,6.44rem)] short:h-[9vh] short:w-[7vh]",
+              "relative block transition-all duration-[1500ms] ease-out md:h-[clamp(6rem,8.3vw,10rem)] md:w-[clamp(4.5rem,7.14vw,8.6rem)] short:h-[12vh] short:w-[9vh]",
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-6 opacity-0"
@@ -111,7 +111,7 @@ export default function Footer() {
           )}
         >
           <div className="inline-flex items-center gap-[clamp(1rem,1.5vw,2rem)]">
-            <div className="relative h-[clamp(3rem,5vw,6rem)] w-[clamp(12rem,20vw,24rem)] shrink-0">
+            <div className="relative h-[clamp(4.5rem,7vw,8.5rem)] w-[clamp(16rem,25vw,30rem)] shrink-0">
               <Image src="/images/ndis-people.png" alt="" fill className="object-contain" />
             </div>
           </div>
