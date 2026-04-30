@@ -160,9 +160,7 @@ export default function Hero() {
               transform: "translateY(1.5rem)",
             }}
           >
-            NALA develops homes designed to enrich its residents quality of life.
-            NALA homes are built to suit individuals with High Physical Support and
-            Robust needs.
+            NALA develops homes designed to enrich its residents quality of life. NALA homes are built to provide individuals with comfort, safety and independence.
           </p>
         </div>
       </div>

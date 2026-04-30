@@ -32,6 +32,10 @@ export default function AboutTimeline() {
 
   return (
     <section ref={ref} className="relative w-full overflow-hidden bg-white">
+      {/* Hexagonal background pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.08]" aria-hidden>
+        <Image src="/images/about-hex-pattern.png" alt="" fill className="object-cover" />
+      </div>
       {/* Top white fade */}
       <div className="absolute left-0 top-0 z-10 h-[clamp(4rem,8vw,10rem)] w-full bg-gradient-to-b from-white to-transparent pointer-events-none" aria-hidden />
       {/* Bottom white fade */}
@@ -90,11 +94,6 @@ export default function AboutTimeline() {
 
       {/* ─── Desktop Layout ─── */}
       <div className="hidden lg:block lg:aspect-[1920/2197]">
-        {/* Hexagonal background pattern — single full-width layer */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.08]" aria-hidden>
-          <Image src="/images/about-hex-pattern.png" alt="" fill className="object-cover" />
-        </div>
-
         {/* Title — commented out
         <div
           className={cn(
@@ -285,7 +284,7 @@ function MobileTimelineItem({
       </div>
 
       {/* Content */}
-      <div className="rounded border border-[#a8bae2] bg-[#f8fafe] p-5 shadow-[0px_4px_38px_rgba(0,0,0,0.12),0px_0px_250px_white,0px_0px_250px_white,0px_0px_203px_white,0px_0px_58px_white,0px_0px_29px_white]">
+      <div className="rounded border border-[#a8bae2] bg-[#f8fafe] p-5 shadow-[0px_4px_20px_rgba(0,0,0,0.08)]">
         {children}
       </div>
     </div>
