@@ -1,44 +1,26 @@
 "use client";
 
 import Image from "next/image";
+import { TIMELINE_ITEMS } from "@/lib/constants";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
-import aboutHouseSide from "../../../public/images/about-house-side.webp";
-
-const TIMELINE_ITEMS = [
-  {
-    title: "NDIS Participant-Centred Living",
-    text: "At NALA, every home is designed around the people who live in it. We create SDA homes that support independence, comfort and everyday routines, while providing safe and practical environments for participants and their support teams.\nOur homes are designed to offer accessible layouts, private living spaces, functional shared areas and features that support assistive technology and high-quality care. From location to design detail, we focus on helping residents feel secure, respected and genuinely at home.",
-    textSide: "left" as const,
-  },
-  {
-    title: "Our Story and Operating Ethos",
-    text: "NALA Properties began in 2019 with a clear purpose: to improve the standard of SDA through better design, careful construction and responsible long-term operation.\nAs both a development and construction entity and an SDA provider, NALA takes a hands-on approach to every home we deliver. We believe SDA housing should be built with care, operated with accountability and designed to meet the real needs of participants, families, support providers and the wider community. Our ethos is grounded in quality, integrity and long-term responsibility.",
-    textSide: "right" as const,
-  },
-  {
-    title: "Development, Compliance, and Professional Capability",
-    text: "NALA brings together property development, construction expertise and SDA provider experience under one model. This allows us to manage the full delivery process, from identifying suitable locations and designing purpose-built homes through to construction, certification, ongoing maintenance and tenancy management.\nOur homes are developed in line with applicable NDIS SDA Design Standards and NSW Access Standards. NALA has been a registered NDIS Provider since 2021, with HICAPS and CentrePay registrations as well.",
-    textSide: "left" as const,
-  },
-];
 
 // Figma positions as percentages of the 1920×1782 section
 const ITEM_POSITIONS = [
   {
-    textLeft: "20%",
-    textWidth: "28%",
-    top: "5%",
+    textLeft: "20.2%",
+    textWidth: "28.3%",
+    top: "10.5%",
   },
   {
-    textLeft: "52%",
-    textWidth: "28%",
-    top: "30%",
+    textLeft: "51.4%",
+    textWidth: "28.3%",
+    top: "36.1%",
   },
   {
-    textLeft: "20%",
-    textWidth: "28%",
-    top: "55%",
+    textLeft: "20.2%",
+    textWidth: "28.3%",
+    top: "63%",
   },
 ];
 
@@ -50,6 +32,10 @@ export default function AboutTimeline() {
 
   return (
     <section ref={ref} className="relative w-full overflow-hidden bg-white">
+      {/* Top white fade */}
+      <div className="absolute left-0 top-0 z-10 h-[clamp(4rem,8vw,10rem)] w-full bg-gradient-to-b from-white to-transparent pointer-events-none" aria-hidden />
+      {/* Bottom white fade */}
+      <div className="absolute left-0 bottom-0 z-10 h-[clamp(4rem,8vw,10rem)] w-full bg-gradient-to-t from-white to-transparent pointer-events-none" aria-hidden />
       {/* ─── Mobile Layout ─── */}
       <div className="px-6 py-16 sm:px-8 lg:hidden">
         {/* Title — commented out
@@ -91,7 +77,7 @@ export default function AboutTimeline() {
               isVisible={isVisible}
               delay={`${1000 + index * 500}ms`}
             >
-              <h3 className="font-urbanist text-base font-bold leading-[1.3] text-[#252525] sm:text-lg">
+              <h3 className="font-afacad text-[clamp(1.25rem,5vw,1.75rem)] font-medium leading-normal tracking-[0.01em] text-[#252525]">
                 {item.title}
               </h3>
               <p className="mt-2 font-outfit text-sm leading-[1.75] text-[#5b5b5b] sm:text-base whitespace-pre-line">
@@ -103,7 +89,12 @@ export default function AboutTimeline() {
       </div>
 
       {/* ─── Desktop Layout ─── */}
-      <div className="hidden lg:block lg:aspect-[1920/1782]">
+      <div className="hidden lg:block lg:aspect-[1920/2197]">
+        {/* Hexagonal background pattern — single full-width layer */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.08]" aria-hidden>
+          <Image src="/images/about-hex-pattern.png" alt="" fill className="object-cover" />
+        </div>
+
         {/* Title — commented out
         <div
           className={cn(
@@ -125,7 +116,7 @@ export default function AboutTimeline() {
         {/* Center vertical dashed line — gradient blue to transparent, 4px wide, 8px dash / 14px gap */}
         <div
           className={cn(
-            "absolute left-[49.8%] short:left-1/2 top-[7%] h-[65%] w-[4px] origin-top -translate-x-1/2",
+            "absolute left-[49.8%] short:left-1/2 top-[11.8%] h-[52%] w-[4px] origin-top -translate-x-1/2",
             "transition-transform duration-[2500ms] delay-[800ms] ease-out",
             isVisible ? "scale-y-100" : "scale-y-0"
           )}
@@ -189,7 +180,7 @@ export default function AboutTimeline() {
         </div>
         */}
 
-        {/* Bottom decorative wave element */}
+        {/* Bottom decorative wave element — commented out
         <div
           className={cn(
             "absolute bottom-0 left-[-5.4%] h-[43.2%] w-[114%]",
@@ -197,7 +188,6 @@ export default function AboutTimeline() {
             isVisible ? "translate-y-[24rem] short:translate-y-[16rem] opacity-100" : "translate-y-[6rem] opacity-0"
           )}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/about-decorative.svg"
             alt=""
@@ -205,6 +195,7 @@ export default function AboutTimeline() {
             aria-hidden
           />
         </div>
+        */}
       </div>
     </section>
   );
@@ -249,7 +240,7 @@ function TimelineRow({ index }: { index: number }) {
       {/* Text card */}
       <div
         className={cn(
-          "absolute rounded bg-[#f8fafe] border border-[#e2e8f5] p-[clamp(1rem,1.46vw,1.75rem)]",
+          "absolute rounded bg-[#f8fafe] border border-[#a8bae2] p-[clamp(1rem,1.46vw,1.75rem)] shadow-[0px_4px_38px_rgba(0,0,0,0.12),0px_0px_250px_white,0px_0px_250px_white,0px_0px_203px_white,0px_0px_58px_white,0px_0px_29px_white]",
           "transition-all duration-[2000ms] delay-200 ease-out",
           isVisible
             ? "translate-x-0 opacity-100"
@@ -263,10 +254,10 @@ function TimelineRow({ index }: { index: number }) {
           width: pos.textWidth,
         }}
       >
-        <h3 className="font-urbanist text-[clamp(16px,1.25vw,24px)] font-bold leading-[1.3] text-[#252525]">
+        <h3 className="font-afacad text-[clamp(1.5rem,2.5vw,3rem)] font-medium leading-normal tracking-[0.01em] text-[#252525]">
           {item.title}
         </h3>
-        <p className="mt-2 font-outfit text-[clamp(14px,1.04vw,20px)] leading-[1.4] text-[#5b5b5b] whitespace-pre-line">
+        <p className="mt-[clamp(0.75rem,1.25vw,1.5rem)] font-outfit text-[clamp(0.875rem,1.04vw,1.25rem)] leading-[1.4] text-[#5b5b5b] whitespace-pre-line">
           {item.text}
         </p>
       </div>
@@ -300,7 +291,7 @@ function MobileTimelineItem({
       </div>
 
       {/* Content */}
-      <div className="rounded border border-[#e2e8f5] bg-[#f8fafe] p-5">
+      <div className="rounded border border-[#a8bae2] bg-[#f8fafe] p-5 shadow-[0px_4px_38px_rgba(0,0,0,0.12),0px_0px_250px_white,0px_0px_250px_white,0px_0px_203px_white,0px_0px_58px_white,0px_0px_29px_white]">
         {children}
       </div>
     </div>

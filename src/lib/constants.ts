@@ -1,4 +1,4 @@
-import type { NavLink, OfferItem, ValueItem, WhyChooseItem } from "@/types";
+import type { NavLink, OfferItem, ValueItem, TimelineItem, WhyChooseItem } from "@/types";
 import { ShieldCheck, HeartHandshake, Award } from "lucide-react";
 
 export const NAV_LINKS: NavLink[] = [
@@ -91,5 +91,23 @@ export const COMPANY_INFO = {
   ndisProvider: "4-GMPNJSS",
   copyright: "Copyright © 2020. Nanak Accessible Living Australia All rights reserved.",
 };
+
+export const TIMELINE_ITEMS: TimelineItem[] = [
+  {
+    title: "NDIS Participant-Centred Living",
+    text: "At NALA, every home is designed around the people who live in it. We create SDA homes that support independence, comfort and everyday routines, while providing safe and practical environments for participants and their support teams.\n\nOur homes are designed to offer accessible layouts, private living spaces, functional shared areas and features that support assistive technology and high-quality care. From location to design detail, we focus on helping residents feel secure, respected and genuinely at home.",
+    textSide: "left",
+  },
+  {
+    title: "Our Story and Operating Ethos",
+    text: "NALA Properties began in 2019 with a clear purpose: to improve the standard of SDA through better design, careful construction and responsible long-term operation.\n\nAs both a development and construction entity and an SDA provider, NALA takes a hands-on approach to every home we deliver. We believe SDA housing should be built with care, operated with accountability and designed to meet the real needs of participants, families, support providers and the wider community. Our ethos is grounded in quality, integrity and long-term responsibility.",
+    textSide: "right",
+  },
+  {
+    title: "Development, Compliance, and Professional Capability",
+    text: "NALA brings together property development, construction expertise and SDA provider experience under one model. This allows us to manage the full delivery process, from identifying suitable locations and designing purpose-built homes through to construction, certification, ongoing maintenance and tenancy management.\n\nOur homes are developed in line with applicable NDIS SDA Design Standards and NSW Access Standards. NALA has been a registered NDIS Provider since 2021, with HICAPS and CentrePay registrations as well.",
+    textSide: "left",
+  },
+];
 
 export const FOOTER_LINKS = NAV_LINKS;

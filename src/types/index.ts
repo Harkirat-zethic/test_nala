@@ -17,6 +17,12 @@ export interface ValueItem {
   imageSrc: string;
 }
 
+export interface TimelineItem {
+  title: string;
+  text: string;
+  textSide: "left" | "right";
+}
+
 export interface WhyChooseItem {
   title: string;
   description: string;
