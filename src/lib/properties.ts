@@ -367,7 +367,7 @@ export const PROPERTIES: Property[] = [
     id: "raymond-st",
     title: "5 Raymond St, Blacktown",
     address: "5 Raymond Street, Blacktown NSW 2148",
-    imageSrc: "/images/properties/raymond/Front View Render - 5 Raymond St, Blacktown .webp",
+    imageSrc: "/images/properties/raymond/Frontyard 1.webp",
     location: "Blacktown, NSW",
     silProvider: "Thrive365",
     supportLevel: "High Physical Support",
@@ -377,8 +377,8 @@ export const PROPERTIES: Property[] = [
     dropdownName: "5 Raymond St",
     dropdownImage: "/images/properties/raymond/Front View Render - 5 Raymond St, Blacktown .webp",
     images: [
-      { src: "/images/properties/raymond/Front View Render - 5 Raymond St, Blacktown .webp", alt: "Raymond Street front view render" },
       { src: "/images/properties/raymond/Frontyard Dusk.webp", alt: "Raymond Street frontyard at dusk" },
+      { src: "/images/properties/raymond/Front View Render - 5 Raymond St, Blacktown .webp", alt: "Raymond Street front view render" },
       { src: "/images/properties/raymond/Frontyard 1.webp", alt: "Raymond Street frontyard" },
       { src: "/images/properties/raymond/Frontyard 5.webp", alt: "Raymond Street frontyard view" },
       { src: "/images/properties/raymond/Frontyard 6.webp", alt: "Raymond Street frontyard angle" },

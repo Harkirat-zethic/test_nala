@@ -57,7 +57,7 @@ export default function Footer() {
 
         {/* NDIS Badge + People illustration */}
         <div className="flex items-center gap-4">
-          <div className="relative h-[6rem] w-[18rem] shrink-0">
+          <div className="relative h-[8rem] w-[22rem] shrink-0">
             <Image src="/images/ndis-people.png" alt="" fill className="object-contain" />
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function Footer() {
           )}
         >
           <div className="inline-flex items-center gap-[clamp(1rem,1.5vw,2rem)]">
-            <div className="relative h-[clamp(4.5rem,7vw,8.5rem)] w-[clamp(16rem,25vw,30rem)] shrink-0">
+            <div className="relative h-[clamp(6rem,9vw,11rem)] w-[clamp(20rem,32vw,38rem)] shrink-0">
               <Image src="/images/ndis-people.png" alt="" fill className="object-contain" />
             </div>
           </div>
