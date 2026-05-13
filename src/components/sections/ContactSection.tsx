@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useContactForm } from "@/hooks/useContactForm";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
-import watercolorBg from "../../../public/images/watercolor-bg.webp";
+import watercolorBg from "../../../public/images/watercolor-bg.png";
 import checkIcon from "../../../public/images/check-icon.svg";
 import arrowLink from "../../../public/images/arrow-link.svg";
 
@@ -40,7 +40,7 @@ export default function ContactSection() {
       className="relative overflow-hidden px-[clamp(1.5rem,7.8vw,9.375rem)] py-[3rem] sm:py-[clamp(10rem,12.25vw,7.5rem)] short:py-[12vh] short:pt-[16vh]"
     >
       {/* Watercolor textured background — anchored left */}
-      <div className="absolute inset-0 opacity-70 sm:inset-y-0 sm:left-[-33rem] sm:w-[130%] short:left-[-20rem] short:w-[150%]">
+      <div className="absolute inset-0 opacity-70 sm:inset-y-0">
         <Image
           src={watercolorBg}
           alt=""
@@ -52,7 +52,7 @@ export default function ContactSection() {
       </div>
 
       {/* Content grid */}
-      <div className="relative z-10 grid items-start gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-1">
+      <div className="relative z-10 grid items-start gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-[clamp(2rem,3.33vw,4rem)]">
         {/* Left — heading + description */}
         <div
           className={cn(
@@ -96,7 +96,7 @@ export default function ContactSection() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-[clamp(1.5rem,2.3vw,2.375rem)] short:gap-[3vh] rounded border border-border bg-white p-[clamp(1.25rem,2.3vw,2.375rem)] short:p-[3vh]"
+              className="flex flex-col gap-[clamp(1.5rem,2.81vw,3.375rem)] short:gap-[3vh] rounded border border-border bg-white p-[clamp(1.5rem,2.81vw,3.375rem)] short:p-[3vh]"
             >
               {/* Row 1: Name + Email */}
               <div className="grid gap-[clamp(1.5rem,2.66vw,3.2rem)] short:gap-[3.5vh] sm:grid-cols-2">
@@ -168,7 +168,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="relative flex w-fit cursor-pointer items-center gap-5 rounded bg-light px-7 py-6 font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] text-[#252525] shadow-[0px_1px_0px_0px_#b9b6cd,inset_0px_1px_0px_0px_white] transition-colors hover:bg-light-gray disabled:opacity-60"
+                className="relative flex w-fit cursor-pointer items-center gap-6 rounded bg-light p-[clamp(1.25rem,1.46vw,1.75rem)] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] text-[#252525] shadow-[0px_1px_0px_0px_#b9b6cd,inset_0px_1px_0px_0px_white] transition-colors hover:bg-light-gray disabled:opacity-60"
               >
                 {isSubmitting ? "Sending..." : "Contact Us Now"}
                 {!isSubmitting && (
