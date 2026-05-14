@@ -35,7 +35,7 @@ export default function SDAProperties() {
           {/* Description */}
           <p
             className={cn(
-              "mt-6 text-base leading-relaxed text-[#5b5b5b]",
+              "mt-6 font-outfit text-base leading-relaxed text-[#5b5b5b]",
               "transition-all duration-[2000ms] delay-500 ease-out",
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
@@ -114,7 +114,7 @@ export default function SDAProperties() {
           {/* Right Column: Description */}
           <p
             className={cn(
-              "text-[clamp(16px,1.46vw,28px)] leading-[1.36em] text-[#5b5b5b] short:text-[2.6vh]",
+              "font-outfit text-[clamp(16px,1.46vw,28px)] leading-[1.36em] text-[#5b5b5b] short:text-[2.6vh]",
               "transition-all duration-[2000ms] delay-500 ease-out",
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-20"
             )}

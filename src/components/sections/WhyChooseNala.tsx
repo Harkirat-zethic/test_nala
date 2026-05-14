@@ -19,7 +19,7 @@ export default function WhyChooseNala() {
   return (
     <>
       {/* ===== Desktop: scroll-driven pinned layout ===== */}
-      <div ref={sectionRef} className="hidden md:block" style={{ height: "400vh" }}>
+      <div ref={sectionRef} className="hidden xl:block" style={{ height: "400vh" }}>
         <section
           ref={pinRef}
           className="h-screen w-full overflow-hidden relative bg-[#181a20]"
@@ -53,18 +53,18 @@ export default function WhyChooseNala() {
           {/* Content layer */}
           <div className="absolute inset-0 z-10 flex flex-col px-[7.81%]">
             {/* Header */}
-            <div className="text-center pt-[8.15vh]">
-              <h2 className="font-afacad text-[clamp(2.5rem,4.17vw,5rem)] short:text-[6vh] font-medium leading-[1.075] !text-white">
+            <div className="text-center pt-[8.15vh] short:pt-[4vh]">
+              <h2 className="font-afacad text-[clamp(2.5rem,4.17vw,5rem)] short:text-[5vh] font-medium leading-[1.075] !text-white">
                 Why choose a NALA property?
               </h2>
-              <p className="mx-auto mt-[2.22vh] max-w-[clamp(28rem,45.73vw,54.875rem)] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] font-normal leading-[1.36] text-white/[0.88]">
+              <p className="mx-auto mt-[2.22vh] short:mt-[1vh] max-w-[clamp(28rem,45.73vw,54.875rem)] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.2vh] font-normal leading-[1.36] text-white/[0.88]">
                 Discover what makes every NALA home a place where comfort,
                 accessibility, and lasting value come together.
               </p>
             </div>
 
             {/* Tab bar — overflow hidden container */}
-          <div className="mt-[10%] w-[calc(100%+7.81%)] -ml-[7.81%] overflow-hidden">
+          <div className="mt-[10%] short:mt-[3vh] w-[calc(100%+7.81%)] -ml-[7.81%] overflow-hidden">
               <div
                 ref={tabBarRef}
                 className="flex gap-[clamp(2rem,4.79vw,5.75rem)] whitespace-nowrap"
@@ -102,7 +102,7 @@ export default function WhyChooseNala() {
             </div>
 
             {/* Description panel — right-aligned below the line */}
-            <div className="self-end mt-[2.5vh] w-[clamp(16rem,23.02vw,27.625rem)] h-[15.56vh] overflow-hidden mb-8">
+            <div className="self-end mt-[2.5vh] short:mt-[1.5vh] w-[clamp(16rem,23.02vw,27.625rem)] h-[15.56vh] short:h-[13vh] overflow-hidden mb-8">
               <div ref={descRef} className="flex flex-col">
                 {WHY_CHOOSE_ITEMS.map((item) => (
                   <p
@@ -129,7 +129,7 @@ export default function WhyChooseNala() {
       </div>
 
       {/* ===== Mobile: stacked layout ===== */}
-      <section className="md:hidden relative overflow-hidden py-16 px-6">
+      <section className="xl:hidden relative overflow-hidden py-16 px-6">
         {/* Background */}
         <div className="absolute inset-0">
           <Image

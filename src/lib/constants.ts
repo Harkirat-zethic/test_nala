@@ -25,7 +25,7 @@ export const OFFER_ITEMS: OfferItem[] = [
   },
   {
     number: "03",
-    title: "Medium Term Accommodation provides flexible housing.",
+    title: "Medium Term Accommodation provides flexible housing",
     description:
       "NALA provides NDIS participants with the valuable option for MTA lasting up to 90 days, allowing them to carefully select their preferred SDA.",
     imageSrc: "/images/offer-03.webp",

@@ -54,7 +54,7 @@ export function useWhyChooseAnimation(): WhyChooseAnimationRefs {
     if (!section) return;
 
     ctxRef.current = gsap.context(() => {
-      const isMobile = window.innerWidth < 768;
+      const isMobile = window.innerWidth < 1280;
 
       if (isMobile) {
         gsap.set(bgImageRef.current, { y: 0 });
@@ -72,9 +72,16 @@ export function useWhyChooseAnimation(): WhyChooseAnimationRefs {
       const numSlot = numberRef.current?.querySelector("span")?.offsetHeight || vh * 0.05;
       const descSlot = descRef.current?.querySelector("p")?.offsetHeight || vh * 0.1556;
 
+      // Measure actual tab positions from the DOM — fully responsive
+      const tabEls = Array.from(tabBarRef.current!.children) as HTMLElement[];
+      const leftOffset = vw * 0.1190; // section left padding (11.88%)
+      const tabX1 = leftOffset;                              // State 1: tab 0 at left edge
+      const tabX2 = leftOffset - tabEls[1].offsetLeft;       // State 2: tab 1 at left edge
+      const tabX3 = leftOffset - tabEls[2].offsetLeft;       // State 3: tab 2 at left edge
+
       // Set initial states
       gsap.set(bgImageRef.current, { y: 0 });
-      gsap.set(tabBarRef.current, { x: (220 / 1920) * vw });
+      gsap.set(tabBarRef.current, { x: tabX1 });
       gsap.set(numberRef.current, { y: 0 });
       gsap.set(descRef.current, { y: 0 });
       gsap.set(progressRef.current, { scaleY: 0.33, transformOrigin: "top" });
@@ -89,7 +96,7 @@ export function useWhyChooseAnimation(): WhyChooseAnimationRefs {
       /* ===== Transition 1: State 1 → State 2 (t=0 → t=1) ===== */
 
       tl.to(bgImageRef.current, { y: -(230 / 1080) * vh, duration: 1, ease: "none" }, 0);
-      tl.to(tabBarRef.current, { x: -(507 / 1920) * vw, duration: 1, ease: "none" }, 0);
+      tl.to(tabBarRef.current, { x: tabX2, duration: 1, ease: "none" }, 0);
       tl.to(numberRef.current, { y: -numSlot, duration: 1, ease: "none" }, 0);
       tl.to(descRef.current, { y: -descSlot, duration: 1, ease: "none" }, 0);
       tl.to(progressRef.current, { scaleY: 0.67, duration: 1, ease: "none" }, 0);
@@ -99,7 +106,7 @@ export function useWhyChooseAnimation(): WhyChooseAnimationRefs {
       /* ===== Transition 2: State 2 → State 3 (t=1 → t=2) ===== */
 
       tl.to(bgImageRef.current, { y: -(570 / 1080) * vh, duration: 1, ease: "none" }, 1);
-      tl.to(tabBarRef.current, { x: -(987 / 1920) * vw, duration: 1, ease: "none" }, 1);
+      tl.to(tabBarRef.current, { x: tabX3, duration: 1, ease: "none" }, 1);
       tl.to(numberRef.current, { y: -numSlot * 2, duration: 1, ease: "none" }, 1);
       tl.to(descRef.current, { y: -descSlot * 2, duration: 1, ease: "none" }, 1);
       tl.to(progressRef.current, { scaleY: 1, duration: 1, ease: "none" }, 1);

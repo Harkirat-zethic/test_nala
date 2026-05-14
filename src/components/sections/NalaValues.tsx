@@ -102,10 +102,10 @@ export default function NalaValues() {
         <h2 className="font-afacad text-[clamp(1.75rem,3.5vw,4.25rem)] short:text-[7.5vh] font-medium text-[#252525]">
           NALA Values
         </h2>
-        <p className="mx-auto mt-4 font-outfit text-[clamp(0.875rem,1.25vw,1.5rem)] short:text-[2.6vh] leading-[1.36em] text-[#61656e] max-xl:max-w-[90%] max-xl:text-base xl:mt-[1.5rem] xl:w-[32.8vw]">
+        {/* <p className="mx-auto mt-4 font-outfit text-[clamp(0.875rem,1.25vw,1.5rem)] short:text-[2.6vh] leading-[1.36em] text-[#61656e] max-xl:max-w-[90%] max-xl:text-base xl:mt-[1.5rem] xl:w-[32.8vw]">
           Nala Properties showcases exceptional properties that align with our
           core values.
-        </p>
+        </p> */}
       </div>
 
       {/* Mobile layout — stacked cards */}

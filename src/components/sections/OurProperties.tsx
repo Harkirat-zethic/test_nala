@@ -30,10 +30,10 @@ export default function OurProperties() {
           <h2 className="font-afacad text-[clamp(1.5rem,3.8vw,5rem)] short:text-[6.5vh] font-medium text-[#252525]">
             Our Properties
           </h2>
-          <p className="mt-[1.5rem] max-w-[33.5rem] font-outfit text-[clamp(0.875rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.14em] text-[#61656e]">
+          {/* <p className="mt-[1.5rem] max-w-[33.5rem] font-outfit text-[clamp(0.875rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.14em] text-[#61656e]">
             Nala Properties showcases exceptional properties that align with our
             core values.
-          </p>
+          </p> */}
         </div>
         <Link
           href="/properties"
