@@ -37,7 +37,7 @@ export default function OurProperties() {
         </div>
         <Link
           href="/properties"
-          className="hidden items-center gap-[1.67rem] font-urbanist text-[clamp(1.2rem,1.6vw,2.09rem)] short:text-[2.9vh] font-semibold text-[#181a20] transition-colors hover:text-primary md:inline-flex"
+          className="hidden items-center gap-[1.67rem] font-outfit text-[clamp(1.2rem,1.6vw,2.09rem)] short:text-[2.9vh] font-semibold text-[#181a20] transition-colors hover:text-primary md:inline-flex"
         >
           See All Properties
           <ArrowIcon />
@@ -126,7 +126,7 @@ export default function OurProperties() {
       {/* Mobile link */}
       <Link
         href="/properties"
-        className="mt-6 flex items-center justify-center gap-2 font-urbanist text-lg font-semibold text-[#181a20] md:hidden"
+        className="mt-6 flex items-center justify-center gap-2 font-outfit text-lg font-semibold text-[#181a20] md:hidden"
       >
         See All Properties
         <ArrowIcon />

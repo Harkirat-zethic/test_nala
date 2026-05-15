@@ -9,7 +9,7 @@ export default function NotFound() {
       </h1>
 
       {/* Heading */}
-      <h2 className="mt-2 font-urbanist text-[clamp(1.25rem,3vw,2rem)] font-semibold !text-dark">
+      <h2 className="mt-2 font-outfit text-[clamp(1.25rem,3vw,2rem)] font-semibold !text-dark">
         Page Not Found
       </h2>
 

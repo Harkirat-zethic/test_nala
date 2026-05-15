@@ -15,6 +15,7 @@ interface WhyChooseAnimationRefs {
   bgImageRef: React.RefObject<HTMLDivElement | null>;
   tabBarRef: React.RefObject<HTMLDivElement | null>;
   numberRef: React.RefObject<HTMLDivElement | null>;
+  descWrapRef: React.RefObject<HTMLDivElement | null>;
   descRef: React.RefObject<HTMLDivElement | null>;
   progressRef: React.RefObject<HTMLDivElement | null>;
 }
@@ -36,6 +37,7 @@ export function useWhyChooseAnimation(): WhyChooseAnimationRefs {
   const bgImageRef = useRef<HTMLDivElement>(null);
   const tabBarRef = useRef<HTMLDivElement>(null);
   const numberRef = useRef<HTMLDivElement>(null);
+  const descWrapRef = useRef<HTMLDivElement>(null);
   const descRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const ctxRef = useRef<gsap.Context | null>(null);
@@ -71,6 +73,11 @@ export function useWhyChooseAnimation(): WhyChooseAnimationRefs {
       // Measure actual slot heights from the DOM
       const numSlot = numberRef.current?.querySelector("span")?.offsetHeight || vh * 0.05;
       const descSlot = descRef.current?.querySelector("p")?.offsetHeight || vh * 0.1556;
+
+      // Size the description container to exactly one paragraph's height
+      if (descWrapRef.current) {
+        descWrapRef.current.style.height = `${descSlot}px`;
+      }
 
       // Measure actual tab positions from the DOM — fully responsive
       const tabEls = Array.from(tabBarRef.current!.children) as HTMLElement[];
@@ -175,6 +182,9 @@ export function useWhyChooseAnimation(): WhyChooseAnimationRefs {
         },
       });
 
+      // Start disabled — only enable once pinned
+      obs.disable();
+
       // ---- ScrollTrigger: pinning + re-enable Observer on enter ----
       ScrollTrigger.create({
         trigger: section,
@@ -216,6 +226,7 @@ export function useWhyChooseAnimation(): WhyChooseAnimationRefs {
     bgImageRef,
     tabBarRef,
     numberRef,
+    descWrapRef,
     descRef,
     progressRef,
   };

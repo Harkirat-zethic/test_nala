@@ -12,6 +12,7 @@ export default function WhyChooseNala() {
     bgImageRef,
     tabBarRef,
     numberRef,
+    descWrapRef,
     descRef,
     progressRef,
   } = useWhyChooseAnimation();
@@ -54,7 +55,7 @@ export default function WhyChooseNala() {
           <div className="absolute inset-0 z-10 flex flex-col px-[7.81%]">
             {/* Header */}
             <div className="text-center pt-[8.15vh] short:pt-[4vh]">
-              <h2 className="font-afacad text-[clamp(2.5rem,4.17vw,5rem)] short:text-[5vh] font-medium leading-[1.075] !text-white">
+              <h2 className="font-outfit text-[clamp(2.5rem,4.17vw,5rem)] short:text-[5vh] font-medium leading-[1.075] !text-white">
                 Why choose a NALA property?
               </h2>
               <p className="mx-auto mt-[2.22vh] short:mt-[1vh] max-w-[clamp(28rem,45.73vw,54.875rem)] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.2vh] font-normal leading-[1.36] text-white/[0.88]">
@@ -73,7 +74,7 @@ export default function WhyChooseNala() {
                   <span
                     key={item.title}
                     data-tab={index}
-                    className="font-afacad text-[clamp(1.5rem,2.5vw,3rem)] short:text-[4vh] font-normal"
+                    className="font-outfit text-[clamp(1.5rem,2.5vw,3rem)] short:text-[4vh] font-normal"
                   >
                     {item.title}
                   </span>
@@ -102,12 +103,12 @@ export default function WhyChooseNala() {
             </div>
 
             {/* Description panel — right-aligned below the line */}
-            <div className="self-end mt-[2.5vh] short:mt-[1.5vh] w-[clamp(16rem,23.02vw,27.625rem)] h-[15.56vh] short:h-[13vh] overflow-hidden mb-8">
+            <div ref={descWrapRef} className="self-end mt-[2.5vh] short:mt-[1.5vh] w-[clamp(16rem,23.02vw,27.625rem)] overflow-hidden mb-8">
               <div ref={descRef} className="flex flex-col">
                 {WHY_CHOOSE_ITEMS.map((item) => (
                   <p
                     key={`desc-${item.title}`}
-                    className="font-outfit text-[clamp(0.875rem,1.46vw,1.75rem)] short:text-[2.5vh] font-normal leading-[1.5] text-white h-[15.56vh] shrink-0"
+                    className="font-outfit text-[clamp(0.875rem,1.46vw,1.75rem)] font-normal leading-[1.5] text-white shrink-0"
                   >
                     {item.description}
                   </p>

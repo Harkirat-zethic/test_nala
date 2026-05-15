@@ -13,7 +13,7 @@ export const OFFER_ITEMS: OfferItem[] = [
     number: "01",
     title: "Purpose Built Specialist Disability Accommodation",
     description:
-      "NALA specializes in properties that meet individual needs. NALA villas can be customized during construction to fit specific requirements.",
+      "NALA homes offer newly built state-of-the-art features, specifically built to support individuals with complex physical and behavioral needs.",
     imageSrc: "/images/offer-01.webp",
   },
   {
@@ -25,16 +25,16 @@ export const OFFER_ITEMS: OfferItem[] = [
   },
   {
     number: "03",
-    title: "Medium Term Accommodation provides flexible housing",
+    title: "Medium Term Accommodation (MTA)",
     description:
-      "NALA provides NDIS participants with the valuable option for MTA lasting up to 90 days, allowing them to carefully select their preferred SDA.",
+      "NALA offers NDIS participants with the option for MTA up to 90 days, while they select their SDA.",
     imageSrc: "/images/offer-03.webp",
   },
   {
     number: "04",
-    title: "Individually Tailored Luxury Villas for You",
+    title: "Individually Tailored Villas",
     description:
-      "NALA specializes in properties that meet individual needs. NALA villas can be customized during construction to fit specific requirements.",
+      "NALA focuses on properties suitable to the needs of each individual. As such, NALA villas can be tailored during the construction process to suit individual requirements.",
     imageSrc: "/images/offer-04.webp",
   },
 ];

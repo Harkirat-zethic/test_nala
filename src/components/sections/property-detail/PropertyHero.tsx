@@ -19,7 +19,7 @@ export default function PropertyHero({ property }: { property: Property }) {
           </h1>
           <span className="inline-flex items-center gap-[6px] rounded-full border border-[#c0c0c0] px-2 py-1.5 sm:p-[10px]">
             <Image src="/images/location-icon.svg" alt="" width={24} height={24} className="h-[clamp(18px,1.56vw,24px)] w-[clamp(18px,1.56vw,24px)]" />
-            <span className="font-urbanist text-[clamp(0.813rem,1.04vw,1rem)] font-medium text-[#252525]">
+            <span className="font-outfit text-[clamp(0.813rem,1.04vw,1rem)] font-medium text-[#252525]">
               {property.location}
             </span>
           </span>
@@ -95,7 +95,7 @@ export default function PropertyHero({ property }: { property: Property }) {
                 />
                 {isLast && (
                   <div className="absolute inset-0 flex items-center justify-center rounded-[inherit] bg-[rgba(37,37,37,0.8)]">
-                    <span className="font-urbanist text-base font-medium text-white sm:text-xl lg:text-[clamp(1.25rem,1.875vw,2.25rem)]">
+                    <span className="font-outfit text-base font-medium text-white sm:text-xl lg:text-[clamp(1.25rem,1.875vw,2.25rem)]">
                       +{remainingCount}
                     </span>
                   </div>

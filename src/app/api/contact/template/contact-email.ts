@@ -27,7 +27,7 @@ export function buildHtml({ name, email, phone, subject, message }: ContactFormD
   return `
       <div style="font-family: 'Outfit', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #ffffff;">
         <div style="border-bottom: 3px solid #1867a5; padding-bottom: 16px; margin-bottom: 24px;">
-          <h1 style="font-family: 'Urbanist', Arial, sans-serif; color: #181a20; font-size: 24px; margin: 0;">
+          <h1 style="font-family: 'Outfit', Arial, sans-serif; color: #181a20; font-size: 24px; margin: 0;">
             New Contact Form Submission
           </h1>
         </div>
