@@ -27,10 +27,10 @@ export default function PropertiesListing() {
         <h1 className="font-afacad text-[clamp(2.5rem,4.17vw,5rem)] short:text-[7.5vh] font-medium leading-[1.075] text-[#252525]">
           Our Properties
         </h1>
-        <p className="mt-6 max-w-[33.5rem] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.14] text-body">
+        {/* <p className="mt-6 max-w-[33.5rem] font-outfit text-[clamp(1rem,1.46vw,1.75rem)] short:text-[2.6vh] leading-[1.14] text-body">
           Nala Properties showcases exceptional properties that align with
           our core values.
-        </p>
+        </p> */}
       </div>
 
       {/* Property grid */}
