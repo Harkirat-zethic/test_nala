@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/cn";
-import sdaHouseBg from "../../../public/images/sda-house-bg.png";
+import { SECTION_IMAGES } from "@/lib/constants";
 
 export default function SDAProperties() {
   const { ref, isVisible } = useIntersectionObserver({ triggerOnce: true, threshold: 0.2 });
@@ -56,9 +56,8 @@ export default function SDAProperties() {
         >
           <div className="col-start-1 row-start-1 self-end scale-[1.5]">
             <Image
-              src={sdaHouseBg}
+              {...SECTION_IMAGES.sdaHouseBg}
               alt=""
-              placeholder="blur"
               className="w-full object-contain object-bottom"
               sizes="100vw"
               aria-hidden
@@ -79,9 +78,8 @@ export default function SDAProperties() {
             )}
           >
             <Image
-              src={sdaHouseBg}
+              {...SECTION_IMAGES.sdaHouseBg}
               alt=""
-              placeholder="blur"
               className="w-full object-contain object-bottom"
               sizes="100vw"
               aria-hidden

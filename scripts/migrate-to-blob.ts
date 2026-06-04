@@ -41,6 +41,15 @@ const DECORATIVE_TARGETS = [
   "/images/value-2.webp",
   "/images/value-3.webp",
   "/images/why-choose-1.webp",
+  // Static-imported section backgrounds (large): uploaded for use as remote
+  // URLs. Component edits to drop the static imports are done by hand — the
+  // script's string-replace step does not match `import ... from ...` syntax.
+  "/images/hero-section-bg.webp",
+  "/images/homepage-banner.webp",
+  "/images/sda-house-bg.png",
+  "/images/values-bg-house.webp",
+  "/images/values-house.webp",
+  "/images/why-choose-bg.webp",
 ];
 
 const IGNORE_FILES = new Set([".DS_Store", "Thumbs.db"]);
@@ -155,6 +164,10 @@ async function main() {
   console.log(`\nUploaded: ${uploaded}   Skipped (already in manifest): ${skipped}`);
 
   // Rewrite step — single pass across src/**/*.{ts,tsx}.
+  // IMPORTANT: match quote-bounded literals only. Otherwise a key like
+  // /images/foo.webp also matches the tail of "../../../public/images/foo.webp"
+  // inside a static-import path and corrupts the import. Wrapping the key in
+  // quotes restricts replacement to whole-string literals like "/images/foo.webp".
   console.log(`\nRewriting src/**/*.{ts,tsx} …`);
   const srcFiles = await walkDir(SRC_DIR, (name) => /\.(ts|tsx)$/.test(name));
   const keys = Object.keys(manifest).sort((a, b) => b.length - a.length);
@@ -165,9 +178,11 @@ async function main() {
     const before = await readFile(file, "utf8");
     let source = before;
     for (const key of keys) {
-      const occurrences = source.split(key).length - 1;
+      const needle = `"${key}"`;
+      const replacement = `"${manifest[key]}"`;
+      const occurrences = source.split(needle).length - 1;
       if (occurrences === 0) continue;
-      source = source.split(key).join(manifest[key]);
+      source = source.split(needle).join(replacement);
       totalReplacements += occurrences;
     }
     if (source !== before) {
@@ -183,7 +198,7 @@ async function main() {
   for (const file of srcFiles) {
     const source = await readFile(file, "utf8");
     for (const key of keys) {
-      if (source.includes(key)) leftovers.push(`  ${key}  in  ${relative(PROJECT_ROOT, file)}`);
+      if (source.includes(`"${key}"`)) leftovers.push(`  ${key}  in  ${relative(PROJECT_ROOT, file)}`);
     }
   }
   if (leftovers.length > 0) {

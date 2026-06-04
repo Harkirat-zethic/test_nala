@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { WHY_CHOOSE_ITEMS } from "@/lib/constants";
+import { SECTION_IMAGES, WHY_CHOOSE_ITEMS } from "@/lib/constants";
 import { useWhyChooseAnimation } from "@/hooks/useWhyChooseAnimation";
-import whyChooseBg from "../../../public/images/why-choose-bg.webp";
 
 export default function WhyChooseNala() {
   const {
@@ -31,10 +30,9 @@ export default function WhyChooseNala() {
             className="absolute w-[154vw] h-[154vh]"
           >
             <Image
-              src={whyChooseBg}
+              src={SECTION_IMAGES.whyChooseBg.src}
               alt=""
               fill
-              placeholder="blur"
               className="object-cover"
               sizes="154vw"
               priority
@@ -134,10 +132,9 @@ export default function WhyChooseNala() {
         {/* Background */}
         <div className="absolute inset-0">
           <Image
-            src={whyChooseBg}
+            src={SECTION_IMAGES.whyChooseBg.src}
             alt=""
             fill
-            placeholder="blur"
             className="object-cover"
             sizes="100vw"
           />

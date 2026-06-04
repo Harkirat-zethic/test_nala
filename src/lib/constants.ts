@@ -1,6 +1,15 @@
 import type { NavLink, OfferItem, ValueItem, TimelineItem, WhyChooseItem } from "@/types";
 import { ShieldCheck, HeartHandshake, Award } from "lucide-react";
 
+export const SECTION_IMAGES = {
+  heroSectionBg: { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/hero-section-bg.webp", width: 8192, height: 3908 },
+  homepageBanner: { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/homepage-banner.webp", width: 8192, height: 3640 },
+  sdaHouseBg:    { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/sda-house-bg.png",    width: 3842, height: 2162 },
+  valuesBgHouse: { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/values-bg-house.webp", width: 4096, height: 1655 },
+  valuesHouse:   { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/values-house.webp",    width: 4096, height: 4060 },
+  whyChooseBg:   { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/why-choose-bg.webp",   width: 6000, height: 3375 },
+} as const;
+
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
-import heroSectionBg from "../../../public/images/hero-section-bg.webp";
+import { SECTION_IMAGES } from "@/lib/constants";
 import heroHouse from "../../../public/images/hero-house.webp";
 
 export default function AboutHero() {
@@ -24,7 +24,7 @@ export default function AboutHero() {
         )}
       >
         <Image
-          src={heroSectionBg}
+          src={SECTION_IMAGES.heroSectionBg.src}
           alt=""
           fill
           className="object-cover opacity-100"
