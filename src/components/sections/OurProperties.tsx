@@ -152,7 +152,7 @@ function PropertyCard({ card, isCenter }: { card: Property; isCenter: boolean })
         alt={card.title}
         fill
         className="rounded-[0.25rem] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.2]"
-        sizes="(max-width: 1023px) 85vw, 35vw"
+        sizes="(max-width: 640px) 90vw, (max-width: 1023px) 45vw, 15vw"
       />
 
       {/* Dark gradient at TOP — appears on hover */}
