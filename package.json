@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "migrate:blob": "tsx --env-file=.env.local scripts/migrate-to-blob.ts"
   },
   "dependencies": {
+    "@vercel/blob": "^2.3.3",
     "gsap": "^3.14.2",
     "lucide-react": "^1.14.0",
     "next": "^16.2.6",
@@ -27,6 +29,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsx": "^4.22.0",
     "typescript": "^5"
   },
   "overrides": {
