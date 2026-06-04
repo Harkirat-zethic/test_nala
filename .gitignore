@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local-only archives (e.g. originals of images migrated to Vercel Blob)
+/_archive/
+/public/images/properties/

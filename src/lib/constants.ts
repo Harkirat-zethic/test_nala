@@ -2,12 +2,12 @@ import type { NavLink, OfferItem, ValueItem, TimelineItem, WhyChooseItem } from 
 import { ShieldCheck, HeartHandshake, Award } from "lucide-react";
 
 export const SECTION_IMAGES = {
-  heroSectionBg: { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/hero-section-bg.webp", width: 8192, height: 3908 },
-  homepageBanner: { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/homepage-banner.webp", width: 8192, height: 3640 },
-  sdaHouseBg:    { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/sda-house-bg.png",    width: 3842, height: 2162 },
-  valuesBgHouse: { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/values-bg-house.webp", width: 4096, height: 1655 },
-  valuesHouse:   { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/values-house.webp",    width: 4096, height: 4060 },
-  whyChooseBg:   { src: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/why-choose-bg.webp",   width: 6000, height: 3375 },
+  heroSectionBg: { src: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/hero-section-bg.webp", width: 8192, height: 3908 },
+  homepageBanner: { src: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/homepage-banner.webp", width: 8192, height: 3640 },
+  sdaHouseBg:    { src: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/sda-house-bg.png",    width: 3842, height: 2162 },
+  valuesBgHouse: { src: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/values-bg-house.webp", width: 4096, height: 1655 },
+  valuesHouse:   { src: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/values-house.webp",    width: 4096, height: 4060 },
+  whyChooseBg:   { src: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/why-choose-bg.webp",   width: 6000, height: 3375 },
 } as const;
 
 export const NAV_LINKS: NavLink[] = [
@@ -23,28 +23,28 @@ export const OFFER_ITEMS: OfferItem[] = [
     title: "Purpose Built Specialist Disability Accommodation",
     description:
       "NALA homes offer newly built state-of-the-art features, specifically built to support individuals with complex physical and behavioral needs.",
-    imageSrc: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/offer-01.webp",
+    imageSrc: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/offer-01.webp",
   },
   {
     number: "02",
     title: "Reliability and Care through our SIL Partners",
     description:
       "By partnering with industry leading and experienced SIL providers, NALA ensures its residents consistently receive the best possible care.",
-    imageSrc: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/offer-02.webp",
+    imageSrc: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/offer-02.webp",
   },
   {
     number: "03",
     title: "Medium Term Accommodation (MTA)",
     description:
       "NALA offers NDIS participants with the option for MTA up to 90 days, while they select their SDA.",
-    imageSrc: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/offer-03.webp",
+    imageSrc: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/offer-03.webp",
   },
   {
     number: "04",
     title: "Individually Tailored Villas",
     description:
       "NALA focuses on properties suitable to the needs of each individual. As such, NALA villas can be tailored during the construction process to suit individual requirements.",
-    imageSrc: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/offer-04.webp",
+    imageSrc: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/offer-04.webp",
   },
 ];
 
@@ -54,21 +54,21 @@ export const VALUE_ITEMS: ValueItem[] = [
     title: "Act with Integrity",
     description:
       "We always do what is right, even when it is not the easiest option. Our decisions are guided by honesty, fairness, and strong ethical standards.",
-    imageSrc: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/value-1.webp",
+    imageSrc: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/value-1.webp",
   },
   {
     icon: HeartHandshake,
     title: "Residents Needs Come First",
     description:
       "The wellbeing, safety, and dignity of our residents are at the centre of everything we do. We listen, respond, and design our homes to support each person's individual needs.",
-    imageSrc: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/value-2.webp",
+    imageSrc: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/value-2.webp",
   },
   {
     icon: Award,
     title: "Take Pride in Our Work",
     description:
       "We care deeply about the quality of every home we create and manage. We aim for excellence, pay attention to detail, and stand behind everything we deliver.",
-    imageSrc: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/value-3.webp",
+    imageSrc: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/value-3.webp",
   },
 ];
 
@@ -77,7 +77,7 @@ export const WHY_CHOOSE_ITEMS: WhyChooseItem[] = [
     title: "Focus on Dignity & Independence",
     description:
       "Our homes are designed to support confident, independent living, with a strong focus on privacy, comfort, and ease of movement.",
-    imageSrc: "https://tuyaogwcltqm1dzs.public.blob.vercel-storage.com/why-choose-1.webp",
+    imageSrc: "https://23bv6tj8cwugzz8l.public.blob.vercel-storage.com/why-choose-1.webp",
   },
   {
     title: "Designed with Purpose",
